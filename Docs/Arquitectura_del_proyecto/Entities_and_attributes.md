@@ -16,5 +16,9 @@ A continuación se muestra una lista de las entidades que formarán el modelo de
 
 * **MEDICAL_FILES:** Id, Title, Description, Date, File.
 
+* **ROLE:** Id, Name, Description.
+
+* **STATE:** Id, Name.
+
 
 
