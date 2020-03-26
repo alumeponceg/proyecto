@@ -2,7 +2,7 @@
 
 A continuación se muestra una lista de las entidades que formarán el modelo de datos, así como de los atributos de las mismas.
 
-* **USER:** Id, Name, Surname, Email, DateOfBirth, DischargeDate, State, Role.
+* **USER:** Id, Name, Surname, Email, DateOfBirth, DischargeDate, State, Role, Password.
 
 * **DISEASE:** Id, Name, Description, Causes, Symptom, Image.
 
