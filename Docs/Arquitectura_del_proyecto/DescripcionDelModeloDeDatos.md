@@ -1,0 +1,19 @@
+
+# Descripción del modelo de datos.
+
+El modelo de base de datos que se emplea en nuestro aplicativo se basa en el usuario como eje central del modelo. De un **usuario** se pretende conocer su *nombre* y *apellidos*, su *fecha de nacimiento*, su *email*, su *contraseña*, el *rol* que desempeña (Paciente, Cuidador o Administrador), su *estado* (Activo, Inactivo) y su identificador.
+
+Un usuario paciente puede tener 0 o 1 usuario cuidador, mientras que los usuarios cuidadores pueden tener 1 o más usuarios pacientes a su cargo, por tanto en los usuarios con rol paciente debemos guardar en caso de que lo tenga el *identificador de su usuario cuidador*.
+
+Un usuario paciente puede tener 1 o muchas **enfermedades** del mismo modo que una enfermedad puede pertenecer a 0 o más usuarios pacientes. de las enfermedades debemos conocer su *identificador*, su *nombre*, sus *causas*, su *descripción*, sus ^*síntomas* y una *imagen* representativa de la enfermedad. 
+
+Un usuario debe registrar un **tratamiento** para una enfermedad concreta por tanto un usuario registra 1 o mas tratamientos, mientras que un tratamiento pertenece unicamente a un usuario, un tratamiento está asociado a una única enfermedad mientras que las enfermedades pueden tener 0 o más tratamientos asociados, esto mismo ocurre con las rutinas. De un tratamiento se pretende conocer su *identificador*, su *nombre*, la *posología* del mismo en horas, es decir cada cuanto tiempo tiene el paciente que ingerir el medicamento, la *duración* en semanas dicho atributo representa durante cuanto tiempo debe tomar el paciente el medicamento este campo puede ser nulo en cuyo caso se entenderá que el paciente debe tomar el medicamento de manera indefinida, también deberemos conocer la *fecha en la que se activó* el medicamento, y su *estado* (activo o inactivo), en base a las relaciones se debe reflejar en el tratamiento el *identificador del usuario al que pertenece* y el *identificador de la enfermedad a la que está asociado*.
+
+Como ya hemos indicado anteriormente un usuario puede tener la obligación de realizar una rutina que beneficie su enfermedad, de este modo las rutinas se comportan en relación al usuario y las enfermedades del mismo modo que los tratamientos, sin embargo además las rutinas pueden conllevar 0 o muchas mediciones mientras que una medición corresponde a una única rutina. de las **rutinas** debemos conocer su *identificador*, su *nombre*, la *duración* en semanas de la misma, la *fecha de activación*, el *estado* en el que se encuentra (activa o inactiva) y la *posología* o los intervalos en horas con los que se debe realizar la rutina. por otro lado de las **mediciones** debemos conocer su *identifcador*, su *valor*, la *unidad de medida*, la *fecha en la que se realizó*, y el *identificador de la rutina de la que deriva*.
+
+Un usuario puede registrar 0 o muchas **citas médicas** en el sistema, estas están ligadas a un único usuario y son independientes de la enfermedad, ya que simplemente tiene el objetivo de recordar al usuario la fecha de la misma y la especialidad, de una cita médica debemos conocer su *identificador*, su *título*, su *especialidad*, podemos tener unas *anotaciones* o no, y la *fecha y hora* de la misma, además obviamente del *identificador del usuario que registra la cita*.
+
+Un usuario puede subir 0 o muchos **archivos médicos**, al igual que las citas médicas estos archivos están ligados a un único usuario y son independientes de la enfermedad de ellos debemos recoger, el *identificador*, el *titulo*, la *descripción*, la *fecha de subida* del archivo y el *archivo* en sí.
+
+con esto, una tablas auxiliar que emplearemos para manejar el **estado** de tratamientos, rutinas y usuarios compuesta por un *identificador* y un *nombre* y una tabla auxiliar que emplearemos para **rol** de los usuarios compuesta por un *identificador*, un *nombre* y una *descripción* queda completo nuestro modelo de datos.
+
