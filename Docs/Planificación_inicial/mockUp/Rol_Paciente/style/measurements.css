@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'neuropol';
+    src: url("neuropol\ x\ rg.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'arvo';
+    src: url("Arvo-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+
+.container-fluid {
+    padding: 0% !important;
+    overflow-x: hidden;
+}
+
+.navbar-brand {
+    font-family: 'neuropol';
+}
+
+.navbar-brand h1 {
+    font-size: 24px;
+    color: rgb(203, 0, 112);
+    font-weight: bold;
+}
+
+.navbar-brand h1:hover {
+    text-shadow: 2px 2px 4px #8DBFD9;
+}
+
+.nav-link {
+    color: #8DBFD9;
+    font-weight: bold;
+    font-family: 'arvo';
+}
+
+.nav-link:hover {
+    color: rgb(203, 0, 112);
+
+}
+
+
+.logout {
+
+    border: 1.5px outset rgb(203, 0, 112);
+    border-radius: 10px;
+    background-color: rgba(203, 0, 112, 0.503);
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+
+.logout:hover{
+    background-color: rgb(203, 0, 112);
+    border: 1.5px outset rgb(203, 0, 112);
+    font-weight: bold;
+    box-shadow: 2px 2px 6px #8DBFD9;
+    color: #8DBFD9;
+}
+
+
+
+.measurements {
+    background-color: rgb(255, 240, 242); 
+}
+
+/*Breadcrumb*/
+
+.breadcrumb {
+    background-color: rgba(141, 190, 217, 0.646);
+    border-radius: 0px;
+}
+
+.active {
+    
+    color: rgb(203, 0, 112) !important;
+    font-family: 'arvo';
+    letter-spacing: 1.5px;
+    font-weight: bold;
+
+}
+
+.breadcrumb-item a{
+    color: white !important;
+    
+    font-family: 'arvo';
+    letter-spacing: 1.5px;
+
+
+}
+
+.breadcrumb-item a:hover{
+    color: rgb(152, 5, 86)!important;
+    text-decoration: none;
+    font-weight: bold;
+
+
+
+}
+
+
+/*FIN BREADCRUMB*/
+
+.routineName {
+    font-family: 'neuropol';
+    color: rgb(203, 0, 112);
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: #8DBFD9;
+}
+
+table {
+    
+    background-color: rgb(210, 237, 248) !important;
+    box-shadow: 5px 3px 6px 0px rgba(4, 62, 113, 0.75);
+    
+}
+
+table thead {
+    background: linear-gradient(-45deg, rgba(4, 62, 113, 0.823), rgb(23, 111, 174), #23A6D5, rgb(35, 195, 213));
+}
+
+
+table th {
+    font-family: 'neuropol';
+    color: white;
+    border-bottom: 3px ridge rgba(203, 0, 112, 0.626) !important;
+    
+}
+
+table td {
+    font-family: 'arvo';
+    font-size: 14px;
+}
+
+table tbody tr:hover {
+    background-color: rgba(203, 0, 112, 0.367);
+}
+
+.add {
+    border: 1.5px outset #8DBFD9;
+    background-color: rgba(141, 190, 217, 0.571);
+    font-weight: bold;
+}
+
+.add:hover {
+    border: 1.5px outset #8DBFD9;
+    background-color: rgba(141, 190, 217);
+}
+
+
+
+#myChart {
+    background-color: white;
+    border:1.5px outset rgb(203, 0, 112);
+    box-shadow: 5px 3px 6px 0px rgba(96, 8, 56, 0.551);
+}

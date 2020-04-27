@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/files.css">
+    <title>ArchivosMedicos-T&T</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm justify-content-between">
+            <!-- Brand/logo -->
+            <a class="navbar-brand d-flex align-items-center" href="home.html">
+                <img src="./assets/logo.png" title="Logotipo del aplicativo" alt="logo" style="width:80px;">
+                <h1 class="pt-3">Treatment Tracer</h1>
+            </a>
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="treatments.html">Tratamientos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="routines.html">Rutinas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="appointments.html">Citas médicas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="files.html">Archivos médicos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-info logout" href="index.html">Cerrar sesión</a>
+                </li>
+            </ul>
+        </nav>
+       <div class="files">
+        <div aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="home.html">Inicio</a></li>
+                <li class="breadcrumb-item active" title="Usted está aquí" aria-current="page">Archivos médicos</li>
+            </ol>
+        </div>
+       
+        <div class="row order d-flex align-items-center">
+            <div class="col-6 offset-1">
+                <h1>Archivos médicos</h1>
+            </div>
+            <div class="col-4 offset-1">
+                <form action="">
+                    <label for="order">Ordenar por:
+                        <select name="order" id="order">
+                            <option value="0">Alfabeticamente (A-Z)</option>
+                            <option value="1">Alfabeticamente (Z-A)</option>
+                            <option value="2">Fecha ascendente</option>
+                            <option value="3">Fecha descendente</option>
+                        </select>
+                    </label>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="row pb-3">
+            <div class="col-10 offset-1 upload">
+                <p class="h3">¿Quieres subir un nuevo archivo a tu almacen de estudios médicos ? <button
+                        class="btn uploadbutton btn-sm ml-4" data-toggle="modal" data-target="#exampleModal">Subir
+                        archivo</button> </p>
+            </div>
+        </div>
+        <div class="row pb-5">
+            <div class="col-10 offset-1 d-flex justify-content-between">
+                <div class="card">
+                    <h5 class="card-title text-center">Nombre del archivo</h5>
+                    <div class=" px-3 text-center">
+                        <img class="card-img-top mx-auto" src="./assets/document.png" style="width: 128px"
+                        alt="nombre del archivo medico">
+                    <div class="card-body">
+                        <a href="#" class="btn download ">Descargar</a>
+                        <a href="#" class="btn delete">Borrar</a>
+                    </div>
+                    </div>
+                   
+                </div>
+                <div class="card">
+                    <h5 class="card-title text-center">Nombre del archivo</h5>
+                    <div class=" px-3 text-center">
+                        <img class="card-img-top mx-auto" src="./assets/document.png" style="width: 128px"
+                        alt="nombre del archivo medico">
+                    <div class="card-body">
+                        <a href="#" class="btn download ">Descargar</a>
+                        <a href="#" class="btn delete">Borrar</a>
+                    </div>
+                    </div>
+                   
+                </div>
+                <div class="card">
+                    <h5 class="card-title text-center">Nombre del archivo</h5>
+                    <div class=" px-3 text-center">
+                        <img class="card-img-top mx-auto" src="./assets/document.png" style="width: 128px"
+                        alt="nombre del archivo medico">
+                    <div class="card-body">
+                        <a href="#" class="btn download ">Descargar</a>
+                        <a href="#" class="btn delete">Borrar</a>
+                    </div>
+                    </div>
+                   
+                </div>
+                <div class="card">
+                    <h5 class="card-title text-center">Nombre del archivo</h5>
+                    <div class=" px-3 text-center">
+                        <img class="card-img-top mx-auto" src="./assets/document.png" style="width: 128px"
+                        alt="nombre del archivo medico">
+                    <div class="card-body">
+                        <a href="#" class="btn download ">Descargar</a>
+                        <a href="#" class="btn delete">Borrar</a>
+                    </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="row pb-5">
+            <div class="col-10 offset-1 d-flex justify-content-between">
+                <div class="card">
+                    <h5 class="card-title text-center">Nombre del archivo</h5>
+                    <div class=" px-3 text-center">
+                        <img class="card-img-top mx-auto" src="./assets/document.png" style="width: 128px"
+                        alt="nombre del archivo medico">
+                    <div class="card-body">
+                        <a href="#" class="btn download ">Descargar</a>
+                        <a href="#" class="btn delete">Borrar</a>
+                    </div>
+                    </div>
+                   
+                </div>
+                <div class="card">
+                    <h5 class="card-title text-center">Nombre del archivo</h5>
+                    <div class=" px-3 text-center">
+                        <img class="card-img-top mx-auto" src="./assets/document.png" style="width: 128px"
+                        alt="nombre del archivo medico">
+                    <div class="card-body">
+                        <a href="#" class="btn download ">Descargar</a>
+                        <a href="#" class="btn delete">Borrar</a>
+                    </div>
+                    </div>
+                   
+                </div>
+                <div class="card">
+                    <h5 class="card-title text-center">Nombre del archivo</h5>
+                    <div class=" px-3 text-center">
+                        <img class="card-img-top mx-auto" src="./assets/document.png" style="width: 128px"
+                        alt="nombre del archivo medico">
+                    <div class="card-body">
+                        <a href="#" class="btn download ">Descargar</a>
+                        <a href="#" class="btn delete">Borrar</a>
+                    </div>
+                    </div>
+                   
+                </div>
+                <div class="card">
+                    <h5 class="card-title text-center">Nombre del archivo</h5>
+                    <div class=" px-3 text-center">
+                        <img class="card-img-top mx-auto" src="./assets/document.png" style="width: 128px"
+                        alt="nombre del archivo medico">
+                    <div class="card-body">
+                        <a href="#" class="btn download ">Descargar</a>
+                        <a href="#" class="btn delete">Borrar</a>
+                    </div>
+                    </div>
+                   
+                </div>
+                
+                
+            </div>
+
+        </div>
+        <div class="row scrollupload mt-3 pb-3">
+            <div class="col-10 offset-1 upload">
+                <p class="h3">¿Quieres subir un nuevo archivo a tu almacen de estudios médicos ? <button
+                        class="btn uploadbutton btn-sm ml-4" data-toggle="modal" data-target="#exampleModal">Subir
+                        archivo</button> </p>
+            </div>
+        </div>
+
+   
+    </div>
+
+</div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Subir archivo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" class="text-center">
+                        <label for="nameFile" title="nombre del archivo"><strong>Nombre del archivo:</strong> <br>
+                            <input type="text" name="nameFile" id="nameFile" title="nombre del archivo"></label><br>
+                        <label for="desFile" title="Descripción del archivo"><strong>Descripción del archivo:</strong> <br>
+                            <input type="text" name="desFile" id="desFile" title="Descripción del archivo"></label><br>
+                        <label for="file" title="archivo"><strong>Archivo:</strong> 
+                            <input type="file" name="file" id="file" title="archivo"></label><br>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn formbutton" data-dismiss="modal">Cerrar</button> -->
+                    <button type="button" class="btn formbutton">Subir archivo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type='text/javascript' src="./jquery/jquery-3.4.1.min.js"></script>
+    <script src="./jquery/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>
