@@ -19,7 +19,7 @@ T&T pretende disminuir la carga de trabajo mental que supone la laboriosa tarea 
 
 ## Enlaces de interés
 -  [Requerimientos que ha de cumplir la aplicación (alcance y necesidades).
-](https://github.com/alumeponceg/proyecto/blob/master/README.md)
+](https://github.com/alumeponceg/proyecto/blob/master/Docs/alcance.md)
 -  [Mapa de la Aplicación.](https://github.com/alumeponceg/proyecto/blob/master/Docs/WebsiteMap.pdf)
 -  [Diseño de la Base de Datos](https://github.com/alumeponceg/proyecto/tree/master/Docs/Arquitectura_del_proyecto)
 -  [Planificación inicial.](https://github.com/alumeponceg/proyecto/tree/master/Docs/Planificaci%C3%B3n_inicial)
