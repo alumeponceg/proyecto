@@ -1,6 +1,5 @@
 package org.iesalixar.eponceg.model;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 
@@ -17,6 +16,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -44,9 +47,13 @@ public class User {
 	private State state;
 	
 	@Column (nullable=false)
-	private Calendar dateOfBirth;
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern ="dd/MM/yyyy")
+	private Date dateOfBirth;
 	
 	@Column (columnDefinition = "datetime default now()")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date dischargeDate= new Date();
 	
 	@OneToMany(mappedBy="user_id",fetch=FetchType.EAGER, targetEntity = MedicalAppointment.class)  
@@ -76,7 +83,7 @@ public class User {
 		super();
 	}
 	
-	public User(String name, String surname, String email, String password, Calendar dateOfBirth, Date dischargeDate) {
+	public User(String name, String surname, String email, String password, Date dateOfBirth, Date dischargeDate) {
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -86,7 +93,7 @@ public class User {
 		this.dischargeDate = dischargeDate;
 	}
 	
-	public User(String name, String surname, String email, String password, Calendar dateOfBirth) {
+	public User(String name, String surname, String email, String password, Date dateOfBirth) {
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -150,11 +157,11 @@ public class User {
 
 	
 
-	public Calendar getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Calendar dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

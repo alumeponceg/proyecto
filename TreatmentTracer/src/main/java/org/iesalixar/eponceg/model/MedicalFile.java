@@ -9,8 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class MedicalFile {
@@ -26,6 +29,8 @@ public class MedicalFile {
 	private String description;
 	
 	@Column (nullable=false, columnDefinition = "datetime default now()")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date uploadDate;
 	
 	@Column(nullable=false, length = 100000)
@@ -33,8 +38,8 @@ public class MedicalFile {
 	
 
 	@ManyToOne
-	@JoinColumn(name="user_id", nullable=false)
-	private User user_id;
+	@JoinColumn(name="userId", nullable=false)
+	private User userId;
 	
 	
 	
@@ -124,14 +129,14 @@ public class MedicalFile {
 
 
 
-	public User getUser_id() {
-		return user_id;
+	public User getUserId() {
+		return userId;
 	}
 
 
 
-	public void setUser_id(User user_id) {
-		this.user_id = user_id;
+	public void setUserId(User user_id) {
+		this.userId = user_id;
 	}
 	
 	

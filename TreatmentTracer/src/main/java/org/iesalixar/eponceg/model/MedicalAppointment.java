@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class MedicalAppointment {
@@ -26,11 +30,13 @@ public class MedicalAppointment {
 	private String annotations;
 	
 	@Column (nullable=false)
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date appointmentDate;
 	
 	@ManyToOne
-	@JoinColumn(name="user_id", nullable=false)
-	private User user_id;
+	@JoinColumn(name="userId", nullable=false)
+	private User userId;
 	
 	
 	/*Constructor*/
@@ -99,13 +105,13 @@ public class MedicalAppointment {
 	}
 
 
-	public User getUser_id() {
-		return user_id;
+	public User getUserId() {
+		return userId;
 	}
 
 
-	public void setUser_id(User user_id) {
-		this.user_id = user_id;
+	public void setUserId(User userId) {
+		this.userId = userId;
 	}
 	
 	

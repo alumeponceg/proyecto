@@ -12,6 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Routine {
@@ -30,6 +34,8 @@ public class Routine {
 	private Integer duration;
 	
 	@Column (nullable=false, columnDefinition = "datetime default now()")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date activationDate;
 	
 	@ManyToOne

@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -28,6 +32,8 @@ public class Treatment {
 	private Integer duration;
 	
 	@Column (columnDefinition = "datetime default now()")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date activationDate;
 	
 	@ManyToOne
