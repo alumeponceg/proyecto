@@ -10,7 +10,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MedicalAppointmentRepository extends JpaRepository<MedicalAppointment, Long> {
 
+	//Método que encuentra las citas médicas de un usuario
 	public List<MedicalAppointment> findByUserId(Long id);
 	
+	//Método que encuentra las citas médicas de un usuario entre dos fechas
 	public List<MedicalAppointment> findByUserIdAndAppointmentDateBetween (Long id, Date startDate, Date finishDate);
+	
+	//Método para borrar una cita
+	public void delete(Long id);
+	
+	//Método para añadir una cita a la base de datos
+	@SuppressWarnings("unchecked")
+	public MedicalAppointment save(MedicalAppointment medicalAppointent);
 }
