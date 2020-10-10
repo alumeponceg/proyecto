@@ -12,5 +12,5 @@ public interface DiseaseRepository extends JpaRepository<Disease, Long> {
 
 	public Optional<Disease> findById(Long id);
 	
-	public List<Disease> findByUser(Long id);
+	public List<Disease> findByUsers(Long id);
 }

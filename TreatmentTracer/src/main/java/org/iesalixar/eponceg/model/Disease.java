@@ -23,7 +23,7 @@ public class Disease {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column (nullable=false)
+	@Column (unique=true, columnDefinition = "varchar(45)")
 	private String name;
 	@Column (columnDefinition = "longtext")
 	private String causes;
@@ -181,6 +181,15 @@ public class Disease {
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Disease [id=" + id + ", name=" + name + ", causes=" + causes + ", description=" + description
+				+ ", symptom=" + symptom + ", image=" + image + ", treatments=" + treatments + ", routines=" + routines
+				+ ", users=" + users + "]";
 	}
 	
 	
