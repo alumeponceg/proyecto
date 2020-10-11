@@ -18,4 +18,8 @@ public class UserService {
 	public User createUser(User user) {
 		return this.users.save(user);
 	}
+	
+	public User search(Long id) {
+		return this.users.findFirstById(id);
+	}
 }

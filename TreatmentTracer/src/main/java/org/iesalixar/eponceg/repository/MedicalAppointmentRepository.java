@@ -17,7 +17,7 @@ public interface MedicalAppointmentRepository extends JpaRepository<MedicalAppoi
 	public List<MedicalAppointment> findByUserIdAndAppointmentDateBetween (Long id, Date startDate, Date finishDate);
 	
 	//Método para borrar una cita
-	public void delete(Long id);
+	public void deleteById(Long id);
 	
 	//Método para añadir una cita a la base de datos
 	@SuppressWarnings("unchecked")

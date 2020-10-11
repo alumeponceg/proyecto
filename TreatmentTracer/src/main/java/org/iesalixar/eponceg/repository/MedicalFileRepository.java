@@ -26,5 +26,5 @@ public interface MedicalFileRepository extends JpaRepository<MedicalFile,Long> {
 	public MedicalFile save(MedicalFile medicalFile);
 	
 	//Método para borrar un archivo
-	public void delete(Long id);
+	public void deleteById(Long id);
 }

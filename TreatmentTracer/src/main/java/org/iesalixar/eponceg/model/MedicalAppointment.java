@@ -9,12 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+@Table(name="medicalappointment")
 public class MedicalAppointment {
 
 	@Id
@@ -35,7 +37,7 @@ public class MedicalAppointment {
 	private Date appointmentDate;
 	
 	@ManyToOne
-	@JoinColumn(name="userId", nullable=false)
+	@JoinColumn(name="userid", nullable=false)
 	private User userId;
 	
 	

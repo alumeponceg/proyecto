@@ -23,7 +23,7 @@ public class MedicalAppointmentService {
 	}
 	
 	public void delete(Long id) {
-		this.medicalAppointment.delete(id);
+		this.medicalAppointment.deleteById(id);
 	}
 	
 	public MedicalAppointment createMedicalAppointment(MedicalAppointment medicalAppointment) {

@@ -34,7 +34,7 @@ public class MedicalFileService {
 	}
 	
 	public void deleteFile(Long id) {
-		this.deleteFile(id);
+		this.medicalFile.deleteById(id);
 	}
 	
 }

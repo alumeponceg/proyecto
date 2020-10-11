@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DiseaseController {
 
-	@Autowired
-	private DiseaseService diseases;
+	//@Autowired
+	//private DiseaseService diseases;
 }

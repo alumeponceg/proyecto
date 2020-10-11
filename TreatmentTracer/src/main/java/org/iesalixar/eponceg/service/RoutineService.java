@@ -38,7 +38,7 @@ public class RoutineService {
 	}
 	
 	public void deleteRoutine(Long id) {
-		this.deleteRoutine(id);
+		this.routines.deleteById(id);
 	}
 	
 	public void updateRoutine(Routine routine) {

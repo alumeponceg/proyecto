@@ -10,12 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
+@Table(name="medicalfile")
 public class MedicalFile {
 
 	@Id
@@ -28,7 +30,7 @@ public class MedicalFile {
 	@Column
 	private String description;
 	
-	@Column (nullable=false, columnDefinition = "datetime default now()")
+	@Column (name="uploaddate",nullable=false, columnDefinition = "datetime default now()")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date uploadDate;
@@ -38,7 +40,7 @@ public class MedicalFile {
 	
 
 	@ManyToOne
-	@JoinColumn(name="userId", nullable=false)
+	@JoinColumn(name="userid", nullable=false)
 	private User userId;
 	
 	

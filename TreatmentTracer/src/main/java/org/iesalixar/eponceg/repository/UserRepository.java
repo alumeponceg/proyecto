@@ -14,4 +14,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	@SuppressWarnings("unchecked")
 	public User save(User user);
 	
+	public User findFirstById(Long id);
+	
 }

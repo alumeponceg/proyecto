@@ -46,36 +46,35 @@ public class User {
 	@JoinColumn(name="state")
 	private State state;
 	
-	@Column (nullable=false)
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="role")
+	private Role role;
+	
+	@Column (name="dateofbirth",nullable=false)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date dateOfBirth;
 	
-	@Column (columnDefinition = "datetime default now()")
+	@Column (name="dischargedate", columnDefinition = "datetime default now()")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date dischargeDate= new Date();
 	
-	@OneToMany(mappedBy="userId",fetch=FetchType.EAGER, targetEntity = MedicalAppointment.class)  
+	@OneToMany(mappedBy="userId",fetch=FetchType.LAZY,cascade = CascadeType.ALL, targetEntity = MedicalAppointment.class)  
 	private Set<MedicalAppointment> medicalAppointments;
 	
-	@OneToMany(mappedBy="ownerUser",fetch=FetchType.EAGER, targetEntity = Treatment.class)  
+	@OneToMany(mappedBy="ownerUser",fetch=FetchType.LAZY,cascade = CascadeType.ALL, targetEntity = Treatment.class)  
 	private Set<Treatment> userTreatments;
 	
-	@OneToMany(mappedBy="ownerUser",fetch=FetchType.EAGER, targetEntity = Routine.class)  
+	@OneToMany(mappedBy="ownerUser",fetch=FetchType.LAZY,cascade = CascadeType.ALL, targetEntity = Routine.class)  
 	private Set<Routine> userRoutines;
 	
 
-	@OneToMany(mappedBy="userId",fetch=FetchType.EAGER, targetEntity = MedicalFile.class)  
+	@OneToMany(mappedBy="userId",fetch=FetchType.LAZY,cascade = CascadeType.ALL, targetEntity = MedicalFile.class)  
 	private Set<MedicalFile> files;
 	
 	@ManyToMany( mappedBy = "users")
 	private Set<Disease> diseases;
-	
-
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "role_users", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> role;
 	
 	/*Constructor*/
 	
@@ -213,14 +212,15 @@ public class User {
 		this.diseases = diseases;
 	}
 
-	public Set<Role> getRole() {
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(Set<Role> role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
+	
 	
 	
 	

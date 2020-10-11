@@ -31,17 +31,17 @@ public class Treatment {
 	@Column (nullable=false)
 	private Integer duration;
 	
-	@Column (columnDefinition = "datetime default now()")
+	@Column (name="activationdate" ,columnDefinition = "datetime default now()")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date activationDate;
 	
 	@ManyToOne
-	@JoinColumn(name="treatmentState", nullable=false, columnDefinition = "integer default 1")
+	@JoinColumn(name="treatmentstate", nullable=false, columnDefinition = "integer default 1")
 	private State treatmentState;
 	
 	@ManyToOne
-	@JoinColumn(name="ownerUser", nullable=false)
+	@JoinColumn(name="owneruser", nullable=false)
 	private User ownerUser;
 	
 	@ManyToOne

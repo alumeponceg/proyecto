@@ -29,6 +29,6 @@ public interface RoutineRepository extends JpaRepository<Routine, Long> {
 	public Routine save(Routine routine);
 	
 	//Método para borrar una rutina
-	public void delete(Long id);
+	public void deleteById(Long id);
 	
 }

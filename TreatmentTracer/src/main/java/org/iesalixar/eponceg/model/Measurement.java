@@ -3,6 +3,7 @@ package org.iesalixar.eponceg.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +27,8 @@ public class Measurement implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne(optional = false)
-	@JoinColumn(name="routine", insertable=false, updatable=false)
+	@ManyToOne(optional = false, cascade = CascadeType.ALL )
+	@JoinColumn(name="routine", insertable=false, updatable=false )
 	@Id
 	private Routine routine;
 	

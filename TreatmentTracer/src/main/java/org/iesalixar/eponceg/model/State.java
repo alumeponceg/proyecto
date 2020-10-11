@@ -3,6 +3,7 @@ package org.iesalixar.eponceg.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,10 +28,10 @@ public class State {
 	@OneToMany(mappedBy="state",  targetEntity = User.class)  
 	private Set<User> users;
 	
-	@OneToMany(mappedBy="treatmentState",fetch=FetchType.EAGER,  targetEntity = Treatment.class)  
+	@OneToMany(mappedBy="treatmentState",fetch=FetchType.LAZY, cascade = CascadeType.ALL,  targetEntity = Treatment.class)  
 	private Set<Treatment> treatmentsState;
 	
-	@OneToMany(mappedBy="routineState",fetch=FetchType.EAGER,  targetEntity = Routine.class)  
+	@OneToMany(mappedBy="routineState",fetch=FetchType.LAZY, cascade = CascadeType.ALL,  targetEntity = Routine.class)  
 	private Set<Routine> routineState;
 	
 	/*Constructor*/

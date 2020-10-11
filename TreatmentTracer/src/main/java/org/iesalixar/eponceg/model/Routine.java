@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,24 +34,24 @@ public class Routine {
 	@Column (nullable=false)
 	private Integer duration;
 	
-	@Column (nullable=false, columnDefinition = "datetime default now()")
+	@Column (name="activationdate", nullable=false, columnDefinition = "datetime default now()")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date activationDate;
 	
 	@ManyToOne
-	@JoinColumn(name="routineState", nullable=false, columnDefinition = "integer default 1")
+	@JoinColumn(name="routinestate", nullable=false, columnDefinition = "integer default 1")
 	private State routineState;
 	
 	@ManyToOne
-	@JoinColumn(name="ownerUser", nullable=false)
+	@JoinColumn(name="owneruser", nullable=false)
 	private User ownerUser;
 	
 	@ManyToOne
 	@JoinColumn(name="disease", nullable=false)
 	private Disease disease;
 	
-	@OneToMany(mappedBy = "routine", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "routine", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<Measurement> measurements;
 	
 	

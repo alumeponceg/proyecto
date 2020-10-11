@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MedicalAppointmentController {
 
-	@Autowired 
-	private MedicalAppointmentService medicalAppointments;
+//  @Autowired 
+//	private MedicalAppointmentService medicalAppointments;
 }

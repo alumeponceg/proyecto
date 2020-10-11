@@ -35,15 +35,15 @@ public class Disease {
 	@Lob
 	private Blob image;
 
-	@OneToMany(mappedBy="disease",fetch=FetchType.EAGER,  targetEntity = Treatment.class)  
+	@OneToMany(mappedBy="disease",fetch=FetchType.LAZY, cascade = CascadeType.ALL,  targetEntity = Treatment.class)  
 	private Set<Treatment> treatments;
 	
-	@OneToMany(mappedBy="disease",fetch=FetchType.EAGER,  targetEntity = Routine.class)  
+	@OneToMany(mappedBy="disease",fetch=FetchType.LAZY, cascade = CascadeType.ALL, targetEntity = Routine.class)  
 	private Set<Routine> routines;
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
-        name = "userDisease", 
+        name = "userdisease", 
         joinColumns = { @JoinColumn(name = "disease") }, 
         inverseJoinColumns = { @JoinColumn(name = "user") }
     )
