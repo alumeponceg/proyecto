@@ -11,7 +11,7 @@ In this phase we will use the following technologies:
   * JAVASCRIPT
   * JQUERY
   
-##  Backend
+* ##  Backend
 
 In this phase we will use the following technologies:
 
@@ -22,13 +22,13 @@ In this phase we will use the following technologies:
   * Spring mvc y jpa
   * HQL
   
-## * Database
+* ## Database
 
 To store user data we will use:
 
   * MySQL
   
-## * Management and documentation
+* ## Management and documentation
 
 For the management and documentation of the project we will work with:
 
