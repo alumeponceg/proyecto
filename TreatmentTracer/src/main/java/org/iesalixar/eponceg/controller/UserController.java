@@ -1,12 +1,47 @@
 package org.iesalixar.eponceg.controller;
 
-import org.iesalixar.eponceg.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
-@RestController
+import org.iesalixar.eponceg.model.Disease;
+import org.iesalixar.eponceg.model.User;
+import org.iesalixar.eponceg.repository.UserRepository;
+import org.iesalixar.eponceg.service.DiseaseService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
 public class UserController {
 
-	//@Autowired
-	//private UserService users;
+	@Autowired
+	private UserRepository users;
+	
+	@Autowired
+	private DiseaseService diseases;
+	
+	@GetMapping("/user/home")
+	public String home(Model model) {
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails userDetails = null;
+		if (principal instanceof UserDetails) {
+		  userDetails = (UserDetails) principal;
+		}
+		String email = userDetails.getUsername();
+		Optional<User> u = this.users.findByEmail(email);
+		List<Disease> diseases= new ArrayList<>();
+		Set<User> users = new HashSet<>();
+		users.add(u.get());
+		diseases= this.diseases.readDiseases(users);
+		model.addAttribute("diseases", diseases);
+		return "home";
+	}	
+	
 }

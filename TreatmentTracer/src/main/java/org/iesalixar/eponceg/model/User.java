@@ -46,9 +46,9 @@ public class User {
 	@JoinColumn(name="state")
 	private State state;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name="role")
-	private Role role;
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "roleusers", joinColumns = @JoinColumn(name = "usuarioId"), inverseJoinColumns = @JoinColumn(name = "roleId"))
+	private Set<Role> role;
 	
 	@Column (name="dateofbirth",nullable=false)
 	@Temporal(TemporalType.DATE)
@@ -212,14 +212,18 @@ public class User {
 		this.diseases = diseases;
 	}
 
-	public Role getRole() {
+	public Set<Role> getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(Set<Role> role) {
 		this.role = role;
 	}
 
+	
+	
+
+	
 	
 	
 	

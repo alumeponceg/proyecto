@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  	<script src="bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./style/style.css">
+    <title>Treatment Tracer</title>
+</head>
+<body>
+
+    <div class="container-fluid indexbody">
+       <div class="row">
+           <div class="col-12">
+            <div class="row mt-3">
+                <div class="col-1 offset-9">
+                    <button class="btn indexbutton px-2" id="login" >Iniciar Sesión</button>
+                </div>
+                <div class="col-1 mr-1">
+                    <button class="btn indexbutton px-2" id="register">Registrarse</button>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-8 offset-2">
+                    <div class="row align-items-end">
+                        <img src="./assets/logo.png" alt="TreatmentTracer Logotype" title="Logotipo T&T" class="col-3">
+                        <h1 class="col-9 display-4 title"><span>Treatment</span> Tracer</h1>
+                    </div>
+                    <div class="row mt-5">
+                        <p class="col-12 text-justify intro">
+                            Treatment Tracer pretende facilitar la vida de los pacientes de enfermedades crónicas y/o de sus cuidadores,
+                            poniendo a su disposición una serie de tecnología que le van a permitir, gestionar sus tratamientos y rutinas notificando al usuario antes de cada toma o realización mediante email, acceder a gráficas control de aquellas mediciones que deriven de una rutina concreta, almacenar sus archivos médicos y acceder a ellos en cualquier momento y anotar y gestionar en un calendario todas sus citas médicas.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 offset-3 mt-5">
+                            <img src="./assets/Final.png"  alt="Imagen resumen del aplicativo" title="imagen resumen del aplicativo" class="img-fluid">
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+           </div>
+           <div  class=" offset-9 col-3 position-absolute"   >
+                   <div id="form1">
+                    <form  th:action="@{/login}" method=POST>
+                        <legend  class="text-center" >Iniciar sesión</legend>
+                        <label for="email" title="password">Email: <br>
+                        <input id="email" name="email" placeholder="Introduzca email" type="email" title="email"></label> <br>
+                        <label for="password" title="password">Contraseña: <br>
+                        <input type="password" id="password" title="password" name="password" placeholder="Introduzca contraseña"></label><br>
+                        <input type="submit" class="formbutton" value="Iniciar sesión">
+                        <input type="button" class="return formbutton" value="Volver">
+                         <div th:if="${param.error}" class="alert alert-danger" role="alert">
+		            Invalid username and password.
+		        </div>
+		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
+		            You have been logged out.
+		        </div>
+                   </form>
+                   </div>
+
+                   <div id="form2">
+                    <form >
+                        <legend class="text-center" >Registrarse</legend>
+                        <label for="name" title="name">Nombre:<br>
+                        <input type="text" name="name" id="name" title="name" placeholder="Introduzca su nombre"></label> <br>
+                        <label for="surname" title="surname" >Apellidos:<br>
+                        <input type="text" name="surname" id="surname" title="surname" placeholder="Introduzca sus apellidos"></label> <br>
+    
+                        <label for="dateOfBirth" title="dateOfBirth">Fecha de nacimiento:<br>
+                        <input type="date" id="dateOfBirth" title="dateOfBirth" name="dateOfBirth" ></label><br>
+                        <label for="email2" title="email">Email: <br>
+                        <input name="email2" id="email2" title="email" placeholder="Introduzca email" type="email"> </label><br>
+                        <label for="pass" title="password">Contraseña: <br>
+                        <input type="password" name="pass" id="pass" title="password" placeholder="Introduzca contraseña"></label> <br>
+                        <label for="confirmPassword" title="Confirm password">Confirmar contraseña: <br>
+                        <input type="password" name="confirmPassword" id="confirmPassword" title="Confirm password" placeholder="Confirme su contraseña"></label><br>
+                        <label for="diseases" title="disease">Enfermedad: <br>
+                            <select id="diseases" title="disease" onchange="writeDisease()" name="diseases">
+                            <option value="null">Seleccione enfermedad</option>
+                            <option value="1">opcion 1</option>
+                            <option value="2">opcion 2</option>
+                            <option value="3">opcion 3</option>
+                            <option value="4">opcion 4</option>
+                            <option value="5">opcion 5</option>
+                            <option value="-1">Otro</option>
+                        </select></label><br>
+                        <label class=" others" for="option" title="option">¿Qué enfermedad padece? <br>
+                        <input class=" others" type="text" name="option" id="option" title="option" placeholder="Introduzca el nombre de su enfermedad"></label><br>
+                        <input type="button" class="formbutton register"  value="Registrarse">
+                        <input type="button" class="return formbutton" value="Volver">
+                   </form>
+                   </div>
+                   
+           </div>
+       </div>
+
+        
+    </div>
+
+    <script>
+        function writeDisease(){
+            if (document.getElementById('diseases').value==-1){
+                var iterator = new Array();
+                iterator = document.getElementsByClassName("others");
+                iterator[0].style.cssText="display:block;";
+                iterator[1].style.cssText="display:block;";
+            }else {
+                var iterator = new Array();
+                iterator = document.getElementsByClassName("others");
+                iterator[0].style.cssText="display:none;";
+                iterator[1].style.cssText="display:none;";
+            }
+        }
+    </script>
+
+    
+
+    <script type='text/javascript' src="./jquery/jquery-3.4.1.min.js"></script>
+    <script src="./jquery/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="./Javascript/script.js"></script>
+        
+</body>
+</html>

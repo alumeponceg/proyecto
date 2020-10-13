@@ -1,0 +1,284 @@
+@font-face {
+    font-family: 'neuropol';
+    src: url("neuropol\ x\ rg.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'arvo';
+    src: url("Arvo-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+/*HOME HTML*/
+
+
+.navbar-brand {
+    font-family: 'neuropol';
+}
+
+.navbar-brand h1 {
+    font-size: 24px;
+    color: rgb(203, 0, 112);
+    font-weight: bold;
+}
+
+.navbar-brand h1:hover {
+    text-shadow: 2px 2px 4px #8DBFD9;
+}
+
+.nav-link {
+    color: #8DBFD9;
+    font-weight: bold;
+    font-family: 'arvo';
+}
+
+.nav-link:hover {
+    color: rgb(203, 0, 112);
+
+}
+
+
+.logout {
+
+    border: 1.5px outset rgb(203, 0, 112);
+    border-radius: 10px;
+    background-color: rgba(203, 0, 112, 0.503);
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+
+.logout:hover{
+    background-color: rgb(203, 0, 112);
+    border: 1.5px outset rgb(203, 0, 112);
+    font-weight: bold;
+    box-shadow: 2px 2px 6px #8DBFD9;
+    color: #8DBFD9;
+}
+
+
+
+.container-fluid {
+    padding: 0% !important;
+    overflow-x: hidden;
+}
+
+.files {
+    background-color: rgb(255, 240, 242); 
+}
+
+
+/*Breadcrumb*/
+
+.breadcrumb {
+    background-color: rgba(141, 190, 217, 0.646);
+    border-radius: 0px;
+}
+
+
+.active {
+    
+    color: rgb(203, 0, 112) !important;
+    font-family: 'arvo';
+    letter-spacing: 1.5px;
+    font-weight: bold;
+
+}
+
+.breadcrumb-item a{
+    color: white !important;
+    
+    font-family: 'arvo';
+    letter-spacing: 1.5px;
+
+
+}
+
+.breadcrumb-item a:hover{
+    color: rgb(152, 5, 86)!important;
+    text-decoration: none;
+    font-weight: bold;
+
+
+
+}
+
+
+/*FIN BREADCRUMB*/
+
+.order h1 {
+    font-family: 'neuropol';
+    color: rgb(203, 0, 112);
+    text-decoration: underline;
+    text-decoration-color: #8DBFD9;
+}
+
+.order form {
+    font-family: 'arvo';
+    font-weight: bold;
+    color: rgb(203, 0, 112);
+}
+
+.scrollupload {
+
+    display: none;
+}
+
+
+.upload {
+    font-family: 'neuropol';
+    color: rgb(203, 0, 112);
+    font-weight: bold;
+    font-size: 36px;
+   
+}
+
+.upload p {
+    font-size: 20px;
+    margin: 0% !important;
+}
+
+.uploadbutton {
+  
+    border: 1.5px outset #8DBFD9;
+    border-radius: 10px;
+    background-color: rgba(141, 190, 217, 0.571);
+    color: rgb(203, 0, 112);
+    font-size: 14px;
+    letter-spacing: 1px;
+    
+  }
+  
+  .uploadbutton:hover{
+      background-color: #8DBFD9;
+      font-weight: bold;
+      box-shadow: 2px 2px 6px rgb(203, 0, 112);
+      
+  }
+
+
+.card {
+    
+    background-color: rgb(210, 237, 248);
+    box-shadow: 5px 3px 6px 0px rgba(4, 62, 113, 0.75);
+    border: none;
+    border-radius: 10px;
+   
+    
+}
+
+.card:hover {
+    background-color: rgba(208, 45, 135, 0.231);
+}
+
+.card-title{
+    background: linear-gradient(-45deg, rgba(4, 62, 113, 0.823), rgb(23, 111, 174), #23A6D5, rgb(35, 195, 213));
+    border-bottom: 3px ridge rgba(203, 0, 112, 0.626) !important;
+    border-radius: 10px 10px 0 0px;
+    padding: 2%;
+    width: 100%;
+    font-family: 'neuropol';
+    color: white;
+    
+}
+
+.delete {
+    background-color: rgb(241, 181, 181, 0.555);
+    border: 1.5px outset rgb(241, 181, 181);
+    font-family: 'arvo';
+    font-weight: bold;
+    color: black;
+}
+
+
+.delete:hover {
+    background-color: rgb(241, 181, 181);
+    border: 1.5px outset rgb(241, 181, 181);
+    font-family: 'arvo';
+    font-weight: bold;
+    color: black;
+}
+
+.download {
+    background-color: rgba(173, 233, 173, 0.555);
+    border: 1.5px outset rgb(173, 233, 173);
+    font-family: 'arvo';
+    font-weight: bold;
+    color: black;
+}
+
+.download:hover {
+    background-color: rgba(173, 233, 173);
+    border: 1.5px outset rgb(173, 233, 173);
+    font-family: 'arvo';
+    font-weight: bold;
+    color: black;
+}
+
+
+
+/*Modal*/
+
+
+.modal {
+    background: rgba(4, 4, 90, 0.265);
+
+}
+
+.modal-content {
+    background: rgb(246,106,184);
+    background: linear-gradient(-45deg, rgba(185,3,104,1), rgba(209,57,142,1), rgba(229,81,162,1),  rgba(246,106,184,1));
+color: white;
+border-radius: 10px;
+box-shadow: 0px 0px 11px 6px rgb(245, 202, 236);
+font-family: 'arvo';
+    
+}
+
+.modal-header {
+    font-family: 'neuropol';
+    border-bottom: 3px ridge #8DBFD9;
+}
+
+.close {
+    color: white;
+    opacity: 1;
+    font-size: 28px;
+}
+
+.close:hover {
+    color: white;
+    opacity: 1;
+}
+
+.modal-footer {
+    border: none;
+    display: flex;
+    justify-content: center !important;
+}
+
+.formbutton {
+  
+    border: 1.5px outset #8DBFD9;
+    border-radius: 10px;
+    background-color: rgba(141, 190, 217, 0.571);
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    
+  }
+  
+  .formbutton:hover{
+      background-color: #8DBFD9;
+      font-weight: bold;
+      box-shadow: 2px 2px 6px rgb(203, 0, 112);
+      
+  }
+
+
+

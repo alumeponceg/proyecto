@@ -3,14 +3,12 @@ package org.iesalixar.eponceg.model;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,18 +24,29 @@ public class Role {
 	
 	private String description;
 	
-	@OneToMany(mappedBy="role", fetch=FetchType.LAZY, cascade = CascadeType.ALL,  targetEntity = User.class)  
+	@ManyToMany( mappedBy = "role")
 	private Set<User> users;
 	
 	/*Constructor*/
+	public Role(Long id, String name, String description, Set<User> users) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.users = users;
+	}
 	
 	public Role() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public Role(String name, String description) {
-		this.name = name;
-		this.description = description;
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
 
 	public Long getId() {
