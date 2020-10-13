@@ -1,8 +1,8 @@
-#Technological Stack
+# Technological Stack
 
 To carry out the complete development of the project, different tools will be used in each phase
 
-## * Frontend
+* ##  Frontend
 In this phase we will use the following technologies:
 
   * HTML5
@@ -11,7 +11,7 @@ In this phase we will use the following technologies:
   * JAVASCRIPT
   * JQUERY
   
-## * Backend
+##  Backend
 
 In this phase we will use the following technologies:
 
