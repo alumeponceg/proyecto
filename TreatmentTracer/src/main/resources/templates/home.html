@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  	<script src="../js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../style/home.css">
 <title>Bienvenido</title>
 </head>
@@ -22,7 +22,7 @@
 
 			<!-- Links -->
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="treatments.html">Tratamientos</a>
+				<li class="nav-item"><a class="nav-link" th:href="@{/treatments}">Tratamientos</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="routines.html">Rutinas</a>
 				</li>
@@ -110,18 +110,49 @@
 					</div>
 				</aside>
 				<div class="col-9 content">
-					
-					
-					<div th:each="disease:${diseases}">
+
+
+
 					<div class="row">
-					<div class="col-9">
+						<div class="col-6">
+							<form th:action="@{/user/disease}" method=POST>
+								<select name="disease">
+									<option value="-1">Selecciona enfermedad</option>
+									<div th:each="dis:${diseases}">
+										<option th:value="${dis.id}" th:text="${dis.name}"></option>
+									</div>
+								</select> 
+								<input class="btn btn-warning mx-1" type="submit" value="Ver datos">
+							</form>
+
+						</div>
+						<div>
+							<form th:action="@{/user/addDisease}" method=POST>
+										<select name="newDisease">
+									<option value="-1">Ver todas las enfermedades</option>
+									<div th:each="d:${allDisease}">
+										<option th:value="${d.id}" th:text="${d.name}"></option>
+									</div>
+								</select>
+										 <input type="submit"
+											class="btn btn-info mx-1" value="Vincular enfermedad">
+									</form>
+						
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-9">
 							<div class="row">
-								<h1 th:text="${disease.name}" class="col-12 title"></h1>
+									<h1 th:text="${selectedDisease != null} ? ${selectedDisease.name} : 'Selecciona una enfermedad para ver información sobre: '"
+										class="col-12 title"></h1>
+
 							</div>
 							<div class="row">
 								<div class="col-12">
 									<h1>Descripción</h1>
-									<p th:text="${disease.description}"></p>
+									<p
+										th:text="${selectedDisease != null} ? ${selectedDisease.description} : ''"></p>
 								</div>
 							</div>
 						</div>
@@ -135,33 +166,59 @@
 					<div class="row">
 						<div class="col-12">
 							<h1>Causas</h1>
-							<p th:text="${disease.causes}"></p>
+							<p
+								th:text="${selectedDisease != null} ? ${selectedDisease.causes} :''"></p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-12">
 							<h1>Síntomas</h1>
-							<p th:text="${disease.symptom}"></p>
+							<p
+								th:text="${selectedDisease != null} ? ${selectedDisease.symptom} : ''"></p>
 						</div>
 					</div>
-					</div>
+					<div class="row" >
+
+						<div class="col-12">
 						
+								<h5>Eliminar enfermedad: </h5>
 					
+						
+						<form th:action="@{/user/update}" method=POST>
+
+										<input name="diseaseId"
+											th:value="${selectedDisease != null} ? ${selectedDisease.id} : -1"
+											type="hidden"> <input type="submit"
+											class="btn btn-danger mx-1" value="Borrar">
+									</form>
+						
+						</div>
+			
+									
+
+					</div>
+
+
+
+
+
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<script type='text/javascript' src="../jquery/jquery-3.4.1.min.js"></script>
-    <script src="../jquery/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+	<script src="../jquery/jquery.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 
-    <script src="../Javascript/script.js"></script>
+	<script src="../Javascript/script.js"></script>
 </body>
 
 </html>

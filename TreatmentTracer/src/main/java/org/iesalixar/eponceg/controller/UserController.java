@@ -1,12 +1,9 @@
 package org.iesalixar.eponceg.controller;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import org.iesalixar.eponceg.model.Disease;
 import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.UserRepository;
 import org.iesalixar.eponceg.service.DiseaseService;
@@ -36,12 +33,12 @@ public class UserController {
 		}
 		String email = userDetails.getUsername();
 		Optional<User> u = this.users.findByEmail(email);
-		List<Disease> diseases= new ArrayList<>();
 		Set<User> users = new HashSet<>();
 		users.add(u.get());
-		diseases= this.diseases.readDiseases(users);
-		model.addAttribute("diseases", diseases);
+		model.addAttribute("diseases", this.diseases.readDiseases(users));
+		model.addAttribute("allDisease", this.diseases.selectAllNotRepeat(users));
 		return "home";
+		
 	}	
 	
 }

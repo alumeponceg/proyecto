@@ -23,4 +23,17 @@ public class DiseaseService {
 		
 		return this.disease.findByUsersIn(users);
 	}
+	
+	public Disease updateDisease(Disease d) {
+		return this.disease.save(d);
+	}
+	
+	public List<Disease> selectAllNotRepeat(Set<User> users){
+		List<Disease> exists = this.disease.findByUsersIn(users);
+		List<Disease> allDiseases = this.disease.findAll();
+		
+		allDiseases.removeAll(exists);
+		
+		return allDiseases;
+	}
 }

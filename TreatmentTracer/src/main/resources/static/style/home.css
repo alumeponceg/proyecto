@@ -186,6 +186,12 @@ input[type='button']:hover{
     color: rgb(203, 0, 112);
 }
 
+.content h5 {
+	font-family: 'neuropol';
+    font-weight: bold;
+    color: rgb(203, 0, 112);
+}
+
 .content .title {
     font-size: 34px; 
     text-decoration: underline;

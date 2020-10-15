@@ -17,5 +17,8 @@ public interface DiseaseRepository extends JpaRepository<Disease, Long> {
 	//Encuentra las enfermedades de un usuario
 	public List<Disease> findByUsersIn(Set<User> users);
 	
+	@SuppressWarnings("unchecked")
+	public Disease save(Disease d);
 	
+	public List<Disease> findAll();
 }
