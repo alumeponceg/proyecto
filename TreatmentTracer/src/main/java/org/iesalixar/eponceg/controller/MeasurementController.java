@@ -40,6 +40,7 @@ public class MeasurementController {
 	}
 
 	
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = { "/updateMeasurement" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String updateMeasurement(@RequestParam(value = "id") String id,@RequestParam(value = "value") String value,@RequestParam(value = "date") String date,  Model model) throws ParseException {
 		Measurement m = this.measurements.findFirstById(Long.parseLong(id));

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.iesalixar.eponceg.model.MedicalAppointment;
+import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.MedicalAppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,11 +15,11 @@ public class MedicalAppointmentService {
 	@Autowired
 	private MedicalAppointmentRepository medicalAppointment;
 	
-	public List<MedicalAppointment> ListForAnUser(Long userId){
+	public List<MedicalAppointment> ListForAnUser(User userId){
 		return this.medicalAppointment.findByUserId(userId);
 	}
 	
-	public List<MedicalAppointment> ListForTheNextMonth(Long UserId, Date startDate, Date finishDate){
+	public List<MedicalAppointment> ListForTheNextMonth(User UserId, Date startDate, Date finishDate){
 		return this.medicalAppointment.findByUserIdAndAppointmentDateBetween(UserId, startDate, finishDate);
 	}
 	

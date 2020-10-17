@@ -27,7 +27,7 @@ public class DiseaseController {
 	private UserRepository users;
 
 	@RequestMapping(value = { "/user/disease" }, method = { RequestMethod.POST })
-	public String createStudent(@RequestParam(value = "disease") String id, Model model) {
+	public String readDisease(@RequestParam(value = "disease") String id, Model model) {
 
 		Integer idI = Integer.parseInt(id);
 		Long idL = Long.valueOf(idI);
