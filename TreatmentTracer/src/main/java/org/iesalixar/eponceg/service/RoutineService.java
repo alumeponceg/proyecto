@@ -3,6 +3,7 @@ package org.iesalixar.eponceg.service;
 import java.util.List;
 
 import org.iesalixar.eponceg.model.Routine;
+import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.RoutineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,28 +14,32 @@ public class RoutineService {
 	@Autowired
 	private RoutineRepository routines;
 	
-	public List<Routine> ListForAnUser(Long userId){
-		return this.routines.findByOwnerUser(userId);
+	public List<Routine> ListForAnUser(User user){
+		return this.routines.findByOwnerUser(user);
 	}
 	
-	public List<Routine> ListForAnUserOrderByName(Long userId){
-		return this.routines.findByOwnerUserOrderByName(userId);
+	public List<Routine> ListForAnUserOrderByName(User user){
+		return this.routines.findByOwnerUserOrderByName(user);
 	}
 	
-	public List<Routine> ListForAnUserOrderByNameDesc (Long userId){
-		return this.routines.findByOwnerUserOrderByNameDesc(userId);
+	public List<Routine> ListForAnUserOrderByNameDesc (User user){
+		return this.routines.findByOwnerUserOrderByNameDesc(user);
 	}
 	
-	public List<Routine> ListForAnUserOrderByDate (Long userId){
-		return this.routines.findByOwnerUserOrderByActivationDate(userId);
+	public List<Routine> ListForAnUserOrderByDate (User user){
+		return this.routines.findByOwnerUserOrderByActivationDate(user);
 	}
 	
-	public List<Routine> ListForAnUserAndADisease( Long userId, Long disease){
-		return this.routines.findByOwnerUserAndDisease(userId, disease);
+	public List<Routine> ListForAnUserOrderByDisease( User user){
+		return this.routines.findByOwnerUserOrderByDisease(user);
 	}
 	
 	public Routine createRoutine(Routine routine) {
 		return this.routines.save(routine);
+	}
+	
+	public Routine findFirstById(Long id) {
+		return this.routines.findFirstById(id);
 	}
 	
 	public void deleteRoutine(Long id) {

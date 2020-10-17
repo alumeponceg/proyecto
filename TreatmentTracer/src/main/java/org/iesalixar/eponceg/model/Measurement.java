@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -18,7 +17,6 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@IdClass(RelationMeasurementRoutine.class)
 public class Measurement implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -28,8 +26,7 @@ public class Measurement implements Serializable{
 	private Long id;
 	
 	@ManyToOne(optional = false, cascade = CascadeType.ALL )
-	@JoinColumn(name="routine", insertable=false, updatable=false )
-	@Id
+	@JoinColumn(name="routine")
 	private Routine routine;
 	
 	
@@ -53,11 +50,12 @@ public class Measurement implements Serializable{
 	}
 
 
-	public Measurement(String unit, Date date, Float value) {
+	public Measurement(String unit, Date date, Float value, Routine routine) {
 		super();
 		this.unit = unit;
 		this.date = date;
 		this.value = value;
+		this.routine= routine;
 	}
 
 

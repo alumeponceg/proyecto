@@ -62,14 +62,13 @@ public class Routine {
 	}
 
 
-	public Routine(String name, Integer posology, Integer duration, Date activationDate) {
+	public Routine(String name, Integer posology, Integer duration, Disease d) {
 		super();
 		this.name = name;
 		this.posology = posology;
 		this.duration = duration;
-		this.activationDate = activationDate;
+		this.disease= d;
 	}
-
 
 	public Long getId() {
 		return id;
