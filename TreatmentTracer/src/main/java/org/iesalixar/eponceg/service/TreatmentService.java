@@ -2,7 +2,6 @@ package org.iesalixar.eponceg.service;
 
 import java.util.List;
 
-import org.iesalixar.eponceg.model.Disease;
 import org.iesalixar.eponceg.model.Treatment;
 import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.TreatmentRepository;
@@ -31,10 +30,14 @@ public class TreatmentService {
 		return this.treatments.findByOwnerUserOrderByActivationDate(u);
 	}
 	
-	public List<Treatment> listTreatmentsForAnUserAndADisease(User u, Disease d){
-		return this.treatments.findByOwnerUserAndDisease(u, d);
+	public List<Treatment> listTreatmentsForAnUserOrderByDisease(User u){
+		return this.treatments.findByOwnerUserOrderByDisease(u);
 	}
 	
+//	public List<Treatment> findByOwnerUserAndDisease(User user, Disease disease){
+//		return this.treatments.findByOwnerUserAndDisease(user, disease);
+//	}
+//	
 	public Treatment createTreatment(Treatment treatment) {
 		return this.treatments.save(treatment);
 	}
@@ -47,5 +50,7 @@ public class TreatmentService {
 		this.treatments.save(treatment);
 	}
 	
-	
+	public Treatment findFirstById(Long id) {
+		return this.treatments.findFirstById(id);
+	}
 }

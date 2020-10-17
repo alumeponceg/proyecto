@@ -54,12 +54,13 @@ public class Treatment {
 		super();
 	}
 
-	public Treatment(String name, Integer posology, Integer duration, Date activationDate) {
+	public Treatment(String name, Integer posology, Integer duration, Disease disease) {
 		super();
 		this.name = name;
 		this.posology = posology;
 		this.duration = duration;
-		this.activationDate = activationDate;
+		this.disease= disease;
+
 	}
 
 	public Long getId() {
