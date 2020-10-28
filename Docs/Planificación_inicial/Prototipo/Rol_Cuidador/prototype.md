@@ -1,6 +1,6 @@
 # PROTOTYPE
 
-Puede acceder al prototipo del proyecto en el siguiente enlace (*Este prototipo está asociado a aquellos usuarios que accedan a la web como pacientes*):
+Puede acceder al prototipo del proyecto en el siguiente enlace (*Este prototipo está asociado a aquellos usuarios que accedan a la web como cuidadores*):
 
 ## IMPORTANTE
 
