@@ -314,9 +314,9 @@
 						title="Usted está aquí">Inicio</li>
 				</ol>
 			</div>
-			<div class="row">
-				<div class="col-7 offset-1">
-					<table class="table text-center medidas">
+			<div class="row d-flex justify-content-around">
+				<div class="col-7">
+					<table class="table text-center ">
                         <thead class="bg-info text-center">
                             <tr>
                                 <th colspan="6">PACIENTES SUPERVISADOS</th>
@@ -325,8 +325,7 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Apellidos</th>
                                 <th scope="col">Email</th>
-                                <th colspan="2" scope="col">Acciones</th>
-                                <th scope="col">Acceder</th>
+                                <th colspan="3" scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -347,7 +346,7 @@
 											id="patientEmail" th:value="${patient.email}" type="text"></label></td>
 								<td class="text-center">		
 									<input name="patientId" th:value="${patient.id}" type="hidden">	
-									<input type="submit" class="btn btn-link" value="Actualizar">
+									<input type="submit" class="btn update" value="Actualizar">
 								</form>	
 								</td>
 								<td class="text-center">	
@@ -362,7 +361,7 @@
 									<form th:action="@{/login}" method=POST>
 										<input name="email" th:value="${patient.email}" type="hidden"> 
 										<input name="password" th:value="${patient.name}" type="hidden"> 
-										<input type="submit" class="btn btn-succes" value="Acceder">
+										<input type="submit" class="btn actived" value="Acceder">
 									</form>
 								</td>
 								
@@ -372,8 +371,8 @@
                     </table>
 				</div>
 				
-				<div class="col-3 offset-1">
-					<form  th:action="@{/career/register}" method=POST>
+				<div class="col-3">
+					<form id="form2" th:action="@{/career/register}" method=POST>
                         <legend class="text-center" >Registrarse</legend>
                         <label for="name" title="name">Nombre:<br>
                         <input type="text" onblur="compruebaNombre()" required name="name" id="name" title="name" placeholder="Introduzca nombre de paciente"><br><small id="errorName"></small></label> <br>
@@ -383,7 +382,7 @@
                         <input type="date" onblur="compruebaFecha()" required id="dateOfBirth" title="dateOfBirth" name="dateOfBirth" ><br><small id="errorDate"></small></label><br>
                         <label for="email2" title="email">Email: <br>
                         <input name="email2" onblur="compruebaEmail()" required id="email2" title="email" placeholder="Introduzca email" type="email"> <br><small id="errorEmail"></small></label><br>
-                        <input type="submit" class="formbutton register"  value="Registrar paciente">
+                        <input type="submit" class="formbutton mt-3 btn add"  value="Registrar paciente">
                    </form>
 				</div>
 			</div>

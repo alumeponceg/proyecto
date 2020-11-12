@@ -230,3 +230,116 @@ input[type='button']:hover{
     font-family: 'arvo';
     font-size: 16px;
 }
+
+
+
+
+/*ROL CUIDADOR*/
+
+table {
+    
+    background-color: rgb(210, 237, 248) !important;
+    box-shadow: 5px 3px 6px 0px rgba(4, 62, 113, 0.75);
+    
+}
+
+table thead {
+    background: linear-gradient(-45deg, rgba(4, 62, 113, 0.823), rgb(23, 111, 174), #23A6D5, rgb(35, 195, 213));
+}
+
+
+table th {
+    font-family: 'neuropol';
+    color: white;
+    border-bottom: 3px ridge rgba(203, 0, 112, 0.626) !important;
+    
+}
+
+table td {
+    font-family: 'arvo';
+    font-size: 14px;
+}
+
+table tbody tr:hover {
+    background-color: rgba(203, 0, 112, 0.367);
+}
+
+.actived {
+    background-color: rgba(173, 233, 173, 0.555);
+    border: 1.5px outset rgb(173, 233, 173);
+}
+
+.update {
+    background-color: rgba(245, 245, 195, 0.555);
+    border: 1.5px outset rgb(245, 245, 195);
+}
+
+.delete {
+    background-color: rgb(241, 181, 181, 0.555);
+    border: 1.5px outset rgb(241, 181, 181);
+}
+
+
+.actived:hover {
+    background-color: rgba(173, 233, 173);
+    border: 1.5px outset rgb(173, 233, 173);
+}
+
+.update:hover {
+    background-color: rgba(245, 245, 195);
+    border: 1.5px outset rgb(245, 245, 195);
+}
+
+.delete:hover {
+    background-color: rgb(241, 181, 181);
+    border: 1.5px outset rgb(241, 181, 181);
+}
+
+.add {
+    border: 1.5px outset #8DBFD9;
+    background-color: rgba(141, 190, 217, 0.571);
+}
+
+.add:hover {
+    border: 1.5px outset #8DBFD9;
+    background-color: rgba(141, 190, 217);
+}
+
+
+.btn {
+    font-weight: bold;
+}
+
+
+#form2 {
+    position:absolute;
+    height:450px !important;
+    background: rgb(246,106,184);
+    background: linear-gradient(-45deg, rgba(185,3,104,1), rgba(209,57,142,1), rgba(229,81,162,1),  rgba(246,106,184,1));
+    width: 100%;
+    font-family: 'arvo';
+    border: none;
+    border-radius: 20px;
+}
+
+
+ #form2 legend {
+    font-family: 'neuropol';
+    margin-top: 10%;
+    color: white;
+}
+
+
+#form2 label {
+    margin-left: 22%;
+    margin-top: 2%;
+    color:  white;
+}
+
+#form2 input[type='submit']{
+    margin-left: 25%;
+    
+}
+
+
+
