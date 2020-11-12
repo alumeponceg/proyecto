@@ -46,7 +46,14 @@ public class User {
 	@JoinColumn(name="state")
 	private State state;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="career", nullable=true)
+	private User career;
+	
+	@OneToMany(mappedBy="career",fetch=FetchType.LAZY, cascade = CascadeType.ALL,  targetEntity = User.class)  
+	private Set<User> users;
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "roleusers", joinColumns = @JoinColumn(name = "usuarioId"), inverseJoinColumns = @JoinColumn(name = "roleId"))
 	private Set<Role> role;
 	
@@ -98,10 +105,21 @@ public class User {
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
+		this.dateOfBirth = dateOfBirth;	
+	}
+
+	public User(String name, String surname, String email, String password, State state, User career, Set<Role> role,
+			Date dateOfBirth, Date dischargeDate) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.password = password;
+		this.state = state;
+		this.career = career;
+		this.role = role;
 		this.dateOfBirth = dateOfBirth;
-		
-		
-		
+		this.dischargeDate = dischargeDate;
 	}
 
 	public Long getId() {
@@ -122,6 +140,14 @@ public class User {
 
 	public String getSurname() {
 		return surname;
+	}
+	
+	public User getCareer() {
+		return career;
+	}
+
+	public void setCareer(User career) {
+		this.career = career;
 	}
 
 	public void setSurname(String surname) {
@@ -154,7 +180,13 @@ public class User {
 		this.state = state;
 	}
 
-	
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
 
 	public Date getDateOfBirth() {
 		return dateOfBirth;

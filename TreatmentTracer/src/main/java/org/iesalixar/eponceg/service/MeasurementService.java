@@ -29,4 +29,12 @@ public class MeasurementService {
 	public void updateMeasurement (Measurement measurement) {
 		this.measurements.save(measurement);
 	}
+	
+	public void removeMeasurement (Long id) {
+		this.measurements.deleteById(id);
+	}
+	
+	public Measurement findFirstByRoutine(Routine r) {
+		return this.measurements.findFirstByRoutine(r);
+	}
 }

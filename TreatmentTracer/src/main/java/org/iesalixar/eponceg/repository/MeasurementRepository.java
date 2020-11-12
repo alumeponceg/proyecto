@@ -19,5 +19,10 @@ public interface MeasurementRepository extends JpaRepository<Measurement,Long>{
 	//Método para añadir en la base de datos una nueva medición
 	@SuppressWarnings("unchecked")
 	public Measurement save(Measurement measurement);
+	
+	//Método para borrar una medición
+	public void deleteById(Long id);
+	
+	public Measurement findFirstByRoutine(Routine r);
 
 }

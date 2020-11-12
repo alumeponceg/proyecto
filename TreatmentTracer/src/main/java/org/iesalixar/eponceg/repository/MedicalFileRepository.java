@@ -3,6 +3,7 @@ package org.iesalixar.eponceg.repository;
 import java.util.List;
 
 import org.iesalixar.eponceg.model.MedicalFile;
+import org.iesalixar.eponceg.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Repository;
 public interface MedicalFileRepository extends JpaRepository<MedicalFile,Long> {
 
 	//Método para encontrar los archivos de un usuario
-	public List<MedicalFile> findByUserId(Long id);
+	public List<MedicalFile> findByUserId(User user);
 	
 	//Método para ordenar los arhivos de un usuario por su titulo
 	public List<MedicalFile> findByUserIdOrderByTitle(Long id);

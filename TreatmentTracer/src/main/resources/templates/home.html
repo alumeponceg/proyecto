@@ -11,10 +11,13 @@
 </head>
 
 <body>
+
+
+	<div th:if="${role==1}">
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-sm justify-content-between">
 			<!-- Brand/logo -->
-			<a class="navbar-brand d-flex align-items-center" href="home.html">
+			<a class="navbar-brand d-flex align-items-center" th:href="@{/user/home}">
 				<img src="../assets/logo.png" title="Logotipo del aplicativo"
 				alt="logo" style="width: 80px;">
 				<h1 class="pt-3">Treatment Tracer</h1>
@@ -22,19 +25,24 @@
 
 			<!-- Links -->
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="@{/treatments}">Tratamientos</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/routines}">Rutinas</a>
-				</li>
-				<li class="nav-item"><a class="nav-link"
-					 th:href="@{/medicalAppointments}">Citas médicas</a></li>
-				<li class="nav-item"><a class="nav-link" href="files">Archivos
-						médicos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/treatments}">Tratamientos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/routines}">Rutinas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/medicalAppointments}">Citas médicas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/files}">Archivos médicos</a></li>
 				<li class="nav-item">
-					<form th:action="@{/logout}" method="post">
+					<div th:if="${volver!=true}">
+						<form th:action="@{/logout}" method="post">
 						<input type="submit" class="nav-link btn btn-info logout"
 							value="Cerrar Sesion" />
-					</form>
+						</form>
+					
+					</div>
+					<div th:if="${volver==true}">
+						
+						<button  class="nav-link btn btn-info logout"><a th:href="@{/career/home}">Volver</a></button>
+						
+					</div>
+					
 				</li>
 			</ul>
 		</nav>
@@ -57,14 +65,14 @@
 					<div class="row">
 						<div class="col-8 offset-2">
 							<button
-								class="btn btn-dark btn-lg btn-block mt-4 mb-2 py-4 createTreatments">Añadir
+								class="btn btn-dark btn-lg btn-block mt-4 mb-2 py-4 createTreatments" th:disabled="${withoutDisease==true}?true:false">Añadir
 								Tratamiento</button>
 
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-8 offset-2 treatments py-2 mt-3">
-							<form action="">
+							<form th:action="@{/createTreatment}">
 								<label for="name" title="Nombre del tratamiento">Nombre
 									del tratamiento: <br> <input type="text" name="name"
 									id="name" title="Nombre del tratamiento">
@@ -72,12 +80,19 @@
 									title="posología del tratamiento">Con que frecuencia
 									horaria debe tomar el medicamento: <br> <input type="text"
 									name="posology" id="posology" title="posología del tratamiento">
-								</label><br> <label for="duration" title="duracion del tratamiento">Tiempo
-									estimado en semanas del tratamiento: <small>(Sí su
-										tratamiento es indefinido deje en blanco este campo)</small><br>
+								</label><br> <label for="duration" title="duracion del tratamiento">Duración
+									estimada del tratamiento:<br>
 									<input type="text" name="duration" id="duration"
 									title="duración del tratamiento">
-								</label> <input type="button" value="Añadir">
+								</label>
+								<label for="disease" title="Enfermedad asociada">
+										<select type="text" name="disease" title="Enfermedad asociada" id="disease">
+											<div th:each="dis:${diseases}">
+												<option th:value="${dis.id}" th:text="${dis.name}"></option>
+											</div>
+										</select>
+										</label>
+								 <input type="submit" value="Añadir">
 							</form>
 						</div>
 					</div>
@@ -85,25 +100,32 @@
 						<div class="col-8 offset-2">
 
 							<button
-								class="btn btn-dark btn-lg btn-block mt-4 mb-2 py-4 createRoutines">Añadir
+								class="btn btn-dark btn-lg btn-block mt-4 mb-2 py-4 createRoutines" th:disabled="${withoutDisease==true}?true:false">Añadir
 								Rutina</button>
 						</div>
 						<div class="row">
 							<div class="col-8 offset-2 py-2 mt-3 routines">
-								<form action="">
-									<label for="name2" title="Nombre de la rutina">Nombre
-										de la rutina: <br> <input type="text" name="name2"
+								<form th:action="@{/createRoutine}">
+									<label for="name" title="Nombre de la rutina">Nombre
+										de la rutina: <br> <input type="text" name="name"
 										id="name2" title="Nombre de la rutina">
-									</label><br> <label for="posology2" title="posología de la rutina">Con
+									</label><br> <label for="posology" title="posología de la rutina">Con
 										que frecuencia horaria debe realizar la rutina: <br> <input
-										type="text" name="posology2" id="posology2"
+										type="text" name="posology" id="posology2"
 										title="posología de la rutina">
-									</label><br> <label for="duration2" title="duracion de la rutina">Tiempo
-										estimado en semanas de la rutina: <small>(Sí su rutina
-											es indefinido deje en blanco este campo)</small><br> <input
-										type="text" name="duration2" id="duration2"
+									</label><br> <label for="duration" title="duracion de la rutina">Duración
+										estimada en semanas de la rutina:<br> <input
+										type="text" name="duration" id="duration2"
 										title="duración de la rutina">
-									</label> <input type="button" value="Añadir">
+									</label> 
+									<label for="disease" title="Enfermedad asociada">
+										<select type="text" name="disease" title="Enfermedad asociada" id="disease">
+											<div th:each="dis:${diseases}">
+												<option th:value="${dis.id}" th:text="${dis.name}"></option>
+											</div>
+										</select>
+									</label>
+									<input type="submit" value="Añadir">
 								</form>
 							</div>
 						</div>
@@ -111,93 +133,148 @@
 				</aside>
 				<div class="col-9 content">
 
-
-
-					<div class="row">
-						<div class="col-6">
-							<form th:action="@{/user/disease}" method=POST>
-								<select name="disease">
-									<option value="-1">Selecciona enfermedad</option>
-									<div th:each="dis:${diseases}">
-										<option th:value="${dis.id}" th:text="${dis.name}"></option>
-									</div>
-								</select> 
-								<input class="btn btn-warning mx-1" type="submit" value="Ver datos">
-							</form>
-
-						</div>
-						<div>
-							<form th:action="@{/user/addDisease}" method=POST>
-										<select name="newDisease">
-									<option value="-1">Ver todas las enfermedades</option>
-									<div th:each="d:${allDisease}">
-										<option th:value="${d.id}" th:text="${d.name}"></option>
-									</div>
-								</select>
-										 <input type="submit"
-											class="btn btn-info mx-1" value="Vincular enfermedad">
-									</form>
+					<div th:if="${withoutDisease!=true}">
 						
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-9">
 							<div class="row">
-									<h1 th:text="${selectedDisease != null} ? ${selectedDisease.name} : 'Selecciona una enfermedad para ver información sobre: '"
-										class="col-12 title"></h1>
-
+							<div class="col-6">
+								<form th:action="@{/user/home}" method=POST>
+									<select name="disease">
+										<option value="-1">Selecciona enfermedad</option>
+										<div th:each="dis:${diseases}">
+											<option th:value="${dis.id}" th:text="${dis.name}"></option>
+										</div>
+									</select> 
+									<input class="btn btn-warning mx-1" type="submit" value="Ver datos">
+								</form>
+	
 							</div>
-							<div class="row">
-								<div class="col-12">
-									<h1>Descripción</h1>
-									<p
-										th:text="${selectedDisease != null} ? ${selectedDisease.description} : ''"></p>
+							<div>
+								<form th:action="@{/user/addDisease}" method=POST>
+											<select name="newDisease" id="othersDiseases" onchange="writeDisease()">
+										<div th:each="d:${allDisease}" >
+											<option th:value="${d.id}" th:text="${d.name}"></option>
+										</div>
+											<option class="otherDisease" value="-1">Otra</option>
+									</select>
+											 <input type="submit"
+												class="btn btn-info  mx-1" id="buttonDis" value="Vincular enfermedad">
+										</form>
+										
+										<div id="formOther" style="display: none;">
+											<form th:action="@{/user/addInactive}" method=POST>
+												<label for="name"><Strong>Nombre:</Strong><br><input type="text" name="name"></label>
+												<input type="submit"
+												class="btn btn-info mx-1" value="Añadir enfermedad">
+											</form>
+										</div>
+							
+							</div>
+						</div>
+	<div th:if="${selectedDisease.state.id==1}">
+						<div class="row">
+							<div class="col-9">
+								<div class="row">
+										<h1 th:utext="${selectedDisease.name}"
+											class="col-12 title"></h1>
+	
+								</div>
+								<div class="row">
+									<div class="col-12">
+										<h1>Descripción</h1>
+										<p
+											th:utext="${selectedDisease.description}"></p>
+									</div>
 								</div>
 							</div>
+							<div class="col-3">
+								<img src="../assets/Alzheimer.jpg"
+									class="img-fluid mt-5 no-gutters"
+									alt="Imagen asociada a la enfermedad"
+									title="imagen asociada a la enfermedad">
+							</div>
 						</div>
-						<div class="col-3">
-							<img src="../assets/Alzheimer.jpg"
-								class="img-fluid mt-5 no-gutters"
-								alt="Imagen asociada a la enfermedad"
-								title="imagen asociada a la enfermedad">
+						<div class="row">
+							<div class="col-12">
+								<h1>Causas</h1>
+								<p
+									th:utext="${selectedDisease.causes}"></p>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-12">
-							<h1>Causas</h1>
-							<p
-								th:text="${selectedDisease != null} ? ${selectedDisease.causes} :''"></p>
+						<div class="row">
+							<div class="col-12">
+								<h1>Síntomas</h1>
+								<p
+									th:utext="${selectedDisease.symptom}"></p>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-12">
-							<h1>Síntomas</h1>
-							<p
-								th:text="${selectedDisease != null} ? ${selectedDisease.symptom} : ''"></p>
-						</div>
-					</div>
-					<div class="row" >
-
-						<div class="col-12">
+						<div class="row" >
+	
+							<div class="col-12">
+							
+									<h5>Eliminar enfermedad: </h5>
 						
-								<h5>Eliminar enfermedad: </h5>
+								<a href="./measurements.html" class="btn btn-danger" data-toggle="modal" data-target="#infoAlert">Borrar</a>
+							
+							
+							</div>
+				
+										
+	
+						</div>
+							
+	</div>		
+	<div th:if="${selectedDisease.state.id==2}">
+		<div class="row">
+			<h1 th:utext="${selectedDisease.name}" class="col-12 title"></h1>
+		</div>
+		<div class="row">
+			<h1 class="col-12">Nuestros administradores están trabajando para recabar información acerca de esta enfermedad</h1>
+		</div>
+	</div>
+				
+					</div>
+
+					<div th:if="${withoutDisease==true}">
 					
+						<div class="row">
+							
+							<div class="col-6 offset-6">
+								<form th:action="@{/user/addDisease}" method=POST>
+											<select name="newDisease" id="othersDiseases" onchange="writeDisease()">
+										<div th:each="d:${allDisease}" >
+											<option th:value="${d.id}" th:text="${d.name}"></option>
+										</div>
+											<option class="otherDisease" value="-1">Otra</option>
+									</select>
+											 <input type="submit"
+												class="btn btn-info  mx-1" id="buttonDis" value="Vincular enfermedad">
+										</form>
+										
+										<div id="formOther" style="display: none;">
+											<form  th:action="@{/user/addInactive}" method=POST>
+												<label for="name"><Strong>Nombre:</Strong><br><input type="text" name="name"></label>
+												<input type="submit"
+												class="btn btn-info mx-1" value="Añadir enfermedad">
+											</form>
+										</div>
+							
+							</div>
+						</div>
+	
 						
-						<form th:action="@{/user/update}" method=POST>
-
-										<input name="diseaseId"
-											th:value="${selectedDisease != null} ? ${selectedDisease.id} : -1"
-											type="hidden"> <input type="submit"
-											class="btn btn-danger mx-1" value="Borrar">
-									</form>
+						<div class="row">
+						
+							<div class="col-12">
+							
+								<h1>No tiene ninguna enfermedad vinculada en este momento, puede vincular una seleccionandola en el desplegable superior
+								y haciendo click en "Vincular enfermedad"</h1>
+							
+							</div>
 						
 						</div>
-			
-									
-
+					
+					
 					</div>
-
 
 
 
@@ -205,7 +282,271 @@
 				</div>
 			</div>
 		</div>
+	</div> 
+	
+	</div> 
+	
+	<div th:if="${role==2}">
+			<div class="container-fluid">
+		<nav class="navbar navbar-expand-sm justify-content-between">
+			<!-- Brand/logo -->
+			<a class="navbar-brand d-flex align-items-center" th:href="@{/user/home}">
+				<img src="../assets/logo.png" title="Logotipo del aplicativo"
+				alt="logo" style="width: 80px;">
+				<h1 class="pt-3">Treatment Tracer</h1>
+			</a>
+
+			<!-- Links -->
+			<ul class="navbar-nav">
+				
+				<li class="nav-item">
+					<form th:action="@{/logout}" method="post">
+						<input type="submit" class="nav-link btn btn-info logout"
+							value="Cerrar Sesion" />
+					</form>
+				</li>
+			</ul>
+		</nav>
+		<div class="body">
+			<div aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item active" aria-current="page"
+						title="Usted está aquí">Inicio</li>
+				</ol>
+			</div>
+			<div class="row">
+				<div class="col-7 offset-1">
+					<table class="table text-center medidas">
+                        <thead class="bg-info text-center">
+                            <tr>
+                                <th colspan="6">PACIENTES SUPERVISADOS</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">Email</th>
+                                <th colspan="2" scope="col">Acciones</th>
+                                <th scope="col">Acceder</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        
+                        	<div th:each="patient:${patients}">
+								<tr>
+								<form th:action="@{/updateUser}">
+									
+									<td><label for="patientName" title="Nombre del paciente"><input
+											type="text" name="patientName" title="Nombre del paciente"
+											id="patientName" th:value="${patient.name}"></label></td>
+									<td><label for="patientSurname" title="Apellido del paciente"><input
+											 name="patientSurname" title="Apellido del paciente"
+											id="patientSurname" th:value="${patient.surname}" type="text"></label></td>
+									<td><label for="patientEmail" title="Email del paciente"><input
+											 name="patientEmail" title="Email del paciente"
+											id="patientEmail" th:value="${patient.email}" type="text"></label></td>
+								<td class="text-center">		
+									<input name="patientId" th:value="${patient.id}" type="hidden">	
+									<input type="submit" class="btn btn-link" value="Actualizar">
+								</form>	
+								</td>
+								<td class="text-center">	
+								
+									<form th:action="@{/removeUser}" method=POST>
+										<input name="id" th:value="${patient.id}" type="hidden"> 
+										<input type="submit" class="btn delete" value="Borrar">
+									</form>
+								</td>
+								<td class="text-center">	
+								
+									<form th:action="@{/login}" method=POST>
+										<input name="email" th:value="${patient.email}" type="hidden"> 
+										<input name="password" th:value="${patient.name}" type="hidden"> 
+										<input type="submit" class="btn btn-succes" value="Acceder">
+									</form>
+								</td>
+								
+							</tr>
+							</div>
+                        </tbody>
+                    </table>
+				</div>
+				
+				<div class="col-3 offset-1">
+					<form  th:action="@{/career/register}" method=POST>
+                        <legend class="text-center" >Registrarse</legend>
+                        <label for="name" title="name">Nombre:<br>
+                        <input type="text" onblur="compruebaNombre()" required name="name" id="name" title="name" placeholder="Introduzca nombre de paciente"><br><small id="errorName"></small></label> <br>
+                        <label for="surname" title="surname" >Apellidos:<br>
+                        <input type="text" onblur="compruebaApellido()" required  name="surname" id="surname" title="surname" placeholder="Introduzca apellidos de paciente"><br><small id="errorSurname"></small></label> <br>
+                        <label for="dateOfBirth" title="dateOfBirth">Fecha de nacimiento:<br>
+                        <input type="date" onblur="compruebaFecha()" required id="dateOfBirth" title="dateOfBirth" name="dateOfBirth" ><br><small id="errorDate"></small></label><br>
+                        <label for="email2" title="email">Email: <br>
+                        <input name="email2" onblur="compruebaEmail()" required id="email2" title="email" placeholder="Introduzca email" type="email"> <br><small id="errorEmail"></small></label><br>
+                        <input type="submit" class="formbutton register"  value="Registrar paciente">
+                   </form>
+				</div>
+			</div>
+		</div>
+	</div> 
+	
 	</div>
+	
+	<div th:if="${role==3}">
+		 <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm justify-content-between">
+            <!-- Brand/logo -->
+            <a class="navbar-brand d-flex align-items-center" th:href="@{/admin/home}">
+                <img src="../assets/logo.png" title="Logotipo del aplicativo" alt="logo" style="width:80px;">
+                <h1 class="pt-3">Treatment Tracer</h1>
+            </a>
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/diseases}">Enfermedades</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/patients}">Pacientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/carers}">Cuidadores</a>
+                </li>
+                <li class="nav-item">
+                   <form th:action="@{/logout}" method="post">
+						<input type="submit" class="nav-link btn btn-info logout"
+							value="Cerrar Sesion" />
+						</form>
+                </li>
+            </ul>
+        </nav>
+       <div>
+        <div aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page" title="Usted está aquí">Inicio</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <u class="h1">Panel de administración</u>
+                </div>
+            </div>
+            <div class="row d-flex">
+                <div class="col-6 d-flex justify-content-around">
+                    <div class="card mt-3" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Gestión de enfermedades</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a th:href="@{/admin/diseases}" class="btn btn-link d-flex justify-content-center">Acceder</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-6 d-flex justify-content-around">
+                    <div class="card mt-3 " style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Gestión de pacientes</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a th:href="@{/admin/patients}" class="btn btn-link d-flex justify-content-center">Acceder</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="row d-flex">
+                <div class="col-6 d-flex justify-content-around">
+                    <div class="card mt-3" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Gestión de cuidadores</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a th:href="@{/admin/carers}" class="btn btn-link d-flex justify-content-center">Acceder</a>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-6 d-flex justify-content-around">
+                    <div class="card mt-3 " style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">Desconectar</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <form class="d-flex justify-content-center" th:action="@{/logout}" method="post">
+						<input type="submit" class="btn btn-link"
+							value="Acceder" />
+						</form>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <u class="h1">Enfermedades inactivas</u>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <ul class="pt-5">
+                    <div th:each="dis:${inactiveDisease}">
+                    	<li class="row justify-content-between">
+                            <div class="col-6">
+                                <p th:text="${dis.name}"></p>
+                            </div>
+                            <div class="col-2">
+                                <form th:action="@{/admin/editDisease}" method=POST>
+                                	<input type="hidden" name="inactiveId" th:value="${dis.id}">
+                                	<input type="submit" value="Activar">
+                                </form>
+                            </div>
+                        
+                        </li>
+                    </div>
+                        
+                       
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+	</div>
+		
+	
+	</div>
+	
+	 <div class="modal fade" id="infoAlert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"  role="document">
+            <div class="modal-content"  style="background-color: #FBD8D8;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">INFORMACIÓN DE INTERÉS</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Al borrar esta enfermedad, estas borrando todos los tratamientos, rutinas y mediciones asociadas a la misma</p>
+                    
+                </div>
+                <div class="modal-footer">
+                <form th:action="@{/user/update}" method=POST>
+
+										<input name="diseaseId"
+											th:value="${selectedDisease != null} ? ${selectedDisease.id} : -1"
+											type="hidden"> <input type="submit"
+											class="btn btn-danger mx-1" value="Borrar">
+				</form>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 	<script type='text/javascript' src="../jquery/jquery-3.4.1.min.js"></script>
 	<script src="../jquery/jquery.js"></script>
@@ -219,6 +560,79 @@
 		crossorigin="anonymous"></script>
 
 	<script src="../Javascript/script.js"></script>
+	
+	 <script>
+        function writeDisease(){
+            if (document.getElementById('othersDiseases').value==-1){
+            	document.getElementById('formOther').style.cssText="display:block;";
+            	document.getElementById('buttonDis').style.cssText="visibility:hidden;";
+            }else {
+            	document.getElementById('formOther').style.cssText="display:none;";
+            	document.getElementById('buttonDis').style.cssText="visibility:visible;";
+            }
+        }
+        
+        function compruebaFecha() {
+        	var hoy             = new Date();
+        	var fecha = document.getElementById("dateOfBirth").value;
+        	console.log(fecha);
+        	var fechaFormulario = new Date(fecha);
+
+        	// Comparamos solo las fechas => no las horas!!
+        	hoy.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
+
+        	if (hoy <= fechaFormulario) {
+
+        		 document.getElementById("dateOfBirth").focus();
+        		 document.getElementById("errorDate").style.color="white";
+        		 document.getElementById("errorDate").style.backgroundColor="rgb(241, 181, 181)";
+        		 document.getElementById("errorDate").innerText="**La fecha de nacimiento debe ser inferior a la actual**";
+        	}
+        	else {
+        		document.getElementById("dateOfBirth").style.backgroundColor = "rgb(173, 233, 173)";
+        	}
+            
+        }
+        function compruebaNombre() {
+            nombre = document.getElementById("name").value;
+            if (nombre=="") {
+                document.getElementById("name").focus();
+                document.getElementById("errorName").style.color="white";
+          		 document.getElementById("errorName").style.backgroundColor="rgb(241, 181, 181)";
+          		 document.getElementById("errorName").innerText="**Este campo no puede estar vacío**";
+            } 
+            else {
+                document.getElementById("name").style.backgroundColor = "rgb(173, 233, 173)";
+            }
+        }
+        
+        function compruebaApellido() {
+            nombre = document.getElementById("surname").value;
+            if (nombre=="") {
+                document.getElementById("surname").focus();
+                document.getElementById("errorSurname").style.color="white";
+       		 document.getElementById("errorSurname").style.backgroundColor="rgb(241, 181, 181)";
+       		 document.getElementById("errorSurname").innerText="**Este campo no puede estar vacío**";
+            } 
+            else {
+                document.getElementById("surname").style.backgroundColor = "rgb(173, 233, 173)";
+            }
+        }
+        
+        function compruebaEmail() {
+            expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            email = document.getElementById("email2").value;
+            if (!expr.test(email) && email != "") {
+                document.getElementById("email2").focus();
+                document.getElementById("errorEmail").style.color="white";
+          		 document.getElementById("errorEmail").style.backgroundColor="rgb(241, 181, 181)";
+          		 document.getElementById("errorEmail").innerText="**El formato de este campo es el siguiente: xxxxx@xxxxx.xxx**";
+            } 
+            else if (expr.test(email)) {
+                document.getElementById("email2").style.backgroundColor = "rgb(173, 233, 173)";
+            }
+        }
+    </script>
 </body>
 
 </html>

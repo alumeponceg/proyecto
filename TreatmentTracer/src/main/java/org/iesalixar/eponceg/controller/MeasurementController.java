@@ -57,9 +57,13 @@ public class MeasurementController {
 	}
 
 	@RequestMapping(value = { "/createMeasurement" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
-	public String createMeasurement(@RequestParam(value = "value") String value ,@RequestParam(value = "unit") String unit, @RequestParam(value = "routineId") Long routineId,  Model model) {
+	public String createMeasurement(@RequestParam(value = "value") String value ,@RequestParam(value = "unit" , defaultValue ="null") String unit, @RequestParam(value = "routineId") Long routineId,  Model model) {
 		Routine rout = this.routines.findFirstById(routineId);
 		Date date= new Date();
+		if(unit.equals("null")) {
+			Measurement meas =this.measurements.findFirstByRoutine(rout);
+			unit= meas.getUnit();
+		}
 		Measurement m = new Measurement(unit, date, Float.parseFloat(value), rout);
 		this.measurements.createMeasurement(m);
 		Set<Measurement> mediciones = rout.getMeasurements();

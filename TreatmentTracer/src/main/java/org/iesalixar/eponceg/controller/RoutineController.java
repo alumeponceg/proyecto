@@ -1,16 +1,20 @@
 package org.iesalixar.eponceg.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 import org.iesalixar.eponceg.model.Disease;
+import org.iesalixar.eponceg.model.Measurement;
 import org.iesalixar.eponceg.model.Routine;
 import org.iesalixar.eponceg.model.State;
 import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.UserRepository;
 import org.iesalixar.eponceg.service.DiseaseService;
+import org.iesalixar.eponceg.service.MeasurementService;
 import org.iesalixar.eponceg.service.RoutineService;
 import org.iesalixar.eponceg.service.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +41,10 @@ public class RoutineController {
 	@Autowired
 	private DiseaseService disease;
 	
+	@Autowired
+	private MeasurementService measurements;
+	
+	
 	@RequestMapping(value ={"/routines"},  method = { RequestMethod.POST, RequestMethod.GET})
 	public String routinesOrder(@RequestParam(value = "order", defaultValue = "null") String order, Model model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -49,26 +57,46 @@ public class RoutineController {
 		Set<User> users = new HashSet<>();
 		users.add(u.get());
 		
-		
+		List<Routine> routines = new ArrayList<>();
 		switch (order) {
 		case "1":
-			model.addAttribute("routines", this.routines.ListForAnUserOrderByName(u.get()));
+			routines = this.routines.ListForAnUserOrderByName(u.get());
+			for (Routine r: routines) {
+				r.setDuration(r.getDuration()/24);
+			}
+			model.addAttribute("routines", routines);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
 			break;
 		case "2":
-			model.addAttribute("routines", this.routines.ListForAnUserOrderByNameDesc(u.get()));
+			routines = this.routines.ListForAnUserOrderByNameDesc(u.get());
+			for (Routine r: routines) {
+				r.setDuration(r.getDuration()/24);
+			}
+			model.addAttribute("routines", routines);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
 			break;
 		case "3":
-			model.addAttribute("routines", this.routines.ListForAnUserOrderByDate(u.get()));
+			routines = this.routines.ListForAnUserOrderByDate(u.get());
+			for (Routine r: routines) {
+				r.setDuration(r.getDuration()/24);
+			}
+			model.addAttribute("routines", routines);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
 			break;
 		case "4":
-			model.addAttribute("routines", this.routines.ListForAnUserOrderByDisease(u.get()));
+			routines = this.routines.ListForAnUserOrderByDisease(u.get());
+			for (Routine r: routines) {
+				r.setDuration(r.getDuration()/24);
+			}
+			model.addAttribute("routines", routines);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
 			break;
 		default:
-			model.addAttribute("routines", this.routines.ListForAnUser(u.get()));
+			routines = this.routines.ListForAnUser(u.get());
+			for (Routine r: routines) {
+				r.setDuration(r.getDuration()/24);
+			}
+			model.addAttribute("routines", routines);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
 			break;
 		}
@@ -78,13 +106,21 @@ public class RoutineController {
 
 	@RequestMapping(value = { "/removeRoutine" }, method = { RequestMethod.POST, RequestMethod.DELETE })
 	public String deleteRoutine(@RequestParam(value = "id") String id, Model model) {
-		this.routines.deleteRoutine(Long.parseLong(id));
+		Routine r = this.routines.findFirstById(Long.parseLong(id));
+		Set<Measurement> measurements = r.getMeasurements();
+		
+		for (Measurement m : measurements) {
+			this.measurements.removeMeasurement(m.getId());
+		}
+		
+		this.routines.deleteRoutine(r);
 		return "redirect:/routines";
 	}
 	
 	@RequestMapping(value = { "/updateRoutine" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String updateRoutine(@RequestParam(value = "id") String id,@RequestParam(value = "name") String name,@RequestParam(value = "posology") Integer posology,@RequestParam(value = "duration") Integer duration,  Model model) {
 		Routine r = this.routines.findFirstById(Long.parseLong(id));
+		duration=duration*24;
 		r.setDuration(duration);
 		r.setName(name);
 		r.setPosology(posology);
@@ -95,6 +131,7 @@ public class RoutineController {
 	@RequestMapping(value = { "/createRoutine" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String createRoutine(@RequestParam(value = "name") String name ,@RequestParam(value = "duration") Integer duration, @RequestParam(value = "posology") Integer posology, @RequestParam(value = "disease") Long disease,  Model model) {
 		Disease d = this.disease.readSelectedDisease(disease);
+		duration=duration*24;
 		Routine r = new Routine(name, posology, duration, d);
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

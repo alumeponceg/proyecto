@@ -280,5 +280,24 @@ font-family: 'arvo';
       
   }
 
+#miniatura {
+	overflow-y: hidden;
+	overflow-x: hidden;
+	
+}
+
+.tooltip-inner {
+    background: linear-gradient(-45deg, rgb(4, 62, 113), rgb(23, 111, 174), #23A6D5, rgb(35, 195, 213));
+    margin-top:150%;
+    margin-left:-117.5%;
+    font-weight:bold;
+    border: 3px solid rgb(203, 0, 112);
+    font-family: 'arvo';
+}
+.tooltip.bs-tooltip-right .arrow:before {
+    border-right-color: #295C8F;
+    display:none;
+}
+
 
 

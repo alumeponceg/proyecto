@@ -35,8 +35,8 @@ public class MedicalFile {
 	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date uploadDate;
 	
-	@Column(nullable=false, length = 100000)
-	private byte[] file;
+	@Column(nullable=false, length = 100000, columnDefinition = "longtext")
+	private String file;
 	
 
 	@ManyToOne
@@ -53,7 +53,7 @@ public class MedicalFile {
 
 
 
-	public MedicalFile(String title, String description, Date uploadDate, byte[] file) {
+	public MedicalFile(String title, String description, Date uploadDate, String file) {
 		super();
 		this.title = title;
 		this.description = description;
@@ -61,7 +61,7 @@ public class MedicalFile {
 		this.file = file;
 	}
 	
-	public MedicalFile(String title, String description, byte[] file) {
+	public MedicalFile(String title, String description, String file) {
 		super();
 		this.title = title;
 		this.description = description;
@@ -119,13 +119,13 @@ public class MedicalFile {
 
 
 
-	public byte[] getFile() {
+	public String getFile() {
 		return file;
 	}
 
 
 
-	public void setFile(byte[] file) {
+	public void setFile(String file) {
 		this.file = file;
 	}
 

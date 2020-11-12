@@ -1,6 +1,5 @@
 package org.iesalixar.eponceg.model;
 
-import java.sql.Blob;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,8 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -31,9 +30,8 @@ public class Disease {
 	private String description;
 	@Column (columnDefinition = "longtext")
 	private String symptom;
-	
-	@Lob
-	private Blob image;
+	@Column (columnDefinition = "longtext")
+	private String image;
 
 	@OneToMany(mappedBy="disease",fetch=FetchType.LAZY, cascade = CascadeType.ALL,  targetEntity = Treatment.class)  
 	private Set<Treatment> treatments;
@@ -49,6 +47,11 @@ public class Disease {
     )
 	private Set<User> users;
 	
+
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name="state")
+	private State state;
+	
 	/*Constructor*/
 	
 	public Disease() {
@@ -57,7 +60,7 @@ public class Disease {
 
 
 
-	public Disease(String name, String causes, String description, String symptom, Blob image) {
+	public Disease(String name, String causes, String description, String symptom, String image) {
 		super();
 		this.name = name;
 		this.causes = causes;
@@ -137,13 +140,13 @@ public class Disease {
 
 
 
-	public Blob getImage() {
+	public String getImage() {
 		return image;
 	}
 
 
 
-	public void setImage(Blob image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
@@ -181,6 +184,16 @@ public class Disease {
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+
+
+	public void setState(State state) {
+		this.state = state;
 	}
 
 

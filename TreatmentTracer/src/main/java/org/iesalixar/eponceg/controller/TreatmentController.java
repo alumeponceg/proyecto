@@ -1,7 +1,9 @@
 package org.iesalixar.eponceg.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -48,27 +50,52 @@ public class TreatmentController {
 		Optional<User> u = this.users.findByEmail(email);
 		Set<User> users = new HashSet<>();
 		users.add(u.get());
-		
+		List<Treatment> treatments = new ArrayList<>();
 		
 		switch (order) {
 		case "1":
-			model.addAttribute("treatments", this.treatments.listTreatmentsOrderByName(u.get()));
+			 treatments = this.treatments.listTreatmentsOrderByName(u.get());
+			
+			for(Treatment t : treatments) {
+				t.setDuration(t.getDuration()/24);
+			}
+			model.addAttribute("treatments", treatments);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
 			break;
 		case "2":
-			model.addAttribute("treatments", this.treatments.listTreatmentsOrderByNameDesc(u.get()));
+			 treatments = this.treatments.listTreatmentsOrderByNameDesc(u.get());
+				
+				for(Treatment t : treatments) {
+					t.setDuration(t.getDuration()/24);
+				}
+				model.addAttribute("treatments", treatments);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
 			break;
 		case "3":
-			model.addAttribute("treatments", this.treatments.listTreatmentsOrderByDate(u.get()));
+			 treatments = this.treatments.listTreatmentsOrderByDate(u.get());
+				
+				for(Treatment t : treatments) {
+					t.setDuration(t.getDuration()/24);
+				}
+				model.addAttribute("treatments", treatments);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
 			break;
 		case "4":
-			model.addAttribute("treatments", this.treatments.listTreatmentsForAnUserOrderByDisease(u.get()));
+			 treatments =  this.treatments.listTreatmentsForAnUserOrderByDisease(u.get());
+				
+				for(Treatment t : treatments) {
+					t.setDuration(t.getDuration()/24);
+				}
+				model.addAttribute("treatments", treatments);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
 			break;
 		default:
-			model.addAttribute("treatments", this.treatments.listTreatmentsForAnUser(u.get()));
+			 treatments = this.treatments.listTreatmentsForAnUser(u.get());
+				
+				for(Treatment t : treatments) {
+					t.setDuration(t.getDuration()/24);
+				}
+				model.addAttribute("treatments", treatments);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
 			break;
 		}
@@ -85,6 +112,7 @@ public class TreatmentController {
 	@RequestMapping(value = { "/updateTreatment" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String updateTreatment(@RequestParam(value = "id") String id,@RequestParam(value = "name") String name,@RequestParam(value = "posology") Integer posology,@RequestParam(value = "duration") Integer duration,  Model model) {
 		Treatment t = this.treatments.findFirstById(Long.parseLong(id));
+		duration = duration*24;
 		t.setDuration(duration);
 		t.setName(name);
 		t.setPosology(posology);
@@ -95,6 +123,7 @@ public class TreatmentController {
 	@RequestMapping(value = { "/createTreatment" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String createTreatment(@RequestParam(value = "name") String name ,@RequestParam(value = "duration") Integer duration, @RequestParam(value = "posology") Integer posology, @RequestParam(value = "disease") Long disease,  Model model) {
 		Disease d = this.disease.readSelectedDisease(disease);
+		duration=duration*24;
 		Treatment t = new Treatment(name, posology, duration, d);
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = null;

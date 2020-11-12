@@ -28,6 +28,9 @@ public class State {
 	@OneToMany(mappedBy="state",  targetEntity = User.class)  
 	private Set<User> users;
 	
+	@OneToMany(mappedBy="state",  targetEntity = Disease.class)  
+	private Set<User> diseases;
+	
 	@OneToMany(mappedBy="treatmentState",fetch=FetchType.LAZY, cascade = CascadeType.ALL,  targetEntity = Treatment.class)  
 	private Set<Treatment> treatmentsState;
 	

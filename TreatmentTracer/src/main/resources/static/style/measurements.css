@@ -155,6 +155,17 @@ table tbody tr:hover {
 }
 
 
+.delete {
+    background-color: rgb(241, 181, 181, 0.555);
+    border: 1.5px outset rgb(241, 181, 181);
+}
+
+.delete:hover {
+    background-color: rgb(241, 181, 181);
+    border: 1.5px outset rgb(241, 181, 181);
+}
+
+
 
 #myChart {
     background-color: white;

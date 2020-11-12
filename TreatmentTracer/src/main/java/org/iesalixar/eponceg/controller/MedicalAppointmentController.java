@@ -3,12 +3,14 @@ package org.iesalixar.eponceg.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
 import org.iesalixar.eponceg.model.MedicalAppointment;
 import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.UserRepository;
+import org.iesalixar.eponceg.service.DiseaseService;
 import org.iesalixar.eponceg.service.MedicalAppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,6 +27,9 @@ public class MedicalAppointmentController {
 
 	@Autowired 
 	private MedicalAppointmentService medicalAppointments;
+	
+	@Autowired 
+	private DiseaseService diseases;
 	
 	@Autowired
 	private UserRepository users;
@@ -48,7 +53,11 @@ public class MedicalAppointmentController {
 		Date fechaMesProximo = new Date();
 		
 		fechaMesProximo.setMonth(mes);
-		
+		Set<User> usuarios = new HashSet<>();
+		usuarios.add(usuario);
+		if(this.diseases.readDiseases(usuarios).isEmpty()) {
+			model.addAttribute("withoutDisease", true);
+		}
 		model.addAttribute("appointments", this.medicalAppointments.ListForTheNextMonth(usuario, fechaActual,  fechaMesProximo));
 		return "appointments";
 		

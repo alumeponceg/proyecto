@@ -26,9 +26,10 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
 	        .antMatchers(resources).permitAll()  
-	        .antMatchers("/","/login").permitAll()
-	        .antMatchers("/admin*").access("hasRole('admin')")
+	        .antMatchers("/","/login", "/register").permitAll()
 	        .antMatchers("/user*").access("hasRole('patient')")
+	        .antMatchers("/career*").access("hasRole('career')")
+	        .antMatchers("/admin*").access("hasRole('admin')")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -55,7 +56,6 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 	
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception { 
- 
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());     
     }
 }

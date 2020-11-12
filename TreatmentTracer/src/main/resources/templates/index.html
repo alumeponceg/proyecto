@@ -63,34 +63,29 @@
                    </div>
 
                    <div id="form2">
-                    <form >
+                    <form  th:action="@{/register}" method=POST>
                         <legend class="text-center" >Registrarse</legend>
                         <label for="name" title="name">Nombre:<br>
-                        <input type="text" name="name" id="name" title="name" placeholder="Introduzca su nombre"></label> <br>
+                        <input type="text" name="name" id="name" title="name" onblur="compruebaNombre()" required placeholder="Introduzca su nombre"><br><small id="errorName"></small></label> <br>
                         <label for="surname" title="surname" >Apellidos:<br>
-                        <input type="text" name="surname" id="surname" title="surname" placeholder="Introduzca sus apellidos"></label> <br>
+                        <input type="text" name="surname" id="surname" title="surname" onblur="compruebaApellido()" required placeholder="Introduzca sus apellidos"><br><small id="errorSurname"></small></label> <br>
     
                         <label for="dateOfBirth" title="dateOfBirth">Fecha de nacimiento:<br>
-                        <input type="date" id="dateOfBirth" title="dateOfBirth" name="dateOfBirth" ></label><br>
+                        <input type="date" id="dateOfBirth" title="dateOfBirth" onblur="compruebaFecha()" required name="dateOfBirth" ><br>
+                        <small id="errorDate"></small>
+                        </label><br>
                         <label for="email2" title="email">Email: <br>
-                        <input name="email2" id="email2" title="email" placeholder="Introduzca email" type="email"> </label><br>
+                        <input name="email2" id="email2" title="email" onblur="compruebaEmail()" required placeholder="Introduzca email" type="email"><br><small id="errorEmail"></small> </label><br>
                         <label for="pass" title="password">Contraseña: <br>
-                        <input type="password" name="pass" id="pass" title="password" placeholder="Introduzca contraseña"></label> <br>
-                        <label for="confirmPassword" title="Confirm password">Confirmar contraseña: <br>
-                        <input type="password" name="confirmPassword" id="confirmPassword" title="Confirm password" placeholder="Confirme su contraseña"></label><br>
-                        <label for="diseases" title="disease">Enfermedad: <br>
-                            <select id="diseases" title="disease" onchange="writeDisease()" name="diseases">
-                            <option value="null">Seleccione enfermedad</option>
-                            <option value="1">opcion 1</option>
-                            <option value="2">opcion 2</option>
-                            <option value="3">opcion 3</option>
-                            <option value="4">opcion 4</option>
-                            <option value="5">opcion 5</option>
-                            <option value="-1">Otro</option>
+                        <input type="password" name="pass" id="pass" title="password" onblur="compruebaPass()" required placeholder="Introduzca contraseña"><br><small id="errorPass"></small></label> <br>
+                        <label for="confirmPassword" title="Confirm password" >Confirmar contraseña: <br>
+                        <input type="password" name="confirmPassword" onblur="compruebaPass2()" required id="confirmPassword" title="Confirm password" placeholder="Confirme su contraseña"><br><small id="errorPass2"></small></label><br>
+                        <label for="role" title="role">Rol: <br>
+                            <select id="role" title="role" name="role" required>
+                            <option value="1">paciente</option>
+                            <option value="2">cuidador</option>
                         </select></label><br>
-                        <label class=" others" for="option" title="option">¿Qué enfermedad padece? <br>
-                        <input class=" others" type="text" name="option" id="option" title="option" placeholder="Introduzca el nombre de su enfermedad"></label><br>
-                        <input type="button" class="formbutton register"  value="Registrarse">
+                        <input type="submit" class="formbutton" onclick="comprobarErrores()" value="Registrarse">
                         <input type="button" class="return formbutton" value="Volver">
                    </form>
                    </div>
@@ -115,6 +110,102 @@
                 iterator[1].style.cssText="display:none;";
             }
         }
+        
+       
+        function compruebaFecha() {
+        	var hoy             = new Date();
+        	var fecha = document.getElementById("dateOfBirth").value;
+        	console.log(fecha);
+        	var fechaFormulario = new Date(fecha);
+
+        	// Comparamos solo las fechas => no las horas!!
+        	hoy.setHours(0,0,0,0);  // Lo iniciamos a 00:00 horas
+
+        	if (hoy <= fechaFormulario) {
+
+        		 document.getElementById("dateOfBirth").focus();
+        		 document.getElementById("errorDate").style.color="white";
+        		 document.getElementById("errorDate").style.backgroundColor="rgb(241, 181, 181)";
+        		 document.getElementById("errorDate").innerText="**La fecha de nacimiento debe ser inferior a la actual**";
+        	}
+        	else {
+        		document.getElementById("dateOfBirth").style.backgroundColor = "rgb(173, 233, 173)";
+        	}
+            
+        }
+        function compruebaNombre() {
+            nombre = document.getElementById("name").value;
+            if (nombre=="") {
+                document.getElementById("name").focus();
+                document.getElementById("errorName").style.color="white";
+          		 document.getElementById("errorName").style.backgroundColor="rgb(241, 181, 181)";
+          		 document.getElementById("errorName").innerText="**Este campo no puede estar vacío**";
+            } 
+            else {
+                document.getElementById("name").style.backgroundColor = "rgb(173, 233, 173)";
+            }
+        }
+        
+        function compruebaApellido() {
+            nombre = document.getElementById("surname").value;
+            if (nombre=="") {
+                document.getElementById("surname").focus();
+                document.getElementById("errorSurname").style.color="white";
+       		 document.getElementById("errorSurname").style.backgroundColor="rgb(241, 181, 181)";
+       		 document.getElementById("errorSurname").innerText="**Este campo no puede estar vacío**";
+            } 
+            else {
+                document.getElementById("surname").style.backgroundColor = "rgb(173, 233, 173)";
+            }
+        }
+        
+        function compruebaEmail() {
+            expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            email = document.getElementById("email2").value;
+            if (!expr.test(email) && email != "") {
+                document.getElementById("email2").focus();
+                document.getElementById("errorEmail").style.color="white";
+          		 document.getElementById("errorEmail").style.backgroundColor="rgb(241, 181, 181)";
+          		 document.getElementById("errorEmail").innerText="**El formato de este campo es el siguiente: xxxxx@xxxxx.xxx**";
+            } 
+            else if (expr.test(email)) {
+                document.getElementById("email2").style.backgroundColor = "rgb(173, 233, 173)";
+            }
+        }
+
+        function compruebaPass() {
+            expr =  /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
+            pass = document.getElementById("pass").value;
+            if (!expr.test(pass) && pass != "") {
+                document.getElementById("pass").focus();
+                document.getElementById("errorPass").style.color="white";
+          		 document.getElementById("errorPass").style.backgroundColor="rgb(241, 181, 181)";
+          		 document.getElementById("errorPass").innerText="**La contraseña debe contener entre 8 y 16 caracteres, un número, una mayúscula y una minúscula al menos **";
+                
+            } else if  (expr.test(pass)){
+                document.getElementById("pass").style.backgroundColor = "rgb(173, 233, 173)";
+            }
+        }
+        
+        function compruebaPass2() {
+            expr = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
+            passotra = document.getElementById("confirmPassword").value;
+            pass = document.getElementById("pass").value;
+            if (!expr.test(passotra) && passotra != "" || (pass!=passotra)) {
+                document.getElementById("confirmPassword").focus();
+                document.getElementById("errorPass2").style.color="white";
+         		 document.getElementById("errorPass2").style.backgroundColor="rgb(241, 181, 181)";
+         		 document.getElementById("errorPass2").innerText="**Las contraseñas deben coincidir**";
+                
+            } 
+            else if(expr.test(passotra) && (pass==passotra)){
+                document.getElementById("confirmPassword").style.backgroundColor = "rgb(173, 233, 173)";
+            }
+        }
+        
+        
+        
+        
     </script>
 
     

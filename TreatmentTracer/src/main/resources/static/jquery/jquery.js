@@ -50,7 +50,14 @@ $(document).ready(function () {
     $(".routines").slideToggle(1000);
     $(".treatments").slideUp(1000);
   });
+  
+  
+  
+  
 });
+
+
+
 
 
 

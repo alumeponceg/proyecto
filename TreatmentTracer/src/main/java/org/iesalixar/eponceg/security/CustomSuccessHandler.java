@@ -28,8 +28,12 @@ import org.springframework.stereotype.Component;
 	            if (grantedAuthority.getAuthority().equals("patient")) {
 	                redirectUrl = "/user/home";
 	                break;
-	            } else if (grantedAuthority.getAuthority().equals("admin")) {
-	                redirectUrl = "/admin/fct";
+	            } else if (grantedAuthority.getAuthority().equals("career")) {
+	                redirectUrl = "/career/home";
+	                break;
+	            }
+	            else if (grantedAuthority.getAuthority().equals("admin")) {
+	                redirectUrl = "/admin/home";
 	                break;
 	            }
 	        }

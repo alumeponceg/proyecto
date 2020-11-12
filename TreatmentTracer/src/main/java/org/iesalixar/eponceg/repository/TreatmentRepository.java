@@ -2,6 +2,7 @@ package org.iesalixar.eponceg.repository;
 
 import java.util.List;
 
+import org.iesalixar.eponceg.model.Disease;
 import org.iesalixar.eponceg.model.Treatment;
 import org.iesalixar.eponceg.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,7 +24,7 @@ public interface TreatmentRepository extends JpaRepository<Treatment, Long> {
 	public List<Treatment> findByOwnerUserOrderByActivationDate(User user);
 	
 	//Método que buscar los tratamientos de un usuario y una enfermedad concreta
-	//public List<Treatment> findByOwnerUserAndDisease(User user, Disease disease);
+	public List<Treatment> findByOwnerUserAndDisease(User user, Disease disease);
 	
 	//Método que muestra todos los tratamientos de un usuario ordenados por enfermedad
 	public List<Treatment> findByOwnerUserOrderByDisease(User user);

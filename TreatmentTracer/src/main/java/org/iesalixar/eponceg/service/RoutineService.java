@@ -2,6 +2,7 @@ package org.iesalixar.eponceg.service;
 
 import java.util.List;
 
+import org.iesalixar.eponceg.model.Disease;
 import org.iesalixar.eponceg.model.Routine;
 import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.RoutineRepository;
@@ -34,6 +35,10 @@ public class RoutineService {
 		return this.routines.findByOwnerUserOrderByDisease(user);
 	}
 	
+	public List<Routine> ListForAnUserAndDisease( User user, Disease disease){
+		return this.routines.findByOwnerUserAndDisease(user, disease);
+	}
+	
 	public Routine createRoutine(Routine routine) {
 		return this.routines.save(routine);
 	}
@@ -42,8 +47,8 @@ public class RoutineService {
 		return this.routines.findFirstById(id);
 	}
 	
-	public void deleteRoutine(Long id) {
-		this.routines.deleteById(id);
+	public void deleteRoutine(Routine r) {
+		this.routines.delete(r);
 	}
 	
 	public void updateRoutine(Routine routine) {

@@ -13,9 +13,5 @@ public class MainController {
 		return "index";
 	}
 	
-	@GetMapping("/admin/fct")
-	public String menu(Model model) {
-		
-		return "fct";
-	}
+	
 }
