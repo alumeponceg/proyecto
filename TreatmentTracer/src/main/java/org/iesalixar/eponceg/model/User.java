@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -37,9 +39,11 @@ public class User {
 	private String surname;
 	
 	@Column (columnDefinition = "varchar(45)", nullable=false, unique=true)
+	@Pattern(regexp = "^([a-zA-Z0-9_\\.\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$")
 	private String email;
 	
 	@Column (nullable=false)
+	@Pattern(regexp = "^(?=\\w*\\d)(?=\\w*[A-Z])(?=\\w*[a-z])\\S{8,16}$")
 	private String password;
 	
 	@ManyToOne(cascade=CascadeType.PERSIST)
@@ -60,6 +64,7 @@ public class User {
 	@Column (name="dateofbirth",nullable=false)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern ="dd/MM/yyyy")
+	@Past
 	private Date dateOfBirth;
 	
 	@Column (name="dischargedate", columnDefinition = "datetime default now()")

@@ -48,7 +48,7 @@ public class UserController {
 	@Autowired
 	private StateService state;
 	
-	
+	boolean error = false;
 
 	String emailCuidador = "";
 
@@ -110,6 +110,8 @@ public class UserController {
 		Optional<User> u = this.users.findByEmail(emailCuidador);
 		model.addAttribute("patients", this.userService.ListPatientOfACareer(u.get()));
 		model.addAttribute("role", 2);
+		model.addAttribute("error", error);
+		error=false;
 		return "home";
 
 	}
@@ -140,14 +142,19 @@ public class UserController {
 		u.setState(s);
 		u.setRole(roles);
 		u.setDischargeDate(new Date());
+		try {
+			this.userService.createUser(u);
 
-		this.userService.createUser(u);
-
-		Set<User> users = new HashSet<>();
-		users.add(u);
-		r.setUsers(users);
-
-		return "redirect:/login";
+			Set<User> users = new HashSet<>();
+			users.add(u);
+			r.setUsers(users);
+			error=false;
+		}catch(Exception e){
+			error=true;
+		}
+		
+		model.addAttribute("error", error);
+		return "index";
 	}
 
 	@SuppressWarnings("deprecation")
@@ -179,12 +186,17 @@ public class UserController {
 		u.setRole(roles);
 		u.setDischargeDate(new Date());
 		u.setCareer(user.get());
+		try {
+			this.userService.createUser(u);
 
-		this.userService.createUser(u);
-
-		Set<User> users = new HashSet<>();
-		users.add(u);
-		r.setUsers(users);
+			Set<User> users = new HashSet<>();
+			users.add(u);
+			r.setUsers(users);
+			error=false;
+		}catch(Exception e) {
+			error=true;
+		}
+		
 
 		return "redirect:/career/home";
 	}

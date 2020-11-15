@@ -78,3 +78,31 @@ $(window).scroll(function() {
    // scroll update
    lastScroll = currentScroll <= 0 ? 0 : currentScroll;
 });
+
+
+
+/*admin:patients*/
+$(".listar").click(function(){
+    $(".cards").hide();
+    $(".listPatient").fadeIn(1000);
+  });
+
+$(".volver").click(function(){
+    $(".cards").fadeIn(100);
+    $(".listActive").hide();
+    $(".listPatient").hide();
+    $(".listInactive").hide();
+  });
+
+
+$(".activar").click(function(){
+    $(".cards").hide();
+    $(".listInactive").fadeIn(1000);
+  });
+
+
+$(".desactivar").click(function(){
+    $(".cards").hide();
+    $(".listActive").fadeIn(1000);
+  });
+

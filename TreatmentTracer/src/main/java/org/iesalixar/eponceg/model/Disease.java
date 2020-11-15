@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Disease {
@@ -21,13 +22,15 @@ public class Disease {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column (unique=true, columnDefinition = "varchar(45)")
+	@Column (unique=true, nullable=false, columnDefinition = "varchar(45)")
 	private String name;
+	@Size(min = 20)
 	@Column (columnDefinition = "longtext")
 	private String causes;
+	@Size(min = 20)
 	@Column (columnDefinition = "longtext")
 	private String description;
+	@Size(min = 20)
 	@Column (columnDefinition = "longtext")
 	private String symptom;
 	@Column (columnDefinition = "longtext")

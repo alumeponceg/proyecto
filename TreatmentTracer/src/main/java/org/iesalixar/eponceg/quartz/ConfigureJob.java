@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ConfigureJob {
+	
+		
 	 @Bean
 	    public JobDetail jobADetails() {
 	        return JobBuilder.newJob(TreatmentUpdateJob.class).withIdentity("sampleJobA")
@@ -15,7 +17,7 @@ public class ConfigureJob {
 	    public Trigger jobATrigger(JobDetail jobADetails) {
 
 	        return TriggerBuilder.newTrigger().forJob(jobADetails)
-
+	        		
 	                .withIdentity("sampleTriggerA")
 	                .withSchedule(CronScheduleBuilder.cronSchedule("0 5 21 * * ?"))
 	                .build();

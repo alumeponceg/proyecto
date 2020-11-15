@@ -1,13 +1,10 @@
 package org.iesalixar.eponceg.controller;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 import org.iesalixar.eponceg.model.Disease;
-import org.iesalixar.eponceg.model.Routine;
-import org.iesalixar.eponceg.model.Treatment;
 import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.UserRepository;
 import org.iesalixar.eponceg.service.DiseaseService;
@@ -19,6 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,6 +39,8 @@ public class DiseaseController {
 	
 	@Autowired
 	private StateService state;
+	
+	private boolean error=false;
 
 	@RequestMapping(value = { "/user/update" }, method = { RequestMethod.POST, RequestMethod.PUT })
 	public String removeDisease(@RequestParam(value = "diseaseId") String id, Model model) {
@@ -158,8 +158,16 @@ public class DiseaseController {
 		d.setImage(pic);
 		d.setSymptom(symptom);
 		
-		this.diseases.updateDisease(d);
-		return "redirect:/admin/home";
+		try {
+			this.diseases.updateDisease(d);
+			error=false;
+		}catch(Exception e) {
+			System.out.println("hay un problemiya");
+			this.error=true;
+		}
+		
+		
+		return "redirect:/admin/diseases";
 	}
 	
 	@RequestMapping(value = { "/admin/addDisease" }, method = { RequestMethod.POST, RequestMethod.PUT })
@@ -173,8 +181,13 @@ public class DiseaseController {
 		d.setCauses(causes);
 		d.setImage(pic);
 		d.setSymptom(symptom);
+		try {
+			this.diseases.createDisease(d);
+			error=false;
+		}catch(Exception e) {
+			this.error=true;
+		}
 		
-		this.diseases.createDisease(d);
 		return "redirect:/admin/diseases";
 	}
 	
@@ -183,6 +196,8 @@ public class DiseaseController {
 
 		model.addAttribute("inactiveDisease", this.diseases.listInactive());
 		model.addAttribute("allDiseases", this.diseases.listAllDisease());
+		model.addAttribute("error", error);
+		error=false;
 		return "diseases";
 	}
 	
