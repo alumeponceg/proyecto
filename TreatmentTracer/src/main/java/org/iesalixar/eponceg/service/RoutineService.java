@@ -1,5 +1,6 @@
 package org.iesalixar.eponceg.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.iesalixar.eponceg.model.Disease;
@@ -53,5 +54,10 @@ public class RoutineService {
 	
 	public void updateRoutine(Routine routine) {
 		this.routines.save(routine);
+	}
+	
+	public List<Routine> findAllByExpirationDateLessThan(){
+		Date date = new Date();
+		return this.routines.findAllByExpirationDateLessThan(date);
 	}
 }

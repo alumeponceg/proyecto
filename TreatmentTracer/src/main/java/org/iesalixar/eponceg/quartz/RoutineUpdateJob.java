@@ -1,18 +1,18 @@
 package org.iesalixar.eponceg.quartz;
 
+import org.iesalixar.eponceg.model.Routine;
 import org.iesalixar.eponceg.model.State;
-import org.iesalixar.eponceg.model.Treatment;
+import org.iesalixar.eponceg.service.RoutineService;
 import org.iesalixar.eponceg.service.StateService;
-import org.iesalixar.eponceg.service.TreatmentService;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class TreatmentUpdateJob implements Job {
+public class RoutineUpdateJob implements Job {
 
 	@Autowired
-	private TreatmentService treatments;
+	private RoutineService routines;
 	@Autowired
 	private StateService state;
 	
@@ -20,13 +20,12 @@ public class TreatmentUpdateJob implements Job {
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 
 		State s = this.state.findFirstById(2L);
-		for(Treatment t : this.treatments.findAllByExpirationDateLessThan()) {
-			System.out.println(t.getName());
-			t.setTreatmentState(s);
+		for(Routine r : this.routines.findAllByExpirationDateLessThan()) {
+			System.out.println(r.getName());
+			r.setRoutineState(s);
 			
-			this.treatments.updateTreatment(t);
-			System.out.println(t.getTreatmentState().getName());
+			this.routines.updateRoutine(r);
+			System.out.println(r.getRoutineState().getName());
 		}
 	}
-
 }

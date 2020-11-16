@@ -1,5 +1,6 @@
 package org.iesalixar.eponceg.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.iesalixar.eponceg.model.Disease;
@@ -38,5 +39,9 @@ public interface TreatmentRepository extends JpaRepository<Treatment, Long> {
 	
 	//Método que recoge un tratamiento según su id
 	public Treatment findFirstById(Long id);
+	
+	
+	//Método que busca los tratamientos expirados
+	public List<Treatment> findAllByExpirationDateLessThan(Date date);
 	
 }

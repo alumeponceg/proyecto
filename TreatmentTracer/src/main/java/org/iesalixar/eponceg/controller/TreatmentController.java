@@ -1,6 +1,7 @@
 package org.iesalixar.eponceg.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -100,6 +101,7 @@ public class TreatmentController {
 			break;
 		}
 		
+		
 		return "treatments";
 	}
 
@@ -112,10 +114,19 @@ public class TreatmentController {
 	@RequestMapping(value = { "/updateTreatment" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String updateTreatment(@RequestParam(value = "id") String id,@RequestParam(value = "name") String name,@RequestParam(value = "posology") Integer posology,@RequestParam(value = "duration") Integer duration,  Model model) {
 		Treatment t = this.treatments.findFirstById(Long.parseLong(id));
-		duration = duration*24;
-		t.setDuration(duration);
+		Integer durationHoras = duration*24;
+		t.setDuration(durationHoras);
 		t.setName(name);
 		t.setPosology(posology);
+		
+		/*Fecha expiracion*/
+		Date dt = t.getActivationDate();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        c.add(Calendar.DATE, duration);
+        dt = c.getTime();
+        t.setExpirationDate(dt);
+		
 		this.treatments.updateTreatment(t);
 		return "redirect:/treatments";
 	}
@@ -123,8 +134,8 @@ public class TreatmentController {
 	@RequestMapping(value = { "/createTreatment" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String createTreatment(@RequestParam(value = "name") String name ,@RequestParam(value = "duration") Integer duration, @RequestParam(value = "posology") Integer posology, @RequestParam(value = "disease") Long disease,  Model model) {
 		Disease d = this.disease.readSelectedDisease(disease);
-		duration=duration*24;
-		Treatment t = new Treatment(name, posology, duration, d);
+		Integer durationHoras=duration*24;
+		Treatment t = new Treatment(name, posology, durationHoras, d);
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = null;
 		if (principal instanceof UserDetails) {
@@ -139,6 +150,13 @@ public class TreatmentController {
 		
 		Date date= new Date();
 		t.setActivationDate(date);
+		
+		Date dt = t.getActivationDate();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        c.add(Calendar.DATE, duration);
+        dt = c.getTime();
+        t.setExpirationDate(dt);
 		this.treatments.createTreatment(t);
 		return "redirect:/treatments";
 	}

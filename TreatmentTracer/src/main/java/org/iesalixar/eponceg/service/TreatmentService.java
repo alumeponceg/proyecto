@@ -1,5 +1,6 @@
 package org.iesalixar.eponceg.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.iesalixar.eponceg.model.Disease;
@@ -53,5 +54,10 @@ public class TreatmentService {
 	
 	public Treatment findFirstById(Long id) {
 		return this.treatments.findFirstById(id);
+	}
+	
+	public List<Treatment> findAllByExpirationDateLessThan(){
+		Date date = new Date();
+		return this.treatments.findAllByExpirationDateLessThan(date);
 	}
 }

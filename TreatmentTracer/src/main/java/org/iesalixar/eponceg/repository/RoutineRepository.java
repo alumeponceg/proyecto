@@ -1,5 +1,6 @@
 package org.iesalixar.eponceg.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.iesalixar.eponceg.model.Disease;
@@ -37,5 +38,8 @@ public interface RoutineRepository extends JpaRepository<Routine, Long> {
 	public void delete(Routine r);
 	
 	public Routine findFirstById(Long id);
+	
+	//Método que busca las rutinas expiradas
+	public List<Routine> findAllByExpirationDateLessThan(Date date);
 	
 }

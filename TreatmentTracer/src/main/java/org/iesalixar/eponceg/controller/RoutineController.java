@@ -1,6 +1,7 @@
 package org.iesalixar.eponceg.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -120,10 +121,19 @@ public class RoutineController {
 	@RequestMapping(value = { "/updateRoutine" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String updateRoutine(@RequestParam(value = "id") String id,@RequestParam(value = "name") String name,@RequestParam(value = "posology") Integer posology,@RequestParam(value = "duration") Integer duration,  Model model) {
 		Routine r = this.routines.findFirstById(Long.parseLong(id));
-		duration=duration*24;
-		r.setDuration(duration);
+		Integer durationHoras=duration*24;
+		r.setDuration(durationHoras);
 		r.setName(name);
 		r.setPosology(posology);
+		
+		/*Fecha expiracion*/
+		Date dt = r.getActivationDate();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        c.add(Calendar.DATE, duration);
+        dt = c.getTime();
+        r.setExpirationDate(dt);
+		
 		this.routines.updateRoutine(r);
 		return "redirect:/routines";
 	}
@@ -131,8 +141,8 @@ public class RoutineController {
 	@RequestMapping(value = { "/createRoutine" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String createRoutine(@RequestParam(value = "name") String name ,@RequestParam(value = "duration") Integer duration, @RequestParam(value = "posology") Integer posology, @RequestParam(value = "disease") Long disease,  Model model) {
 		Disease d = this.disease.readSelectedDisease(disease);
-		duration=duration*24;
-		Routine r = new Routine(name, posology, duration, d);
+		Integer durationHoras=duration*24;
+		Routine r = new Routine(name, posology, durationHoras, d);
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = null;
@@ -148,6 +158,15 @@ public class RoutineController {
 		
 		Date date= new Date();
 		r.setActivationDate(date);
+		
+		/*Fecha expiracion*/
+		Date dt = r.getActivationDate();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        c.add(Calendar.DATE, duration);
+        dt = c.getTime();
+        r.setExpirationDate(dt);
+		
 		this.routines.createRoutine(r);
 		return "redirect:/routines";
 	}

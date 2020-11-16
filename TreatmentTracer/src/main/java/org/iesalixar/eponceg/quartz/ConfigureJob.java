@@ -9,7 +9,7 @@ public class ConfigureJob {
 		
 	 @Bean
 	    public JobDetail jobADetails() {
-	        return JobBuilder.newJob(TreatmentUpdateJob.class).withIdentity("sampleJobA")
+	        return JobBuilder.newJob(TreatmentUpdateJob.class).withIdentity("treatmentUpdate")
 	                .storeDurably().build();
 	    }
 
@@ -18,8 +18,25 @@ public class ConfigureJob {
 
 	        return TriggerBuilder.newTrigger().forJob(jobADetails)
 	        		
-	                .withIdentity("sampleTriggerA")
-	                .withSchedule(CronScheduleBuilder.cronSchedule("0 5 21 * * ?"))
+	                .withIdentity("treatmentUpdateTrigger")
+	                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 14 * * ?"))
+	                .build();
+	    }
+	    
+	    
+	    @Bean
+	    public JobDetail jobADetailsRoutine() {
+	        return JobBuilder.newJob(RoutineUpdateJob.class).withIdentity("routineUpdate")
+	                .storeDurably().build();
+	    }
+
+	    @Bean
+	    public Trigger jobATriggerRoutine(JobDetail jobADetails) {
+
+	        return TriggerBuilder.newTrigger().forJob(jobADetails)
+	        		
+	                .withIdentity("routineUpdateTrigger")
+	                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 14 * * ?"))
 	                .build();
 	    }
 }

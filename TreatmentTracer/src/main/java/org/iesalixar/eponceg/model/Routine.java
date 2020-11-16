@@ -39,6 +39,11 @@ public class Routine {
 	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date activationDate;
 	
+	@Column (name="expirationdate" ,columnDefinition = "datetime default now()")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern ="dd/MM/yyyy")
+	private Date expirationDate;
+	
 	@ManyToOne
 	@JoinColumn(name="routinestate", nullable=false, columnDefinition = "integer default 1")
 	private State routineState;
@@ -157,6 +162,16 @@ public class Routine {
 
 	public void setMeasurements(Set<Measurement> measurements) {
 		this.measurements = measurements;
+	}
+
+
+	public Date getExpirationDate() {
+		return expirationDate;
+	}
+
+
+	public void setExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
 	}
 	
 	

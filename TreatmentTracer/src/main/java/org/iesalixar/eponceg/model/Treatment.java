@@ -36,6 +36,11 @@ public class Treatment {
 	@DateTimeFormat(pattern ="dd/MM/yyyy")
 	private Date activationDate;
 	
+	@Column (name="expirationdate" ,columnDefinition = "datetime default now()")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern ="dd/MM/yyyy")
+	private Date expirationDate;
+	
 	@ManyToOne
 	@JoinColumn(name="treatmentstate", nullable=false, columnDefinition = "integer default 1")
 	private State treatmentState;
@@ -127,6 +132,13 @@ public class Treatment {
 		this.disease = disease;
 	}
 
+	public Date getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
+	}
 
 	
 	
