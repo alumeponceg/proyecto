@@ -191,14 +191,13 @@ background-color: rgb(210, 237, 248) !important;
 
 .fc-today-button {
   border: 3px ridge rgb(203, 0, 112) !important;
-  background-color: rgba(203, 0, 112) !important;
-  color: white !important;
+  opacity: 1 !important;
+  color: rgba(203, 0, 112) !important;
 }
 
 .fc-today-button:hover {
   
-  background-color:  rgba(255, 255, 255, 0.388)  !important;
-  color: white !important;
+  color: rgba(203, 0, 112) !important;
   font-weight: bold;
 }
 
@@ -227,9 +226,32 @@ background-color: rgb(210, 237, 248) !important;
   font-family: 'arvo' !important;
 }
 
-.fc-today {
-  background-color: rgb(255, 240, 242) !important;
-}
+ 
 .fc th, .fc td, .fc-view-container, .fc-view, .fc-month-view, .fc-basic-view {
 	border-color: rgb(4, 62, 113) !important;
+}
+
+.delete {
+    background-color: rgb(241, 181, 181, 0.555);
+    border: 1.5px outset rgb(241, 181, 181);
+    color: black;
+    font-family: 'arvo';
+    font-weight: bold;
+}
+
+.delete:hover {
+    background-color: rgb(241, 181, 181);
+    border: 1.5px outset rgb(241, 181, 181);
+}
+
+.actived {
+    background-color: rgba(173, 233, 173, 0.555);
+    border: 1.5px outset rgb(173, 233, 173);
+    font-family: 'arvo';
+    font-weight: bold;
+}
+
+.actived:hover {
+    background-color: rgba(173, 233, 173);
+    border: 1.5px outset rgb(173, 233, 173);
 }

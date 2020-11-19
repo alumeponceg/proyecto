@@ -32,9 +32,12 @@ $(document).ready(function() {
         editable: true,
         eventLimit: true, // allow "more" link when too many events
         eventClick: function (calEvent, jsEvent, view) {
+        	
             $('#event-title').text(calEvent.title);
             $('#event-description').html(calEvent.description);
             $('#modal-event').modal();
+            document.getElementById("botonModal").value=calEvent.id;
+            
         },  
 	});
     
@@ -42,16 +45,39 @@ $(document).ready(function() {
     var date = document.getElementsByClassName("dateApp");
     var annot = document.getElementsByClassName("annotApp");
     var espec = document.getElementsByClassName("espApp");
+    var ids = document.getElementsByClassName("IdApp");
+    
+    var events = new Array();
     for (var i=0; i<title.length; i++) { 
     	
     	var newEvent = new Object();
-    	
+    	newEvent.id= ids[i].innerText;
         newEvent.title = title[i].innerText;
         newEvent.start = date[i].innerText
         newEvent.description ="<b>Especialidad: </b>" +  espec[i].innerText + "<br><b>Anotaciones: </b>" + annot[i].innerText;
+        events.push(newEvent);
         
-        $('#calendar').fullCalendar( 'renderEvent', newEvent );
+        	
+        
     	
     }
+    
+    $('#calendar').fullCalendar( 'renderEvents', events );
+    
+    
+    $(".fc-prev-button").click(function () {
+        
+    	 $('#calendar').fullCalendar( 'renderEvents', events );
+      });
+    
+    $(".fc-next-button").click(function () {
+        
+   	 $('#calendar').fullCalendar( 'renderEvents', events );
+     });
+    
+    $(".fc-today-button").click(function () {
+        
+      	 $('#calendar').fullCalendar( 'renderEvents', events );
+        });
     
 });

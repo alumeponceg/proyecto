@@ -23,4 +23,6 @@ public interface MedicalAppointmentRepository extends JpaRepository<MedicalAppoi
 	//Método para añadir una cita a la base de datos
 	@SuppressWarnings("unchecked")
 	public MedicalAppointment save(MedicalAppointment medicalAppointent);
+	
 }
+

@@ -58,6 +58,7 @@ public class MedicalAppointmentController {
 		if(this.diseases.readDiseases(usuarios).isEmpty()) {
 			model.addAttribute("withoutDisease", true);
 		}
+		model.addAttribute("allApp", this.medicalAppointments.ListForAnUser(usuario));
 		model.addAttribute("appointments", this.medicalAppointments.ListForTheNextMonth(usuario, fechaActual,  fechaMesProximo));
 		return "appointments";
 		
@@ -93,6 +94,12 @@ public class MedicalAppointmentController {
 		
 		this.users.save(u.get());
 		
+		return "redirect:/medicalAppointments";
+	}
+	
+	@RequestMapping(value = { "/deleteAppointment" }, method = { RequestMethod.POST, RequestMethod.DELETE })
+	public String deleteAppointment(@RequestParam(value = "id") String id, Model model) {
+		this.medicalAppointments.delete(Long.parseLong(id));
 		return "redirect:/medicalAppointments";
 	}
 }
