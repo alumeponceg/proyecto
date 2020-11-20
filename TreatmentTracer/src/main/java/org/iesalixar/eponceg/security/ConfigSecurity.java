@@ -27,9 +27,10 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
 	        .antMatchers(resources).permitAll()  
 	        .antMatchers("/","/login", "/register").permitAll()
-	        .antMatchers("/user*").access("hasRole('patient')")
-	        .antMatchers("/career*").access("hasRole('career')")
-	        .antMatchers("/admin*").access("hasRole('admin')")
+	        .antMatchers("/career/home").hasAnyAuthority("patient","career")
+	        .antMatchers("/user/*").hasAuthority("patient")
+	        .antMatchers("/career/*").hasAuthority("career")
+	        .antMatchers("/admin/*").hasAuthority("admin")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -43,7 +44,12 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
             .logout()
                 .permitAll()
                 .logoutSuccessUrl("/login?logout");
+        
+        http.exceptionHandling().accessDeniedPage("/");
+      
     }
+	
+	
 	BCryptPasswordEncoder bCryptPasswordEncoder;
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -51,6 +57,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
         return bCryptPasswordEncoder;
     }
     
+   
     @Autowired
     UserService userDetailsService;
 	

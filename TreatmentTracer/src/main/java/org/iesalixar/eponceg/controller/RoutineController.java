@@ -46,7 +46,7 @@ public class RoutineController {
 	private MeasurementService measurements;
 	
 	
-	@RequestMapping(value ={"/routines"},  method = { RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value ={"/user/routines"},  method = { RequestMethod.POST, RequestMethod.GET})
 	public String routinesOrder(@RequestParam(value = "order", defaultValue = "null") String order, Model model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = null;
@@ -105,7 +105,7 @@ public class RoutineController {
 		return "routines";
 	}
 
-	@RequestMapping(value = { "/removeRoutine" }, method = { RequestMethod.POST, RequestMethod.DELETE })
+	@RequestMapping(value = { "/user/removeRoutine" }, method = { RequestMethod.POST, RequestMethod.DELETE })
 	public String deleteRoutine(@RequestParam(value = "id") String id, Model model) {
 		Routine r = this.routines.findFirstById(Long.parseLong(id));
 		Set<Measurement> measurements = r.getMeasurements();
@@ -115,10 +115,10 @@ public class RoutineController {
 		}
 		
 		this.routines.deleteRoutine(r);
-		return "redirect:/routines";
+		return "redirect:/user/routines";
 	}
 	
-	@RequestMapping(value = { "/updateRoutine" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
+	@RequestMapping(value = { "/user/updateRoutine" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String updateRoutine(@RequestParam(value = "id") String id,@RequestParam(value = "name") String name,@RequestParam(value = "posology") Integer posology,@RequestParam(value = "duration") Integer duration,  Model model) {
 		Routine r = this.routines.findFirstById(Long.parseLong(id));
 		Integer durationHoras=duration*24;
@@ -135,10 +135,10 @@ public class RoutineController {
         r.setExpirationDate(dt);
 		
 		this.routines.updateRoutine(r);
-		return "redirect:/routines";
+		return "redirect:/user/routines";
 	}
 
-	@RequestMapping(value = { "/createRoutine" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
+	@RequestMapping(value = { "/user/createRoutine" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String createRoutine(@RequestParam(value = "name") String name ,@RequestParam(value = "duration") Integer duration, @RequestParam(value = "posology") Integer posology, @RequestParam(value = "disease") Long disease,  Model model) {
 		Disease d = this.disease.readSelectedDisease(disease);
 		Integer durationHoras=duration*24;
@@ -168,10 +168,10 @@ public class RoutineController {
         r.setExpirationDate(dt);
 		
 		this.routines.createRoutine(r);
-		return "redirect:/routines";
+		return "redirect:/user/routines";
 	}
 	
-	@RequestMapping(value = { "/activeRoutine" }, method = { RequestMethod.POST, RequestMethod.PUT})
+	@RequestMapping(value = { "/user/activeRoutine" }, method = { RequestMethod.POST, RequestMethod.PUT})
 	public String activeOrDeactiveRoutine(@RequestParam(value = "idUpdate") String id,  Model model) {
 		Routine r = this.routines.findFirstById(Long.parseLong(id));
 		State state=null;
@@ -183,7 +183,7 @@ public class RoutineController {
 		}
 		r.setRoutineState(state);
 		this.routines.updateRoutine(r);
-		return "redirect:/routines";
+		return "redirect:/user/routines";
 	}
 
 	

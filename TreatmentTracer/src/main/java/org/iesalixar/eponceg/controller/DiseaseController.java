@@ -8,15 +8,12 @@ import org.iesalixar.eponceg.model.Disease;
 import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.UserRepository;
 import org.iesalixar.eponceg.service.DiseaseService;
-import org.iesalixar.eponceg.service.RoutineService;
 import org.iesalixar.eponceg.service.StateService;
-import org.iesalixar.eponceg.service.TreatmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,11 +28,6 @@ public class DiseaseController {
 	@Autowired
 	private UserRepository users;
 	
-	@Autowired
-	private TreatmentService treatments;
-	
-	@Autowired
-	private RoutineService routines;
 	
 	@Autowired
 	private StateService state;

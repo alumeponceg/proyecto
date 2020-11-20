@@ -23,9 +23,9 @@
 
             <!-- Links -->
             <ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/treatments}">Tratamientos</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/routines}">Rutinas</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/medicalAppointments}">Citas médicas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/treatments}">Tratamientos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/routines}">Rutinas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/medicalAppointments}">Citas médicas</a></li>
 				<li class="nav-item"><a class="nav-link" href="files">Archivos médicos</a></li>
 				<li class="nav-item">
 					<form th:action="@{/logout}" method="post">
@@ -89,7 +89,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-sm actived" data-dismiss="modal">Close</button>
                                     
-                                    <form th:action="@{/deleteAppointment}" method="post">
+                                    <form th:action="@{/user/deleteAppointment}" method="post">
                                     	<input type="hidden" id="botonModal" name="id">
 										<input type="submit" class="btn btn-sm delete" value="Borrar" />
 									</form>
@@ -115,7 +115,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12 ">
-                                <form th:action="@{/createAppointment}" class="ml-4" >
+                                <form th:action="@{/user/createAppointment}" class="ml-4" >
                                     <label for="date" title="fecha de la cita"><strong>Fecha:</strong> <br>
                                         <input type="Date" name="date" id="date" title="fecha de la cita"></label><br>
                                         <label for="title" title="Título de la cita"><strong>Título:</strong> <br>

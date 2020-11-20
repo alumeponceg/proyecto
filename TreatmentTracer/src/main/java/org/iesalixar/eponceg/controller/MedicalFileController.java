@@ -32,7 +32,7 @@ public class MedicalFileController {
 	@Autowired 
 	private DiseaseService diseases;
 	
-	@GetMapping({"/files"})
+	@GetMapping({"/user/files"})
 	public String getFiles(Model model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = null;
@@ -50,7 +50,7 @@ public class MedicalFileController {
 		return "files";
 		
 	}
-	@RequestMapping(value = { "/uploadFile" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
+	@RequestMapping(value = { "/user/uploadFile" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String uploadFile(@RequestParam(value = "nameFile") String title ,@RequestParam(value = "desFile") String description, @RequestParam(value = "pic") String url,  Model model) {
 		
 		MedicalFile file = new MedicalFile(title,description, url);
@@ -66,13 +66,13 @@ public class MedicalFileController {
 		
 		file.setUserId(u.get());
 		this.medicalFiles.uploadFile(file);
-		return "redirect:/files";
+		return "redirect:/user/files";
 	}
 	
 	@RequestMapping(value = { "/removeFile" }, method = { RequestMethod.POST, RequestMethod.DELETE })
 	public String deleteTreatment(@RequestParam(value = "id") String id, Model model) {
 		this.medicalFiles.deleteFile(Long.parseLong(id));
-		return "redirect:/files";
+		return "redirect:/user/files";
 	}
 	
 }

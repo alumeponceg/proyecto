@@ -40,7 +40,7 @@ public class TreatmentController {
 	@Autowired
 	private DiseaseService disease;
 	
-	@RequestMapping(value ={"/treatments"},  method = { RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value ={"/user/treatments"},  method = { RequestMethod.POST, RequestMethod.GET})
 	public String treatmentsOrder(@RequestParam(value = "order", defaultValue = "null") String order, Model model) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = null;
@@ -105,13 +105,13 @@ public class TreatmentController {
 		return "treatments";
 	}
 
-	@RequestMapping(value = { "/removeTreatment" }, method = { RequestMethod.POST, RequestMethod.DELETE })
+	@RequestMapping(value = { "/user/removeTreatment" }, method = { RequestMethod.POST, RequestMethod.DELETE })
 	public String deleteTreatment(@RequestParam(value = "id") String id, Model model) {
 		this.treatments.deleteTreatment(Long.parseLong(id));
-		return "redirect:/treatments";
+		return "redirect:/user/treatments";
 	}
 	
-	@RequestMapping(value = { "/updateTreatment" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
+	@RequestMapping(value = { "/user/updateTreatment" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String updateTreatment(@RequestParam(value = "id") String id,@RequestParam(value = "name") String name,@RequestParam(value = "posology") Integer posology,@RequestParam(value = "duration") Integer duration,  Model model) {
 		Treatment t = this.treatments.findFirstById(Long.parseLong(id));
 		Integer durationHoras = duration*24;
@@ -128,10 +128,10 @@ public class TreatmentController {
         t.setExpirationDate(dt);
 		
 		this.treatments.updateTreatment(t);
-		return "redirect:/treatments";
+		return "redirect:/user/treatments";
 	}
 
-	@RequestMapping(value = { "/createTreatment" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
+	@RequestMapping(value = { "/user/createTreatment" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String createTreatment(@RequestParam(value = "name") String name ,@RequestParam(value = "duration") Integer duration, @RequestParam(value = "posology") Integer posology, @RequestParam(value = "disease") Long disease,  Model model) {
 		Disease d = this.disease.readSelectedDisease(disease);
 		Integer durationHoras=duration*24;
@@ -158,10 +158,10 @@ public class TreatmentController {
         dt = c.getTime();
         t.setExpirationDate(dt);
 		this.treatments.createTreatment(t);
-		return "redirect:/treatments";
+		return "redirect:/user/treatments";
 	}
 	
-	@RequestMapping(value = { "/activeTreatment" }, method = { RequestMethod.POST, RequestMethod.PUT})
+	@RequestMapping(value = { "/user/activeTreatment" }, method = { RequestMethod.POST, RequestMethod.PUT})
 	public String activeOrDeactiveTreatment(@RequestParam(value = "idUpdate") String id,  Model model) {
 		Treatment t = this.treatments.findFirstById(Long.parseLong(id));
 		State state=null;
@@ -173,7 +173,7 @@ public class TreatmentController {
 		}
 		t.setTreatmentState(state);
 		this.treatments.updateTreatment(t);
-		return "redirect:/treatments";
+		return "redirect:/user/treatments";
 	}
 
 	

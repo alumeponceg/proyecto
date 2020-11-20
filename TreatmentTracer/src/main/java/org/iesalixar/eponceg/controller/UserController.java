@@ -91,23 +91,28 @@ public class UserController {
 
 	}
 
-	@GetMapping("/career/home")
-	public String careerHome(Model model) {
+	@RequestMapping("/career/home")
+	public String careerHome(@RequestParam(value = "volver", defaultValue = "0") String volver ,Model model) {
 
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = null;
 		if (principal instanceof UserDetails) {
 			userDetails = (UserDetails) principal;
 		}
-
+		Optional<User> u= null;
 		Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
 		for (GrantedAuthority grantedAuthority : authorities) {
 			if (grantedAuthority.getAuthority().equals("career")) {
 				this.emailCuidador = userDetails.getUsername();
+				
+			}else if(volver.equals("1")) {
+				 u =this.users.findByEmail(emailCuidador);
+			}else if(!grantedAuthority.getAuthority().equals("career") && volver.equals("0")){
+				return "index";
 			}
 		}
-
-		Optional<User> u = this.users.findByEmail(emailCuidador);
+		
+		u =this.users.findByEmail(emailCuidador);
 		model.addAttribute("patients", this.userService.ListPatientOfACareer(u.get()));
 		model.addAttribute("role", 2);
 		model.addAttribute("error", error);
@@ -201,13 +206,13 @@ public class UserController {
 		return "redirect:/career/home";
 	}
 
-	@RequestMapping(value = { "/removeUser" }, method = { RequestMethod.POST, RequestMethod.DELETE })
+	@RequestMapping(value = { "/career/removeUser" }, method = { RequestMethod.POST, RequestMethod.DELETE })
 	public String deleteUser(@RequestParam(value = "id") String id, Model model) {
 		this.userService.deletePatient(id);
 		return "redirect:/career/home";
 	}
 
-	@RequestMapping(value = { "/updateUser" }, method = { RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET })
+	@RequestMapping(value = { "/career/updateUser" }, method = { RequestMethod.POST, RequestMethod.PUT, RequestMethod.GET })
 	public String updateUser(@RequestParam(value = "patientId") String id, @RequestParam(value = "patientName") String name,
 			@RequestParam(value = "patientSurname") String surname, @RequestParam(value = "patientEmail") String email,
 			Model model) {

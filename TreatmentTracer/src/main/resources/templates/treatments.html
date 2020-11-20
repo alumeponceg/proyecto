@@ -24,9 +24,9 @@
 
 			<!-- Links -->
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/treatments}">Tratamientos</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/routines}">Rutinas</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/medicalAppointments}">Citas médicas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/treatments}">Tratamientos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/routines}">Rutinas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/medicalAppointments}">Citas médicas</a></li>
 				<li class="nav-item"><a class="nav-link" href="files">Archivos médicos</a></li>
 				<li class="nav-item">
 					<form th:action="@{/logout}" method="post">
@@ -49,7 +49,7 @@
 			<div class="row pt-5">
 				<div class="col-4 offset-2">
 				
-					<form th:action="@{/treatments}" method=POST>
+					<form th:action="@{/user/treatments}" method=POST>
 								<select name="order">
 									<option value="-1">Ordenar por</option>
 									<option value="3">Fecha de activación</option>
@@ -84,7 +84,7 @@
 
 							<div th:each="treat:${treatments}">
 								<tr>
-								<form th:action="@{/updateTreatment}">
+								<form th:action="@{/user/updateTreatment}">
 									<td><label for="name" title="nombre del tratamiento"><input
 											type="text" name="name" title="nombre del tratamiento"
 											id="name" th:value="${treat.name}"></label></td>
@@ -102,7 +102,7 @@
 								<td class="text-center">			
 									<input type="submit" class="btn update" value="Actualizar">
 								</form>
-									<form th:action="@{/activeTreatment}" method=POST>
+									<form th:action="@{/user/activeTreatment}" method=POST>
 										<input name="idUpdate" th:value="${treat.id}" type="hidden"> 
 										<div th:if="${treat.treatmentState.id==1}">
 										<input type="submit" class="btn actived" value="Desactivar">
@@ -112,7 +112,7 @@
 										</div>
 									</form>
 									
-									<form th:action="@{/removeTreatment}" method=POST>
+									<form th:action="@{/user/removeTreatment}" method=POST>
 										<input name="id" th:value="${treat.id}" type="hidden"> 
 										<input type="submit" class="btn delete" value="Borrar">
 									</form>
@@ -120,7 +120,7 @@
 							</tr>
 							</div>
 							<tr>
-								<form th:action="@{/createTreatment}">
+								<form th:action="@{/user/createTreatment}">
 									<td><label for="name" title="nombre del tratamiento"><input
 											type="text" name="name" title="nombre del tratamiento"
 											id="name"></label></td>

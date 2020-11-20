@@ -35,7 +35,7 @@ public class MedicalAppointmentController {
 	private UserRepository users;
 	
 	@SuppressWarnings("deprecation")
-	@GetMapping("/medicalAppointments")
+	@GetMapping("/user/medicalAppointments")
 	public String readMedical(Model model) {
 		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -65,7 +65,7 @@ public class MedicalAppointmentController {
 	}	
 	
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = { "/createAppointment" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
+	@RequestMapping(value = { "/user/createAppointment" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String createMedicalAppointment(@RequestParam(value = "specialty") String specialty, @RequestParam(value = "title") String title ,@RequestParam(value = "annotations") String annotations, @RequestParam(value = "date") String date, Model model) throws ParseException {
 		
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -94,12 +94,12 @@ public class MedicalAppointmentController {
 		
 		this.users.save(u.get());
 		
-		return "redirect:/medicalAppointments";
+		return "redirect:/user/medicalAppointments";
 	}
 	
-	@RequestMapping(value = { "/deleteAppointment" }, method = { RequestMethod.POST, RequestMethod.DELETE })
+	@RequestMapping(value = { "/user/deleteAppointment" }, method = { RequestMethod.POST, RequestMethod.DELETE })
 	public String deleteAppointment(@RequestParam(value = "id") String id, Model model) {
 		this.medicalAppointments.delete(Long.parseLong(id));
-		return "redirect:/medicalAppointments";
+		return "redirect:/user/medicalAppointments";
 	}
 }

@@ -20,9 +20,9 @@
 
             <!-- Links -->
             <ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/treatments}">Tratamientos</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/routines}">Rutinas</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/medicalAppointments}">Citas médicas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/treatments}">Tratamientos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/routines}">Rutinas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/medicalAppointments}">Citas médicas</a></li>
 				<li class="nav-item"><a class="nav-link" href="files">Archivos médicos</a></li>
 				<li class="nav-item">
 					<form th:action="@{/logout}" method="post">
@@ -36,7 +36,7 @@
             <div aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a th:href="@{/user/home}">Inicio</a></li>
-                    <li class="breadcrumb-item"><a th:href="@{/routines}">Rutinas</a></li>
+                    <li class="breadcrumb-item"><a th:href="@{/user/routines}">Rutinas</a></li>
                     <li class="breadcrumb-item active" title="Usted está aquí" aria-current="page">Mediciones</li>
                 </ol>
             </div>
@@ -67,7 +67,7 @@
                         		<p style='display:none;' th:text="${meas.value}" class="datosmed"></p>
                         		<p style='display:none;' th:text="${meas.date}" class="datemed"></p>
 								<tr>
-								<form th:action="@{/updateMeasurement}">
+								<form th:action="@{/user/updateMeasurement}">
 									
 									<td><label for="value" title="valor de la medicion"><input
 											type="text"  name="value" title="valor de la medicion"
@@ -86,7 +86,7 @@
 							</div>
                             
                              <tr>
-                                <form th:action="@{/createMeasurement}">
+                                <form th:action="@{/user/createMeasurement}">
                                  <td><label for="value" title="valor de la medición"><small>valor de medición:</small><br>
                                  <input type="text" name="value" title="valor de la medición" id="value"></label></td>
 <!-- 								  <td><label for="unit" title="Unidad de medida"> -->

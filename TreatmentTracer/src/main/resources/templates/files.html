@@ -22,9 +22,9 @@
 
 			<!-- Links -->
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/treatments}">Tratamientos</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/routines}">Rutinas</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/medicalAppointments}">Citas médicas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/treatments}">Tratamientos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/routines}">Rutinas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/medicalAppointments}">Citas médicas</a></li>
 				<li class="nav-item"><a class="nav-link" href="files">Archivos médicos</a></li>
 				<li class="nav-item">
 					<form th:action="@{/logout}" method="post">
@@ -79,7 +79,7 @@
 							<embed width="191" height="207" name="plugin" th:src="${file.file}" id="miniatura" >
 		                    <div class="card-body">
 		                       
-		                        <form th:action="@{/removeFile}" method=POST>
+		                        <form th:action="@{/user/removeFile}" method=POST>
 		                         <a th:href="${file.file}"class="btn download "  target="_blank" download>Descargar</a>
 										<input name="id" th:value="${file.id}" type="hidden"> 
 										<input type="submit" class="btn delete" value="Borrar">
@@ -120,7 +120,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form th:action="@{/uploadFile}" class="text-center">
+                    <form th:action="@{/user/uploadFile}" class="text-center">
                         <label for="nameFile" title="nombre del archivo"><strong>Nombre del archivo:</strong> <br>
                             <input type="text" name="nameFile" id="nameFile" title="nombre del archivo"></label><br>
                         <label for="desFile" title="Descripción del archivo"><strong>Descripción del archivo:</strong> <br>

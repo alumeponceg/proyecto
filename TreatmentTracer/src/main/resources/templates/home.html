@@ -12,7 +12,7 @@
 
 <body>
 
-
+	
 	<div th:if="${role==1}">
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-sm justify-content-between">
@@ -25,10 +25,10 @@
 
 			<!-- Links -->
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/treatments}">Tratamientos</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/routines}">Rutinas</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/medicalAppointments}">Citas médicas</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/files}">Archivos médicos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/treatments}">Tratamientos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/routines}">Rutinas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/medicalAppointments}">Citas médicas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/files}">Archivos médicos</a></li>
 				<li class="nav-item">
 					<div th:if="${volver!=true}">
 						<form th:action="@{/logout}" method="post">
@@ -38,8 +38,12 @@
 					
 					</div>
 					<div th:if="${volver==true}">
-						
-						<button  class="nav-link btn btn-info logout"><a th:href="@{/career/home}">Volver</a></button>
+						<form th:action="@{/career/home}" method="post">
+						<input type=hidden value=1 name="volver">
+						<input type="submit" class="nav-link btn btn-info logout"
+							value="Volver" />
+						</form>
+<!-- 						<button  class="nav-link btn btn-info logout"><a th:href="@{/career/home}">Volver</a></button> -->
 						
 					</div>
 					
@@ -72,7 +76,7 @@
 					</div>
 					<div class="row">
 						<div class="col-8 offset-2 treatments py-2 mt-3">
-							<form th:action="@{/createTreatment}">
+							<form th:action="@{/user/createTreatment}">
 								<label for="name" title="Nombre del tratamiento">Nombre
 									del tratamiento: <br> <input type="text" name="name"
 									id="name" title="Nombre del tratamiento">
@@ -105,7 +109,7 @@
 						</div>
 						<div class="row">
 							<div class="col-8 offset-2 py-2 mt-3 routines">
-								<form th:action="@{/createRoutine}">
+								<form th:action="@{/user/createRoutine}">
 									<label for="name" title="Nombre de la rutina">Nombre
 										de la rutina: <br> <input type="text" name="name"
 										id="name2" title="Nombre de la rutina">
@@ -343,7 +347,7 @@
                         
                         	<div th:each="patient:${patients}">
 								<tr>
-								<form th:action="@{/updateUser}">
+								<form th:action="@{/career/updateUser}">
 									
 									<td><label for="patientName" title="Nombre del paciente"><input
 											type="text" name="patientName" title="Nombre del paciente"
@@ -361,7 +365,7 @@
 								</td>
 								<td class="text-center">	
 								
-									<form th:action="@{/removeUser}" method=POST>
+									<form th:action="@{/career/removeUser}" method=POST>
 										<input name="id" th:value="${patient.id}" type="hidden"> 
 										<input type="submit" class="btn delete" value="Borrar">
 									</form>
@@ -413,7 +417,7 @@
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/admin/diseases}">Enfermedades</a>
+                    <a class="nav-link" th:href="@{/admin/logged/diseases}">Enfermedades</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/admin/patients}">Pacientes</a>

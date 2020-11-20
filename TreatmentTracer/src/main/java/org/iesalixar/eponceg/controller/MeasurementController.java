@@ -27,7 +27,7 @@ public class MeasurementController {
 
 	private String chargeRoutine;
 	
-	@RequestMapping(value ={"/measurements"},  method = { RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value ={"/user/measurements"},  method = { RequestMethod.POST, RequestMethod.GET})
 	public String measurements(@RequestParam(value = "routineId", defaultValue ="null") String routineId, Model model) {
 		if(routineId.equals("null")) {
 			routineId=chargeRoutine;
@@ -41,7 +41,7 @@ public class MeasurementController {
 
 	
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = { "/updateMeasurement" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
+	@RequestMapping(value = { "/user/updateMeasurement" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String updateMeasurement(@RequestParam(value = "id") String id,@RequestParam(value = "value") String value,@RequestParam(value = "date") String date,  Model model) throws ParseException {
 		Measurement m = this.measurements.findFirstById(Long.parseLong(id));
 		m.setValue(Float.parseFloat(value));
@@ -53,10 +53,10 @@ public class MeasurementController {
 		m.setDate(fechaDate);
 		this.measurements.updateMeasurement(m);
 		chargeRoutine=m.getRoutine().getId()+"";
-		return "redirect:/measurements";
+		return "redirect:/user/measurements";
 	}
 
-	@RequestMapping(value = { "/createMeasurement" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
+	@RequestMapping(value = { "/user/createMeasurement" }, method = { RequestMethod.POST, RequestMethod.PUT,  RequestMethod.GET})
 	public String createMeasurement(@RequestParam(value = "value") String value ,@RequestParam(value = "unit" , defaultValue ="null") String unit, @RequestParam(value = "routineId") Long routineId,  Model model) {
 		Routine rout = this.routines.findFirstById(routineId);
 		Date date= new Date();
@@ -71,7 +71,7 @@ public class MeasurementController {
 		rout.setMeasurements(mediciones);
 		this.routines.updateRoutine(rout);		
 		chargeRoutine=routineId+"";
-		return "redirect:/measurements";
+		return "redirect:/user/measurements";
 	}
 	
 }
