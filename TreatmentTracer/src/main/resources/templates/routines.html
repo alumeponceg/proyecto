@@ -7,7 +7,8 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="./style/routines.css">
+<link rel="stylesheet" href="/style/routines.css">
+  <link rel="icon" type="image/png" href="/assets/logo.png">
 <title>Rutinas-T&T</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
 		<nav class="navbar navbar-expand-sm justify-content-between">
 			<!-- Brand/logo -->
 			<a class="navbar-brand d-flex align-items-center"
-				th:href="@{/user/home}"> <img src="./assets/logo.png"
+				th:href="@{/user/home}"> <img src="/assets/logo.png"
 				title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
 				<h1 class="pt-3">Treatment Tracer</h1>
 			</a>
@@ -48,7 +49,7 @@
 			</div>
 
 			<div class="row pt-5">
-				<div class="col-4 offset-2">
+				<div class="col-4 offset-1">
 
 					<form th:action="@{/user/routines}" method=POST>
 						<select name="order">
@@ -213,7 +214,7 @@
 												</div>
 										</select>
 									</label></td>
-									<td class="text-center"><input class="btn add"
+									<td class="text-center" colspan="2"><input class="btn btn-block add"
 										type="submit" value="Añadir rutina"></td>
 								</form>
 							</tr>
@@ -227,8 +228,8 @@
 
 
 
-		<script type='text/javascript' src="./jquery/jquery-3.4.1.min.js"></script>
-		<script src="./jquery/jquery.js"></script>
+		<script type='text/javascript' src="/jquery/jquery-3.4.1.min.js"></script>
+		<script src="/jquery/jquery.js"></script>
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -238,6 +239,6 @@
 			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 			crossorigin="anonymous"></script>
 
-		<script src="./Javascript/script.js"></script>
+		<script src="/Javascript/script.js"></script>
 </body>
 </html>
