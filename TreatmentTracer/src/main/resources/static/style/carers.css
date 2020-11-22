@@ -108,7 +108,7 @@
 }
 
 
-.patients {
+.carers {
 	background-color: rgb(255, 240, 242); 
 }
 
@@ -230,7 +230,7 @@ table tbody tr:hover {
 
 /*otros*/
 
-.listPatient {
+.listCarers {
 	display:none;
 }
 
@@ -239,6 +239,10 @@ table tbody tr:hover {
 }
 
 .listInactive {
+	display:none;
+}
+
+.listNum{
 	display:none;
 }
 

@@ -85,6 +85,7 @@ $(window).scroll(function() {
 $(".listar").click(function(){
     $(".cards").hide();
     $(".listPatient").fadeIn(1000);
+    $(".volver").fadeIn(1000);
   });
 
 $(".volver").click(function(){
@@ -92,17 +93,34 @@ $(".volver").click(function(){
     $(".listActive").hide();
     $(".listPatient").hide();
     $(".listInactive").hide();
+    $(".listCarers").hide();
+    $(".listNum").hide();
+    $(".volver").hide();
   });
 
 
 $(".activar").click(function(){
     $(".cards").hide();
     $(".listInactive").fadeIn(1000);
+    $(".volver").fadeIn(1000);
   });
 
 
 $(".desactivar").click(function(){
     $(".cards").hide();
     $(".listActive").fadeIn(1000);
+    $(".volver").fadeIn(1000);
   });
 
+
+$(".num").click(function(){
+    $(".cards").hide();
+    $(".listNum").fadeIn(1000);
+    $(".volver").fadeIn(1000);
+  });
+
+$(".listarCarer").click(function(){
+    $(".cards").hide();
+    $(".listCarers").fadeIn(1000);
+    $(".volver").fadeIn(1000);
+  });
