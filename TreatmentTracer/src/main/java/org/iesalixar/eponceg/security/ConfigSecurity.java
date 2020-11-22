@@ -32,7 +32,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 	        .antMatchers("/career/*").hasAuthority("career")
 	        .antMatchers("/admin/*").hasAuthority("admin")
                 .anyRequest().authenticated()
-                .and()
+               .and()
             .formLogin()
                 .loginPage("/login")
                 .successHandler(successHandler)
