@@ -313,7 +313,7 @@ table tbody tr:hover {
 
 #form2 {
     position:absolute;
-    height:450px !important;
+    height:550px !important;
     background: rgb(246,106,184);
     background: linear-gradient(-45deg, rgba(185,3,104,1), rgba(209,57,142,1), rgba(229,81,162,1),  rgba(246,106,184,1));
     width: 100%;
@@ -360,3 +360,7 @@ table tbody tr:hover {
     font-weight: bold;
    	color:white;
 }
+
+/*ADMIN*/
+
+

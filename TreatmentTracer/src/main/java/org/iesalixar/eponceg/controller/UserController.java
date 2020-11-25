@@ -2,9 +2,11 @@ package org.iesalixar.eponceg.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -14,7 +16,6 @@ import org.iesalixar.eponceg.model.State;
 import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.UserRepository;
 import org.iesalixar.eponceg.service.DiseaseService;
-import org.iesalixar.eponceg.service.MedicalFileService;
 import org.iesalixar.eponceg.service.RoleService;
 import org.iesalixar.eponceg.service.StateService;
 import org.iesalixar.eponceg.service.UserService;
@@ -78,7 +79,16 @@ public class UserController {
 			model.addAttribute("withoutDisease", true);
 		}
 		model.addAttribute("diseases", this.diseases.readDiseases(users));
-		model.addAttribute("allDisease", this.diseases.selectAllNotRepeat(users));
+		
+		List<Disease> activeDisease = new ArrayList<>();
+		
+		for (Disease d :this.diseases.selectAllNotRepeat(users) ) {
+			if (d.getState().getId()==1L) {
+				activeDisease.add(d);
+			}
+		}
+		
+		model.addAttribute("allDisease", activeDisease );
 		model.addAttribute("role", 1);
 
 		if (u.get().getCareer() != null) {
@@ -92,7 +102,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/career/home")
-	public String careerHome(@RequestParam(value = "volver", defaultValue = "0") String volver ,Model model) {
+	public String careerHome(@RequestParam(value = "volver", defaultValue = "0") String volver ,@RequestParam(value = "name", defaultValue="") String name , @RequestParam(value = "order", defaultValue = "null") String order, Model model) {
 
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		UserDetails userDetails = null;
@@ -112,8 +122,30 @@ public class UserController {
 			}
 		}
 		
+		
 		u =this.users.findByEmail(emailCuidador);
-		model.addAttribute("patients", this.userService.ListPatientOfACareer(u.get()));
+		switch (order) {
+		case "1":
+			model.addAttribute("patients", this.userService.ListPatientOfACareerByEmail(u.get()));
+			break;
+		case "2":
+			model.addAttribute("patients", this.userService.ListPatientOfACareerByName(u.get()));
+			break;
+		case "3":
+			model.addAttribute("patients", this.userService.ListPatientOfACareerByNameDesc(u.get()));
+			break;
+		case "4":
+			if (!name.equals("")) {
+				model.addAttribute("patients", this.userService.ListPatientOfACareerAndName(u.get(), name));
+			}else {
+				model.addAttribute("patients", this.userService.ListPatientOfACareer(u.get()));
+			}
+			break;
+		default:
+			model.addAttribute("patients", this.userService.ListPatientOfACareer(u.get()));
+			break;
+		}
+		
 		model.addAttribute("role", 2);
 		model.addAttribute("error", error);
 		error=false;

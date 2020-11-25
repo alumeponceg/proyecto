@@ -85,6 +85,7 @@ $(window).scroll(function() {
 $(".listar").click(function(){
     $(".cards").hide();
     $(".listPatient").fadeIn(1000);
+    $(".listCarers").fadeIn(1000);
     $(".volver").fadeIn(1000);
   });
 

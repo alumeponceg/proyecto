@@ -157,7 +157,9 @@
 								<form th:action="@{/user/addDisease}" method=POST>
 											<select name="newDisease" id="othersDiseases" onchange="writeDisease()">
 										<div th:each="d:${allDisease}" >
+											
 											<option th:value="${d.id}" th:text="${d.name}"></option>
+											
 										</div>
 											<option class="otherDisease" value="-1">Otra</option>
 									</select>
@@ -328,9 +330,41 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			</div>	
+			</div>
+			
 			<div class="row d-flex justify-content-around">
 				<div class="col-7">
+				
+					<div class="row pt-2 d-flex justify-content-between">
+				<div class="col-4 pb-5">
+				
+					<form th:action="@{/career/home}" method=POST>
+								<select name="order">
+									<option value="-1">Ordenar por</option>
+									<option value="1">Email</option>
+									<option value="2">Nombre a-z</option>
+									<option value="3">Nombre z-a</option>
+								</select> 
+								<input class="btn btn-success mx-1" type="submit" value="Filtrar">
+					</form>
+					
+				
+				</div>
+				
+				<div class="col-7 pb-5">
+				
+					<form class="d-flex" th:action="@{/career/home}" method=POST>
+							<label for="name"><span style="font-family:'arvo'">Buscar por nombre:</span>	<input type="text" name="name"></label>
+								<input type="hidden" name="order" value="4" >
+								<input class="btn btn-success mx-1" type="submit" value="Buscar">
+					</form>
+					
+				
+				</div>
+			
+			</div>	
+					<div class="row">
+					
 					<table class="table text-center ">
                         <thead class="bg-info text-center">
                             <tr>
@@ -384,19 +418,20 @@
 							</div>
                         </tbody>
                     </table>
+					</div>
 				</div>
 				
 				<div class="col-3">
 					<form id="form2" th:action="@{/career/register}" method=POST>
-                        <legend class="text-center" >Registrarse</legend>
+                        <legend class="text-center" >Registrar paciente a cargo</legend>
                         <label for="name" title="name">Nombre:<br>
-                        <input type="text" onblur="compruebaNombre()" required name="name" id="name" title="name" placeholder="Introduzca nombre de paciente"><br><small id="errorName"></small></label> <br>
+                        <input type="text" onblur="compruebaNombre()" required name="name" id="name" title="name" placeholder="Nombre del paciente"><br><small id="errorName"></small></label> <br>
                         <label for="surname" title="surname" >Apellidos:<br>
-                        <input type="text" onblur="compruebaApellido()" required  name="surname" id="surname" title="surname" placeholder="Introduzca apellidos de paciente"><br><small id="errorSurname"></small></label> <br>
+                        <input type="text" onblur="compruebaApellido()" required  name="surname" id="surname" title="surname" placeholder="Apellidos del paciente"><br><small id="errorSurname"></small></label> <br>
                         <label for="dateOfBirth" title="dateOfBirth">Fecha de nacimiento:<br>
                         <input type="date" onblur="compruebaFecha()" required id="dateOfBirth" title="dateOfBirth" name="dateOfBirth" ><br><small id="errorDate"></small></label><br>
                         <label for="email2" title="email">Email: <br>
-                        <input name="email2" onblur="compruebaEmail()" required id="email2" title="email" placeholder="Introduzca email" type="email"> <br><small id="errorEmail"></small></label><br>
+                        <input name="email2" onblur="compruebaEmail()" required id="email2" title="email" placeholder="Email del paciente" type="email"> <br><small id="errorEmail"></small></label><br>
                         <input type="submit" class="formbutton mt-3 btn add"  value="Registrar paciente">
                    </form>
 				</div>
@@ -418,7 +453,7 @@
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/admin/logged/diseases}">Enfermedades</a>
+                    <a class="nav-link" th:href="@{/admin/diseases}">Enfermedades</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/admin/patients}">Pacientes</a>

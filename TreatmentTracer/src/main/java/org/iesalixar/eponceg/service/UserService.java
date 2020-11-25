@@ -72,6 +72,19 @@ public class UserService implements UserDetailsService {
 	public List<org.iesalixar.eponceg.model.User> ListPatientOfACareer(org.iesalixar.eponceg.model.User user){
 		return this.userRepository.findByCareer(user);
 	}
+	public List<org.iesalixar.eponceg.model.User> ListPatientOfACareerByName(org.iesalixar.eponceg.model.User user){
+		return this.userRepository.findByCareerOrderByNameAsc(user);
+	}
+	public List<org.iesalixar.eponceg.model.User> ListPatientOfACareerByEmail(org.iesalixar.eponceg.model.User user){
+		return this.userRepository.findByCareerOrderByEmail(user);
+	}
+	public List<org.iesalixar.eponceg.model.User> ListPatientOfACareerByNameDesc(org.iesalixar.eponceg.model.User user){
+		return this.userRepository.findByCareerOrderByNameDesc(user);
+	}
+	
+	public List<org.iesalixar.eponceg.model.User> ListPatientOfACareerAndName(org.iesalixar.eponceg.model.User user, String name){
+		return this.userRepository.findByCareerAndName(user, name);
+	}
 	
 	public void deleteUser (Long id) {
 		this.userRepository.deleteById(id);

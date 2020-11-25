@@ -29,6 +29,13 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	public List<User> findAllByRoleIn(Set<Role> roles);
 	
-//	@Query("SELECT count(*), c.name, c.surname, c.email from user u inner join user c on c.id=u.career where u.career=4")
-//	public String countByCarer(User carer);
+	public List<User> findByCareerOrderByNameDesc(User u);
+	
+	public List<User> findByCareerOrderByEmail(User u);
+	
+	public List<User> findByCareerOrderByNameAsc (User u);
+	
+	public List<User> findByCareerAndName(User u, String name);
+	
+	
 }
