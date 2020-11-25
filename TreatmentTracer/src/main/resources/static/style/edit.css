@@ -1,0 +1,169 @@
+@font-face {
+    font-family: 'neuropol';
+    src: url("neuropol\ x\ rg.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'arvo';
+    src: url("Arvo-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+/*HOME HTML*/
+
+
+.navbar-brand {
+    font-family: 'neuropol';
+}
+
+.navbar-brand h1 {
+    font-size: 24px;
+    color: rgb(203, 0, 112);
+    font-weight: bold;
+}
+
+.navbar-brand h1:hover {
+    text-shadow: 2px 2px 4px #8DBFD9;
+}
+
+.nav-link {
+    color: #8DBFD9;
+    font-weight: bold;
+    font-family: 'arvo';
+}
+
+.nav-link:hover {
+    color: rgb(203, 0, 112);
+
+}
+
+
+.logout {
+
+    border: 1.5px outset rgb(203, 0, 112);
+    border-radius: 10px;
+    background-color: rgba(203, 0, 112, 0.503);
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+
+.logout:hover{
+    background-color: rgb(203, 0, 112);
+    border: 1.5px outset rgb(203, 0, 112);
+    font-weight: bold;
+    box-shadow: 2px 2px 6px #8DBFD9;
+    color: #8DBFD9;
+}
+
+.logout a{
+	color:white;
+	text-decoration:none;
+}
+
+.logout a:hover{
+	color: #8DBFD9;
+	font-weight: bold;
+}
+
+
+.container-fluid {
+    padding: 0% !important;
+    overflow-x: hidden;
+}
+
+
+/*Breadcrumb*/
+
+.breadcrumb {
+    background-color: rgba(141, 190, 217, 0.646);
+    border-radius: 0px;
+}
+
+
+.active {
+    
+    color: rgb(203, 0, 112) !important;
+    font-family: 'arvo';
+    letter-spacing: 1.5px;
+    font-weight: bold;
+
+}
+
+.breadcrumb-item a{
+    color: white !important;
+    
+    font-family: 'arvo';
+    letter-spacing: 1.5px;
+
+
+}
+
+.breadcrumb-item a:hover{
+    color: rgb(152, 5, 86)!important;
+    text-decoration: none;
+    font-weight: bold;
+
+
+
+}
+
+
+/*FIN BREADCRUMB*/
+
+
+.edit {
+	background-color: rgb(255, 240, 242); 
+}
+
+.text {
+	background-color: white !important;
+	width: 500px;
+	display: block;
+}
+
+label strong{
+	font-family: 'neuropol';
+	font-size: 24px;
+	color: rgb(203, 0, 112) !important;
+	font-weight: bold;
+}
+
+
+.delete {
+    background-color: rgb(241, 181, 181, 0.555);
+    border: 1.5px outset rgb(241, 181, 181);
+    font-family: 'arvo';
+    font-weight: bold;
+    color: black;
+}
+
+
+.delete:hover {
+    background-color: rgb(241, 181, 181);
+    border: 1.5px outset rgb(241, 181, 181);
+    font-family: 'arvo';
+    font-weight: bold;
+    color: black;
+}
+
+.actived {
+    background-color: rgba(173, 233, 173, 0.555);
+    border: 1.5px outset rgb(173, 233, 173);
+    text-decoration: none; 
+	color: black !important;
+	font-family: 'arvo';
+	font-weight: bold;
+}
+
+
+.actived:hover {
+    background-color: rgba(173, 233, 173);
+    border: 1.5px outset rgb(173, 233, 173);
+    text-decoration: none;
+}

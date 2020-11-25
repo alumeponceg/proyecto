@@ -302,7 +302,7 @@ table tbody tr:hover {
 
 .add:hover {
     border: 1.5px outset #8DBFD9;
-    background-color: rgba(141, 190, 217);
+    background-color: rgb(141, 190, 217);
 }
 
 
@@ -362,5 +362,49 @@ table tbody tr:hover {
 }
 
 /*ADMIN*/
+
+
+.separator {
+	border-right: 5px ridge rgb(141, 190, 217);
+}
+
+.admin h1 {
+	font-family: 'neuropol';
+	color: rgb(203,0,112);
+	text-decoration: underline;
+}
+
+.admin ul li {
+	font-family: 'arvo';
+	font-weight: bold;
+	font-size: 16px;
+}
+
+
+.card {
+    
+    background-color: rgb(210, 237, 248);
+    box-shadow: 5px 3px 6px 0px rgba(4, 62, 113, 0.75);
+    border: none;
+    border-radius: 10px;
+    padding: 0%;
+   
+    
+}
+
+.card:hover {
+    background-color: rgba(208, 45, 135, 0.231);
+}
+
+.card-title{
+    background: linear-gradient(-45deg, rgba(4, 62, 113, 0.823), rgb(23, 111, 174), #23A6D5, rgb(35, 195, 213));
+    border-bottom: 3px ridge rgba(203, 0, 112, 0.626) !important;
+    border-radius: 10px 10px 0 0px;
+    padding: 2%;
+    width: 100%;
+    font-family: 'neuropol';
+    color: white;
+    
+}
 
 

@@ -50,7 +50,7 @@
 				<div class="col-12 d-flex justify-content-around">
 					<div class="card mt-3 col-2">
 						<h5 class="card-title text-center">Listar cuidadores</h5>
-						<img class="card-img-top" src="..." alt="Card image cap">
+						<img class="card-img-top px-3" src="/assets/lista.png" height=100 alt="Card image cap">
 						<div class="card-body">
 
 
@@ -64,7 +64,7 @@
 						<h5 class="card-title text-center">
 							Activar<br>Desactivar cuidadores
 						</h5>
-						<img class="card-img-top" src="..." alt="Card image cap">
+						<img class="card-img-top px-3" src="/assets/activar.png" height=100 alt="Card image cap">
 						<div class="card-body">
 
 
@@ -80,7 +80,7 @@
 					<div class="card mt-3 col-2">
 						<h5 class="card-title text-center">Número de pacientes por
 							cuidador</h5>
-						<img class="card-img-top" src="..." alt="Card image cap">
+						<img class="card-img-top px-3" src="/assets/num.png" height=100 alt="Card image cap">
 						<div class="card-body">
 
 
@@ -157,7 +157,7 @@
 									<td class="text-center">
 										<form th:action="@{/admin/inactiveCarer}" method=POST>
 											<input name="id" th:value="${carer.id}" type="hidden">
-											<input type="submit" class="btn active" value="Desactivar">
+											<input type="submit" class="btn actived" value="Desactivar">
 										</form>
 
 									</td>
@@ -194,7 +194,7 @@
 									<td class="text-center">
 										<form th:action="@{/admin/activeCarer}" method=POST>
 											<input name="id" th:value="${carer.id}" type="hidden">
-											<input type="submit" class="btn active" value="Activar">
+											<input type="submit" class="btn actived" value="Activar">
 										</form>
 
 									</td>
