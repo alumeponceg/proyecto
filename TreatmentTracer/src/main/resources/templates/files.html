@@ -128,9 +128,9 @@
                             <input type="text" name="desFile" id="desFile" title="Descripción del archivo"></label><br>
                         <label for="file" title="archivo"><strong>Archivo:</strong> 
 								<progress value="0" id="uploader" max="100">0%</progress><br>
-								<input id="file" class="file" type="file" name="file" title="archivo" onchange="getfile()">
+								<input id="file" class="file" type="file" required name="file" title="archivo" onchange="getfile()">
                         </label><br>
-						<input type="hidden" name="pic" id="pic">
+						<input type="hidden" name="pic" required id="pic">
                         <button type="button" class="btn formbutton" data-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn formbutton">Subir archivo</button>
                     </form>
