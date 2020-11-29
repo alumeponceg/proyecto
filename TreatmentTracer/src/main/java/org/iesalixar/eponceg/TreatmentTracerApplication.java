@@ -10,7 +10,5 @@ public class TreatmentTracerApplication {
 		SpringApplication.run(TreatmentTracerApplication.class, args);
 	}
 
-	
-	
 
 }

@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
-<html>
+
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,15 +9,22 @@
         <link rel="stylesheet" href="/style/style.css">
         <link rel="icon" type="image/png" href="/assets/logo.png">
     <title>Treatment Tracer</title>
+    
 </head>
 <body>
 
     <div class="container-fluid indexbody">
+    
+    <span class="idiomas">
+  <a th:href="|@{/}?idioma=es|"><img th:src="@{/img/idiomas/spain.svg}" width="20" height="20" alt="Español"></a>
+  <a th:href="|@{/}?idioma=es_MX|"><img th:src="@{/img/idiomas/mexico.svg}" width="20" height="20" alt="Español Mexico"></a>
+  <a th:href="|@{/}?idioma=en|"><img th:src="@{/img/idiomas/usa.svg}" width="20" height="20" alt="English"></a>
+</span>
        <div class="row">
            <div class="col-12">
             <div class="row mt-3">
                 <div class="col-1 offset-9">
-                    <button class="btn indexbutton px-2" id="login" >Iniciar Sesión</button>
+                    <button class="btn indexbutton px-2" id="login" th:text="#{index.iniciarSesion}" ></button>
                 </div>
                 <div class="col-1 mr-1">
                     <button class="btn indexbutton px-2" id="register">Registrarse</button>

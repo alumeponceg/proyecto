@@ -3,12 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="/assets/logo.png">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
-
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 	crossorigin="anonymous"></script>
@@ -18,6 +12,10 @@
 
 <script
 	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/bootstrap.min.js"></script>
+<link rel="icon" type="image/png" href="/assets/logo.png">
+<link rel="stylesheet" href="/style/diseases.css">
 <title>Bienvenido</title>
 </head>
 <body>
@@ -47,7 +45,7 @@
 				</li>
 			</ul>
 		</nav>
-		<div class="body">
+		<div class="body diseases">
 			<div aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a th:href="@{/admin/home}">Inicio</a></li>
@@ -55,279 +53,311 @@
 						aria-current="page">Enfermedades</li>
 				</ol>
 			</div>
-		</div>
-		<div th:if="${error==true}">
-			<div class="alert alert-danger alert-dismissible fade show"
-				role="alert">
-				La enfermedad no hay podido <strong>ser registrada</strong>. Verifique que los campos contengan al menos 20 caracteres. Y todos hayan sido rellenados.
-				<button type="button" class="close" data-dismiss="alert"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+
+			<div th:if="${error==true}">
+				<div class="alert alert-danger alert-dismissible fade show"
+					role="alert">
+					La enfermedad no hay podido <strong>ser registrada</strong>.
+					Verifique que los campos contengan al menos 20 caracteres. Y todos
+					hayan sido rellenados.
+					<button type="button" class="close" data-dismiss="alert"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 d-flex justify-content-around">
-				<div class="card mt-3" style="width: 18rem;">
-					<img class="card-img-top" src="..." alt="Card image cap">
-					<div class="card-body">
+			<div class="row cards">
+				<div class="col-12 d-flex justify-content-around">
+					<div class="card mt-3 col-2" >
 						<h5 class="card-title">Gestíon enfermedades</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-link d-flex justify-content-center">Listar</a>
+
+						<div class="card-body">
+							<img class="card-img-top" src="/assets/gestion.png"  height=110 alt="Card image cap">
+							<p class="card-text">Some quick example text to build on the
+								card title and make up the bulk of the card's content.</p>
+							<a href="#"
+								class="btn offset-3 d-flex actived justify-content-center col-6 actived listarEnfermedades">Listar</a>
+						</div>
 					</div>
-				</div>
-				<div class="card mt-3" style="width: 18rem;">
-					<img class="card-img-top" src="..." alt="Card image cap">
-					<div class="card-body">
+					<div class="card mt-3 col-2" >
 						<h5 class="card-title">Registrar enfermedad</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<div class="row">
-							<a href="#" class="btn btn-link col-6">Registrar</a>
-						</div>
 
+						<div class="card-body">
+							<img class="card-img-top" src="/assets/add.png"  height=110 alt="Card image cap">
+							<p class="card-text">Some quick example text to build on the
+								card title and make up the bulk of the card's content.</p>
+							<div class="row">
+								<a href="#"
+									class="btn offset-3 d-flex actived justify-content-center col-6 actived anyadir">Registrar</a>
+							</div>
+
+						</div>
 					</div>
-				</div>
-				<div class="card mt-3" style="width: 18rem;">
-					<img class="card-img-top" src="..." alt="Card image cap">
-					<div class="card-body">
+					<div class="card mt-3 col-2" >
 						<h5 class="card-title">Gestión de inactivas</h5>
-						<p class="card-text">Some quick example text to build on the
-							card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-link d-flex justify-content-center">Listar</a>
+
+						<div class="card-body">
+							<img class="card-img-top" src="/assets/activar.png"  height=110 alt="Card image cap">
+							<p class="card-text">Some quick example text to build on the
+								card title and make up the bulk of the card's content.</p>
+							<a href="#"
+								class="btn offset-3 d-flex actived justify-content-center col-6 actived listarInactivas">Listar</a>
+						</div>
 					</div>
+
+				</div>
+			</div>
+
+
+			<div class="row listDisease">
+				<div class="col-10 offset-1">
+					<table class="table">
+						<thead class="bg-info text-center">
+							<tr>
+								<th colspan="3">LISTADO DE ENFERMEDADES</th>
+							</tr>
+							<tr>
+								<th scope="col">Nombre</th>
+								<th scope="col">Descripcion</th>
+								<th scope="col">Editar</th>
+
+							</tr>
+						</thead>
+						<tbody>
+
+							<div th:each="dis:${allDiseases}">
+								<tr>
+									<td th:utext="${dis.name}"></td>
+									<td th:utext="${dis.description}"></td>
+									<td class="text-center">
+										<form th:action="@{/admin/editDisease}" method=POST>
+											<input name="inactiveId" th:value="${dis.id}" type="hidden">
+											<input type="submit" class="btn update" value="Editar">
+										</form>
+
+									</td>
+								</tr>
+							</div>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="row addDisease">
+				<div class="col-10 offset-1">
+					<form th:action="@{/admin/addDisease}" method=POST>
+						<div class="row">
+							<div class="col-7 justify-content-center">
+								<div class="row">
+									<label for="nameDisease"><strong>Nombre de la
+											enfermedad:</strong><br> <input style="width:500px" type="text" name="nameDisease"
+										 id="nameDisease"></label>
+								</div>
+								<div class="row">
+									<label for="urlImage"><strong>Imagen:</strong> <br>
+
+										<br> <progress value="0" id="uploader" max="100">0%</progress><br>
+										<input type="file" id="file" class="file" name="urlImage"
+										onchange="getfile()"> <input type="hidden" name="pic"
+										id="pic"> </label>
+								</div>
+								<div class="row">
+									<label for="descriptionDisease"><strong>Descripción:</strong><br>
+										<div class="text">
+											<textarea name="descriptionDisease" id="descripcion"
+												class="summernote" 
+												cols="70" rows="8"></textarea>
+										</div></label>
+								</div>
+							</div>
+							<div class="col-5  justify-content-center">
+								<div class="row">
+									<label for="causesDisease"><strong>Causas:</strong><br>
+										<div class="text">
+											<textarea name="causesDisease" class="summernote"
+												 id="causas" cols="70"
+												rows="10"></textarea>
+										</div></label>
+								</div>
+								<div class="row">
+									<label for="symptomDisease"><strong>Síntomas:</strong><br>
+										<div class="text">
+											<textarea name="symptomDisease" class="summernote"
+												 id="sintomas" cols="70"
+												rows="10"></textarea>
+										</div></label>
+								</div>
+								<div class="row">
+
+									<input type="submit" class="btn add" value="Registrar">
+
+
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="row manageDisease">
+				<div class="col-10 offset-1">
+					<table class="table">
+						<thead class="bg-info text-center">
+							<tr>
+								<th colspan="3">LISTADO DE ENFERMEDADES INACTIVAS</th>
+							</tr>
+							<tr>
+								<th scope="col">Id</th>
+								<th scope="col">Nombre</th>
+								<th scope="col">Activar</th>
+							</tr>
+						</thead>
+						<tbody>
+							<div th:each="indis:${inactiveDisease}">
+								<tr>
+									<td th:utext="${indis.id}"></td>
+									<td th:utext="${indis.name}"></td>
+									<td class="text-center">
+										<form th:action="@{/admin/editDisease}" method=POST>
+											<input name="inactiveId" th:value="${indis.id}" type="hidden">
+											<input type="submit" class="btn actived" value="Activar">
+										</form>
+
+									</td>
+								</tr>
+							</div>
+						</tbody>
+					</table>
 				</div>
 
 			</div>
-		</div>
 
+			<div class="row volver">
 
-		<div class="row">
-			<div class="col-10 offset-1">
-				<table class="table">
-					<thead class="bg-info text-center">
-						<tr>
-							<th colspan="3">LISTADO DE ENFERMEDADES</th>
-						</tr>
-						<tr>
-							<th scope="col">Nombre</th>
-							<th scope="col">Descripcion</th>
-							<th scope="col">Editar</th>
-
-						</tr>
-					</thead>
-					<tbody>
-
-						<div th:each="dis:${allDiseases}">
-							<tr>
-								<td th:utext="${dis.name}"></td>
-								<td th:utext="${dis.description}"></td>
-								<td class="text-center">
-									<form th:action="@{/admin/editDisease}" method=POST>
-										<input name="inactiveId" th:value="${dis.id}" type="hidden">
-										<input type="submit" class="btn update" value="Editar">
-									</form>
-
-								</td>
-							</tr>
-						</div>
-					</tbody>
-				</table>
+				<div class="col-10 mt-2 d-flex justify-content-end">
+					<a href="#" class="btn add volver">Volver</a>
+				</div>
 			</div>
+
 		</div>
+	</div>
+	
+	<script src="/jquery/jquery.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 
-		<div class="row">
-			<div class="col-10 offset-1">
-				<form th:action="@{/admin/addDisease}" method=POST>
-					<div class="row">
-						<div class="col-6">
-							<div class="row">
-								<label for="nameDisease"><strong>Nombre de la
-										enfermedad:</strong><br> <input type="text" name="nameDisease"
-									id="nameDisease"></label>
-							</div>
-							<div class="row">
-								<label for="urlImage"><strong>Url de la imagen:</strong>
-									<br> <progress value="0" id="uploader" max="100">0%</progress><br>
-									<input type="file" id="file" class="file" name="urlImage"
-									onchange="getfile()"> <input type="hidden" name="pic"
-									id="pic"> </label>
-							</div>
-							<div class="row">
-								<label for="descriptionDisease"><strong>Descripción:</strong><br>
-									<textarea name="descriptionDisease" required minlength="10"
-										class="summernote" cols="60" rows="10"></textarea></label>
-							</div>
-						</div>
-						<div class="col-6">
-							<div class="row">
-								<label for="causesDisease"><strong>Causas:</strong><br>
-									<textarea name="causesDisease" required minlength="10"
-										class="summernote" cols="60" rows="10"></textarea></label>
-							</div>
-							<div class="row">
-								<label for="symptomDisease"><strong>Síntomas:</strong><br>
-									<textarea name="symptomDisease" required minlength="10"
-										class="summernote" cols="60" rows="10"></textarea></label>
-							</div>
-							<div class="row">
+	<!-- AQUI COMIENZAN LOS SCRIPTS DE FIREBASE, EL SERVICIO DE SUBIDA DE IMAGENES -->
 
-								<input type="submit" class="btn add" value="Registrar">
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+	<script
+		src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script>
 
-
-							</div>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-10 offset-1">
-				<table class="table">
-					<thead class="bg-info text-center">
-						<tr>
-							<th colspan="3">LISTADO DE ENFERMEDADES INACTIVAS</th>
-						</tr>
-						<tr>
-							<th scope="col">Id</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Activar</th>
-						</tr>
-					</thead>
-					<tbody>
-						<div th:each="indis:${inactiveDisease}">
-							<tr>
-								<td th:utext="${indis.id}"></td>
-								<td th:utext="${indis.name}"></td>
-								<td class="text-center">
-									<form th:action="@{/admin/editDisease}" method=POST>
-										<input name="inactiveId" th:value="${indis.id}" type="hidden">
-										<input type="submit" class="btn active" value="Activar">
-									</form>
-
-								</td>
-							</tr>
-						</div>
-					</tbody>
-				</table>
-			</div>
-		</div>
-
-
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-			crossorigin="anonymous"></script>
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-			crossorigin="anonymous"></script>
-
-		<!-- AQUI COMIENZAN LOS SCRIPTS DE FIREBASE, EL SERVICIO DE SUBIDA DE IMAGENES -->
-
-		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
-		<script
-			src="https://www.gstatic.com/firebasejs/8.0.1/firebase-storage.js"></script>
-
-		<!-- TODO: Add SDKs for Firebase products that you want to use
+	<!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
-		<script>
-			// Configuracion de mi proyecto de Google Firebase
-			const firebaseConfig = {
-				apiKey : "AIzaSyA9BphI3r1jqfbnmv7-SjW73bkRw2FcDq8",
-				authDomain : "treatmenttracer.firebaseapp.com",
-				databaseURL : "https://treatmenttracer.firebaseio.com",
-				projectId : "treatmenttracer",
-				storageBucket : "treatmenttracer.appspot.com",
-				messagingSenderId : "772380615557",
-				appId : "1:772380615557:web:4e878e6311f428459b1aec",
-				measurementId : "G-XLQNX93SG0"
-			};
-			// Inicializo Firebase
-			firebase.initializeApp(firebaseConfig);
-		</script>
+	<script>
+		// Configuracion de mi proyecto de Google Firebase
+		const firebaseConfig = {
+			apiKey : "AIzaSyA9BphI3r1jqfbnmv7-SjW73bkRw2FcDq8",
+			authDomain : "treatmenttracer.firebaseapp.com",
+			databaseURL : "https://treatmenttracer.firebaseio.com",
+			projectId : "treatmenttracer",
+			storageBucket : "treatmenttracer.appspot.com",
+			messagingSenderId : "772380615557",
+			appId : "1:772380615557:web:4e878e6311f428459b1aec",
+			measurementId : "G-XLQNX93SG0"
+		};
+		// Inicializo Firebase
+		firebase.initializeApp(firebaseConfig);
+	</script>
 
-		<script type="text/javascript">
-			//funciones para subir la imagen
-			var selectedFile;
+	<script type="text/javascript">
+		//funciones para subir la imagen
+		var selectedFile;
 
-			function getfile() {
-				var pic = document.getElementById("file");
-				selectedFile = pic.files[0];
-				myfunction();
-			}
+		function getfile() {
+			var pic = document.getElementById("file");
+			selectedFile = pic.files[0];
+			myfunction();
+		}
 
-			function myfunction() {
-				// current timestamp, necesario para la subida
-				var name = document.getElementById("nameDisease").value;
+		function myfunction() {
+			// current timestamp, necesario para la subida
+			var name = document.getElementById("nameDisease").value;
 
-				// referencio el DIRECTORIO DENTRO DE MI ALMACENAMIENTO FIREBASE
-				var storageRef = firebase.storage().ref('/images/' + name);
+			// referencio el DIRECTORIO DENTRO DE MI ALMACENAMIENTO FIREBASE
+			var storageRef = firebase.storage().ref('/images/' + name);
 
-				// hago put a firebase  
-				var uploadTask = storageRef.put(selectedFile);
+			// hago put a firebase  
+			var uploadTask = storageRef.put(selectedFile);
 
-				// animacion de la barra de subida 
-				uploadTask
-						.on(
-								'state_changed',
-								function(snapshot) {
-									var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-									var uploader = document
-											.getElementById('uploader');
-									uploader.value = progress;
-									switch (snapshot.state) {
-									case firebase.storage.TaskState.PAUSED:
-										console.log('Upload is paused');
-										break;
-									case firebase.storage.TaskState.RUNNING:
-										console.log('Upload is running');
-										break;
-									}
-								},
-								function(error) {
-									console.log(error);
-								},
-								function() {
+			// animacion de la barra de subida 
+			uploadTask
+					.on(
+							'state_changed',
+							function(snapshot) {
+								var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+								var uploader = document
+										.getElementById('uploader');
+								uploader.value = progress;
+								switch (snapshot.state) {
+								case firebase.storage.TaskState.PAUSED:
+									console.log('Upload is paused');
+									break;
+								case firebase.storage.TaskState.RUNNING:
+									console.log('Upload is running');
+									break;
+								}
+							},
+							function(error) {
+								console.log(error);
+							},
+							function() {
 
-									// recojo la url de la imagen subida 
-									uploadTask.snapshot.ref
-											.getDownloadURL()
-											.then(
-													function(downloadURL) {
+								// recojo la url de la imagen subida 
+								uploadTask.snapshot.ref
+										.getDownloadURL()
+										.then(
+												function(downloadURL) {
 
-														// IMPORTANTE: GUARDO LA URL EN EL DIV HIDDEN QUE USARE PARA PASAR EL VALUE AL SERVLET 
-														document
-																.getElementById("pic").value = (downloadURL);
+													// IMPORTANTE: GUARDO LA URL EN EL DIV HIDDEN QUE USARE PARA PASAR EL VALUE AL SERVLET 
+													document
+															.getElementById("pic").value = (downloadURL);
 
-														console
-																.log(document
-																		.getElementById("pic").value)
-													});
-								});
-			};
-		</script>
+													console
+															.log(document
+																	.getElementById("pic").value)
+												});
+							});
+		};
+	</script>
 
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$('.summernote').summernote();
-			});
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.summernote').summernote();
+		});
 
-			$('.summernote').summernote(
-					{
-						tabsize : 2,
-						height : 200,
-						toolbar : [
-								[
-										'font',
-										[ 'bold', 'underline', 'italic',
-												'clear' ] ],
-								[ 'para', [ 'ul', 'ol', 'paragraph' ] ], ]
-					});
-		</script>
+		$('.summernote')
+				.summernote(
+						{
+							tabsize : 2,
+							height : 150,
+							toolbar : [
+									[
+											'font',
+											[ 'bold', 'underline', 'italic',
+													'clear' ] ],
+									[ 'para', [ 'ul', 'ol', 'paragraph' ] ], ]
+						});
+	</script>
+	<script src="/Javascript/script.js"></script>
+	<script type='text/javascript' src="/jquery/jquery-3.4.1.min.js"></script>
 </body>
 </html>

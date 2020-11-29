@@ -96,6 +96,9 @@ $(".volver").click(function(){
     $(".listInactive").hide();
     $(".listCarers").hide();
     $(".listNum").hide();
+    $(".listDisease").hide();
+    $(".addDisease").hide();
+    $(".manageDisease").hide();
     $(".volver").hide();
   });
 
@@ -103,6 +106,7 @@ $(".volver").click(function(){
 $(".activar").click(function(){
     $(".cards").hide();
     $(".listInactive").fadeIn(1000);
+    $(".manageDisease").fadeIn(1000);
     $(".volver").fadeIn(1000);
   });
 
@@ -123,5 +127,24 @@ $(".num").click(function(){
 $(".listarCarer").click(function(){
     $(".cards").hide();
     $(".listCarers").fadeIn(1000);
+    $(".volver").fadeIn(1000);
+  });
+
+
+$(".listarInactivas").click(function(){
+    $(".cards").hide();
+    $(".manageDisease").fadeIn(1000);
+    $(".volver").fadeIn(1000);
+  });
+
+$(".listarEnfermedades").click(function(){
+    $(".cards").hide();
+    $(".listDisease").fadeIn(1000);
+    $(".volver").fadeIn(1000);
+  });
+
+$(".anyadir").click(function(){
+    $(".cards").hide();
+    $(".addDisease").fadeIn(1000);
     $(".volver").fadeIn(1000);
   });
