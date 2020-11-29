@@ -15,19 +15,14 @@
 
     <div class="container-fluid indexbody">
     
-    <span class="idiomas">
-  <a th:href="|@{/}?idioma=es|"><img th:src="@{/img/idiomas/spain.svg}" width="20" height="20" alt="Español"></a>
-  <a th:href="|@{/}?idioma=es_MX|"><img th:src="@{/img/idiomas/mexico.svg}" width="20" height="20" alt="Español Mexico"></a>
-  <a th:href="|@{/}?idioma=en|"><img th:src="@{/img/idiomas/usa.svg}" width="20" height="20" alt="English"></a>
-</span>
        <div class="row">
            <div class="col-12">
             <div class="row mt-3">
-                <div class="col-1 offset-9">
-                    <button class="btn indexbutton px-2" id="login" th:text="#{index.iniciarSesion}" ></button>
+                <div class="col-2 offset-8 d-flex justify-content-end">
+                    <button class="btn btn-lg indexbutton px-2" id="login" >Iniciar Sesión</button>
                 </div>
-                <div class="col-1 mr-1">
-                    <button class="btn indexbutton px-2" id="register">Registrarse</button>
+                <div class="col-1 ">
+                    <button class="btn btn-lg indexbutton px-2" id="register">Registrarse</button>
                 </div>
             </div>
             <div th:if="${error==true}">
