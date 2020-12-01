@@ -21,30 +21,61 @@
 <body>
 
 	<div class="container-fluid">
-		<nav class="navbar navbar-expand-sm justify-content-between">
+		<div class="d-none d-md-block">
+			<nav class="navbar navbar-expand-md d-flex justify-content-between ">
+				<!-- Brand/logo -->
+				<a class="navbar-brand d-flex align-items-center"
+					th:href="@{/admin/home}"> <img src="/assets/logo.png"
+					title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
+					<h1 class="pt-3">Treatment Tracer</h1>
+				</a>
+
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/admin/diseases}">Enfermedades</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/admin/patients}">Pacientes</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/admin/carers}">Cuidadores</a></li>
+					<li class="nav-item">
+						<form th:action="@{/logout}" method="post">
+							<input type="submit" class="nav-link btn btn-info logout"
+								value="Cerrar Sesion" />
+						</form>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<nav
+			class="navbar navbar-expand-md d-md-none justify-content-between ">
 			<!-- Brand/logo -->
 			<a class="navbar-brand d-flex align-items-center"
 				th:href="@{/admin/home}"> <img src="/assets/logo.png"
 				title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
-				<h1 class="pt-3">Treatment Tracer</h1>
 			</a>
 
-			<!-- Links -->
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link"
-					th:href="@{/admin/diseases}">Enfermedades</a></li>
-				<li class="nav-item"><a class="nav-link"
-					th:href="@{/admin/patients}">Pacientes</a></li>
-				<li class="nav-item"><a class="nav-link"
-					th:href="@{/admin/carers}">Cuidadores</a></li>
-				<li class="nav-item">
-					<form th:action="@{/logout}" method="post">
-						<input type="submit" class="nav-link btn btn-info logout"
-							value="Cerrar Sesion" />
-					</form>
-				</li>
-			</ul>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/admin/diseases}">Enfermedades</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/admin/patients}">Pacientes</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/admin/carers}">Cuidadores</a></li>
+					<li class="nav-item">
+						<form th:action="@{/logout}" method="post">
+							<input type="submit" class="nav-link btn btn-info logout"
+								value="Cerrar Sesion" />
+						</form>
+					</li>
+				</ul>
+			</div>
 		</nav>
+
 		<div class="body diseases">
 			<div aria-label="breadcrumb">
 				<ol class="breadcrumb">
@@ -68,50 +99,55 @@
 			</div>
 			<div class="row cards">
 				<div class="col-12 d-flex justify-content-around">
-					<div class="card mt-3 col-2" >
-						<h5 class="card-title">Gestíon enfermedades</h5>
+					<div class="row d-flex justify-content-around">
+						<div class="card mt-3 col-8 col-sm-7 col-md-3 col-lg-2">
+							<h5 class="card-title">Gestíon enfermedades</h5>
 
-						<div class="card-body">
-							<img class="card-img-top" src="/assets/gestion.png"  height=110 alt="Card image cap">
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-							<a href="#"
-								class="btn offset-3 d-flex actived justify-content-center col-6 actived listarEnfermedades">Listar</a>
-						</div>
-					</div>
-					<div class="card mt-3 col-2" >
-						<h5 class="card-title">Registrar enfermedad</h5>
-
-						<div class="card-body">
-							<img class="card-img-top" src="/assets/add.png"  height=110 alt="Card image cap">
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-							<div class="row">
+							<div class="card-body">
+								<img class="card-img-top" src="/assets/gestion.png" height=110
+									alt="Card image cap">
+								<p class="card-text">Some quick example text to build on the
+									card title and make up the bulk of the card's content.</p>
 								<a href="#"
-									class="btn offset-3 d-flex actived justify-content-center col-6 actived anyadir">Registrar</a>
+									class="btn offset-3 d-flex actived justify-content-center col-6 actived listarEnfermedades">Listar</a>
 							</div>
+						</div>
+						<div class="card mt-3 col-8 col-sm-7 col-md-3 col-lg-2">
+							<h5 class="card-title">Registrar enfermedad</h5>
 
+							<div class="card-body">
+								<img class="card-img-top" src="/assets/add.png" height=110
+									alt="Card image cap">
+								<p class="card-text">Some quick example text to build on the
+									card title and make up the bulk of the card's content.</p>
+								<div class="row">
+									<a href="#"
+										class="btn offset-3 d-flex actived justify-content-center col-6 actived anyadir">Registrar</a>
+								</div>
+
+							</div>
+						</div>
+						<div class="card mt-3 col-8 col-sm-7 col-md-3 col-lg-2">
+							<h5 class="card-title">Gestión de inactivas</h5>
+
+							<div class="card-body">
+								<img class="card-img-top" src="/assets/activar.png" height=110
+									alt="Card image cap">
+								<p class="card-text">Some quick example text to build on the
+									card title and make up the bulk of the card's content.</p>
+								<a href="#"
+									class="btn offset-3 d-flex actived justify-content-center col-6 actived listarInactivas">Listar</a>
+							</div>
 						</div>
 					</div>
-					<div class="card mt-3 col-2" >
-						<h5 class="card-title">Gestión de inactivas</h5>
-
-						<div class="card-body">
-							<img class="card-img-top" src="/assets/activar.png"  height=110 alt="Card image cap">
-							<p class="card-text">Some quick example text to build on the
-								card title and make up the bulk of the card's content.</p>
-							<a href="#"
-								class="btn offset-3 d-flex actived justify-content-center col-6 actived listarInactivas">Listar</a>
-						</div>
-					</div>
-
 				</div>
 			</div>
 
 
 			<div class="row listDisease">
-				<div class="col-10 offset-1">
-					<table class="table">
+				<div class="col-12 col-md-10 offset-md-1">
+					<table
+						class="table table-sm table-responsive-sm table-responsive-md">
 						<thead class="bg-info text-center">
 							<tr>
 								<th colspan="3">LISTADO DE ENFERMEDADES</th>
@@ -144,14 +180,14 @@
 			</div>
 
 			<div class="row addDisease">
-				<div class="col-10 offset-1">
+				<div class="col-10 offset-1 col-sm-6 col-lg-10 offset-sm-3 offset-lg-1">
 					<form th:action="@{/admin/addDisease}" method=POST>
 						<div class="row">
-							<div class="col-7 justify-content-center">
+							<div class="col-12 col-lg-7 justify-content-center">
 								<div class="row">
 									<label for="nameDisease"><strong>Nombre de la
-											enfermedad:</strong><br> <input style="width:500px" type="text" name="nameDisease"
-										 id="nameDisease"></label>
+											enfermedad:</strong><br> <input style="width: 500px" type="text"
+										name="nameDisease" id="nameDisease"></label>
 								</div>
 								<div class="row">
 									<label for="urlImage"><strong>Imagen:</strong> <br>
@@ -165,26 +201,23 @@
 									<label for="descriptionDisease"><strong>Descripción:</strong><br>
 										<div class="text">
 											<textarea name="descriptionDisease" id="descripcion"
-												class="summernote" 
-												cols="70" rows="8"></textarea>
+												class="summernote" cols="70" rows="8"></textarea>
 										</div></label>
 								</div>
 							</div>
-							<div class="col-5  justify-content-center">
+							<div class=" col-12 col-lg-5  justify-content-center">
 								<div class="row">
 									<label for="causesDisease"><strong>Causas:</strong><br>
 										<div class="text">
-											<textarea name="causesDisease" class="summernote"
-												 id="causas" cols="70"
-												rows="10"></textarea>
+											<textarea name="causesDisease" class="summernote" id="causas"
+												cols="70" rows="10"></textarea>
 										</div></label>
 								</div>
 								<div class="row">
 									<label for="symptomDisease"><strong>Síntomas:</strong><br>
 										<div class="text">
 											<textarea name="symptomDisease" class="summernote"
-												 id="sintomas" cols="70"
-												rows="10"></textarea>
+												id="sintomas" cols="70" rows="10"></textarea>
 										</div></label>
 								</div>
 								<div class="row">
@@ -200,8 +233,9 @@
 			</div>
 
 			<div class="row manageDisease">
-				<div class="col-10 offset-1">
-					<table class="table">
+				<div class="col-12 col-md-10 offset-md-1">
+					<table
+						class="table table-sm table-responsive-sm">
 						<thead class="bg-info text-center">
 							<tr>
 								<th colspan="3">LISTADO DE ENFERMEDADES INACTIVAS</th>
@@ -232,16 +266,17 @@
 
 			</div>
 
-			<div class="row volver">
+			<div class="row ">
 
-				<div class="col-10 mt-2 d-flex justify-content-end">
+				<div
+					class="col-12 col-lg-10 mt-5 d-flex justify-content-center justify-content-lg-end">
 					<a href="#" class="btn add volver">Volver</a>
 				</div>
 			</div>
 
 		</div>
 	</div>
-	
+
 	<script src="/jquery/jquery.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

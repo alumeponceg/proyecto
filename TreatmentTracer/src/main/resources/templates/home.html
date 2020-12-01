@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
+<script type='text/javascript' src="/jquery/jquery-3.4.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/style/home.css">
 <link rel="icon" type="image/png" href="/assets/logo.png">
@@ -16,45 +17,91 @@
 
 	<div th:if="${role==1}">
 		<div class="container-fluid">
-			<nav class="navbar navbar-expand-sm justify-content-between">
+			<div class="d-none d-md-block">
+				<nav class="navbar navbar-expand-md d-flex justify-content-between ">
+					<!-- Brand/logo -->
+					<a class="navbar-brand d-flex align-items-center"
+						th:href="@{/user/home}"> <img src="/assets/logo.png"
+						title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
+						<h1 class="pt-3">Treatment Tracer</h1>
+					</a>
+
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link"
+							th:href="${withoutDisease==true}?'#':@{/user/treatments}">Tratamientos</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="${withoutDisease==true}?'#':@{/user/routines}">Rutinas</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/user/medicalAppointments}">Citas médicas</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/user/files}">Archivos médicos</a></li>
+						<li class="nav-item">
+							<div th:if="${volver!=true}">
+								<form th:action="@{/logout}" method="post">
+									<input type="submit" class="nav-link btn btn-info logout"
+										value="Cerrar Sesion" />
+								</form>
+
+							</div>
+							<div th:if="${volver==true}">
+								<form th:action="@{/career/home}" method="post">
+									<input type=hidden value=1 name="volver"> <input
+										type="submit" class="nav-link btn btn-info logout"
+										value="Volver" />
+								</form>
+								<!-- 						<button  class="nav-link btn btn-info logout"><a th:href="@{/career/home}">Volver</a></button> -->
+
+							</div>
+
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<nav
+				class="navbar navbar-expand-md d-md-none justify-content-between ">
 				<!-- Brand/logo -->
 				<a class="navbar-brand d-flex align-items-center"
 					th:href="@{/user/home}"> <img src="/assets/logo.png"
 					title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
-					<h1 class="pt-3">Treatment Tracer</h1>
 				</a>
 
-				<!-- Links -->
-				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link"
-						th:href="${withoutDisease==true}?'#':@{/user/treatments}">Tratamientos</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="${withoutDisease==true}?'#':@{/user/routines}">Rutinas</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/user/medicalAppointments}">Citas médicas</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/user/files}">Archivos médicos</a></li>
-					<li class="nav-item">
-						<div th:if="${volver!=true}">
-							<form th:action="@{/logout}" method="post">
-								<input type="submit" class="nav-link btn btn-info logout"
-									value="Cerrar Sesion" />
-							</form>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#collapsibleNavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="collapsibleNavbar">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link"
+							th:href="${withoutDisease==true}?'#':@{/user/treatments}">Tratamientos</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="${withoutDisease==true}?'#':@{/user/routines}">Rutinas</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/user/medicalAppointments}">Citas médicas</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/user/files}">Archivos médicos</a></li>
+						<li class="nav-item">
+							<div th:if="${volver!=true}">
+								<form th:action="@{/logout}" method="post">
+									<input type="submit" class="nav-link btn btn-info logout"
+										value="Cerrar Sesion" />
+								</form>
 
-						</div>
-						<div th:if="${volver==true}">
-							<form th:action="@{/career/home}" method="post">
-								<input type=hidden value=1 name="volver"> <input
-									type="submit" class="nav-link btn btn-info logout"
-									value="Volver" />
-							</form>
-							<!-- 						<button  class="nav-link btn btn-info logout"><a th:href="@{/career/home}">Volver</a></button> -->
+							</div>
+							<div th:if="${volver==true}">
+								<form th:action="@{/career/home}" method="post">
+									<input type=hidden value=1 name="volver"> <input
+										type="submit" class="nav-link btn btn-info logout"
+										value="Volver" />
+								</form>
+								<!-- 						<button  class="nav-link btn btn-info logout"><a th:href="@{/career/home}">Volver</a></button> -->
 
-						</div>
+							</div>
 
-					</li>
-				</ul>
+						</li>
+					</ul>
+				</div>
 			</nav>
+
 			<div class="body">
 				<div aria-label="breadcrumb">
 					<ol class="breadcrumb">
@@ -64,9 +111,9 @@
 				</div>
 				<div class="row pb-5">
 
-					<aside class="col-3">
+					<aside class="col-10 offset-1 offset-lg-0 col-lg-3">
 						<div class="row ">
-							<div class="col-12 text-center mt-5">
+							<div class="col-12 text-center mt-lg-5 mt-2">
 								<h1>Acciones rápidas</h1>
 							</div>
 						</div>
@@ -74,7 +121,7 @@
 						<div class="row">
 							<div class="col-8 offset-2">
 								<button
-									class="btn btn-dark btn-lg btn-block mt-4 mb-2 py-4 createTreatments"
+									class="btn btn-dark btn-lg btn-block mt-lg-4 mb-lg-2 py-lg-4 createTreatments"
 									th:disabled="${withoutDisease==true}?true:false">Añadir
 									Tratamiento</button>
 
@@ -110,12 +157,12 @@
 							<div class="col-8 offset-2">
 
 								<button
-									class="btn btn-dark btn-lg btn-block mt-4 mb-2 py-4 createRoutines"
+									class="btn btn-dark btn-lg btn-block mt-2 mb-2 mt-lg-4 mb-lg-2 py-lg-4 createRoutines"
 									th:disabled="${withoutDisease==true}?true:false">Añadir
 									Rutina</button>
 							</div>
 							<div class="row">
-								<div class="col-8 offset-2 py-2 mt-3 routines">
+								<div class="col-8 offset-2 py-2 mt-3 mb-4 routines">
 									<form th:action="@{/user/createRoutine}">
 										<label for="name" title="Nombre de la rutina">Nombre
 											de la rutina: <br> <input type="text" name="name"
@@ -140,12 +187,12 @@
 							</div>
 						</div>
 					</aside>
-					<div class="col-9 content">
+					<div class="col-12 col-lg-9 content">
 
 						<div th:if="${withoutDisease!=true}">
 
 							<div class="row">
-								<div class="col-6">
+								<div class="col-10 offset-1 offset-lg-0 mt-4 mt-lg-0 col-lg-6 ">
 									<form th:action="@{/user/home}" method=POST>
 										<select name="disease">
 											<option value="-1">Selecciona enfermedad</option>
@@ -156,7 +203,7 @@
 									</form>
 
 								</div>
-								<div>
+								<div class="col-10 offset-1 offset-lg-0 mt-4 mt-lg-0 col-lg-6 ">
 									<form th:action="@{/user/addDisease}" method=POST>
 										<select name="newDisease" id="othersDiseases"
 											onchange="writeDisease()">
@@ -172,8 +219,8 @@
 
 									<div id="formOther" style="display: none;">
 										<form th:action="@{/user/addInactive}" method=POST>
-											<label for="name"><Strong>Nombre:</Strong><br>
-											<input type="text" name="name"></label> <input type="submit"
+											<label for="name"><Strong>Nombre:</Strong><br> <input
+												type="text" name="name"></label> <input type="submit"
 												class="btn add mx-1" value="Añadir enfermedad">
 										</form>
 									</div>
@@ -188,13 +235,21 @@
 
 										</div>
 										<div class="row">
+											<div class="col-12 d-lg-none">
+												<img src="/assets/Alzheimer.jpg"
+													class="img-fluid mt-5 no-gutters"
+													alt="Imagen asociada a la enfermedad"
+													title="imagen asociada a la enfermedad">
+											</div>
+										</div>
+										<div class="row">
 											<div class="col-12">
 												<h1>Descripción</h1>
 												<p th:utext="${selectedDisease.description}"></p>
 											</div>
 										</div>
 									</div>
-									<div class="col-3">
+									<div class="d-none d-lg-block col-3">
 										<img src="/assets/Alzheimer.jpg"
 											class="img-fluid mt-5 no-gutters"
 											alt="Imagen asociada a la enfermedad"
@@ -260,8 +315,8 @@
 
 									<div id="formOther" style="display: none;">
 										<form th:action="@{/user/addInactive}" method=POST>
-											<label for="name"><Strong>Nombre:</Strong><br>
-											<input type="text" name="name"></label> <input type="submit"
+											<label for="name"><Strong>Nombre:</Strong><br> <input
+												type="text" name="name"></label> <input type="submit"
 												class="btn btn-info mx-1" value="Añadir enfermedad">
 										</form>
 									</div>
@@ -335,8 +390,17 @@
 					</div>
 				</div>
 
+				<div class="row pb-3">
+					<button
+						class="col-10 offset-1 add d-lg-none btn registerPatient btn-block"
+						data-toggle="modal" data-target="#exampleModal">Registrar
+						paciente a cargo</button>
+				</div>
+
+
+
 				<div class="row d-flex justify-content-around">
-					<div class="col-7">
+					<div class="col-10 offset-1 col-md-7 offset-md-0">
 
 						<div class="row pt-2 d-flex justify-content-between">
 							<div class="col-4 pb-5">
@@ -430,145 +494,227 @@
 						</div>
 					</div>
 
-					<div class="col-3">
+					<div class="col-3 d-none d-lg-block">
 						<form id="form2" th:action="@{/career/register}" method=POST>
 							<legend class="text-center">Registrar paciente a cargo</legend>
 							<label for="name" title="name">Nombre:<br> <input
 								type="text" onblur="compruebaNombre()" required name="name"
 								id="name" title="name" placeholder="Nombre del paciente"><br>
-							<small id="errorName"></small></label> <br> <label for="surname"
+								<small id="errorName"></small></label> <br> <label for="surname"
 								title="surname">Apellidos:<br> <input type="text"
 								onblur="compruebaApellido()" required name="surname"
 								id="surname" title="surname"
-								placeholder="Apellidos del paciente"><br>
-							<small id="errorSurname"></small></label> <br> <label
-								for="dateOfBirth" title="dateOfBirth">Fecha de
-								nacimiento:<br> <input type="date"
-								onblur="compruebaFecha()" required id="dateOfBirth"
-								title="dateOfBirth" name="dateOfBirth"><br>
-							<small id="errorDate"></small>
+								placeholder="Apellidos del paciente"><br> <small
+								id="errorSurname"></small></label> <br> <label for="dateOfBirth"
+								title="dateOfBirth">Fecha de nacimiento:<br> <input
+								type="date" onblur="compruebaFecha()" required id="dateOfBirth"
+								title="dateOfBirth" name="dateOfBirth"><br> <small
+								id="errorDate"></small>
 							</label><br> <label for="email2" title="email">Email: <br>
 								<input name="email2" onblur="compruebaEmail()" required
 								id="email2" title="email" placeholder="Email del paciente"
-								type="email"> <br>
-							<small id="errorEmail"></small></label><br> <input type="submit"
-								class="formbutton mt-3 btn add" value="Registrar paciente">
+								type="email"> <br> <small id="errorEmail"></small></label><br>
+							<input type="submit" class="formbutton mt-3 btn add"
+								value="Registrar paciente">
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="modal citanueva fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Registrar paciente a cargo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/career/register}" method=POST>
+							<label for="name" title="name">Nombre:<br> <input
+								type="text" onblur="compruebaNombre()" required name="name"
+								id="name" title="name" placeholder="Nombre del paciente"><br>
+								<small id="errorName"></small></label> <br> <label for="surname"
+								title="surname">Apellidos:<br> <input type="text"
+								onblur="compruebaApellido()" required name="surname"
+								id="surname" title="surname"
+								placeholder="Apellidos del paciente"><br> <small
+								id="errorSurname"></small></label> <br> <label for="dateOfBirth"
+								title="dateOfBirth">Fecha de nacimiento:<br> <input
+								type="date" onblur="compruebaFecha()" required id="dateOfBirth"
+								title="dateOfBirth" name="dateOfBirth"><br> <small
+								id="errorDate"></small>
+							</label><br> <label for="email2" title="email">Email: <br>
+								<input name="email2" onblur="compruebaEmail()" required
+								id="email2" title="email" placeholder="Email del paciente"
+								type="email"> <br> <small id="errorEmail"></small></label><br>
+							<input type="submit" class="formbutton mt-3 btn add"
+								value="Registrar paciente">
+						</form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 
 	</div>
 
 	<div th:if="${role==3}">
 		<div class="container-fluid">
-			<nav class="navbar navbar-expand-sm justify-content-between">
+			<div class="d-none d-md-block">
+				<nav class="navbar navbar-expand-md d-flex justify-content-between ">
+					<!-- Brand/logo -->
+					<a class="navbar-brand d-flex align-items-center"
+						th:href="@{/admin/home}"> <img src="/assets/logo.png"
+						title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
+						<h1 class="pt-3">Treatment Tracer</h1>
+					</a>
+
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/diseases}">Enfermedades</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/patients}">Pacientes</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/carers}">Cuidadores</a></li>
+						<li class="nav-item">
+							<form th:action="@{/logout}" method="post">
+								<input type="submit" class="nav-link btn btn-info logout"
+									value="Cerrar Sesion" />
+							</form>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<nav
+				class="navbar navbar-expand-md d-md-none justify-content-between ">
 				<!-- Brand/logo -->
 				<a class="navbar-brand d-flex align-items-center"
 					th:href="@{/admin/home}"> <img src="/assets/logo.png"
 					title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
-					<h1 class="pt-3">Treatment Tracer</h1>
 				</a>
 
-				<!-- Links -->
-				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/diseases}">Enfermedades</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/patients}">Pacientes</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/carers}">Cuidadores</a></li>
-					<li class="nav-item">
-						<form th:action="@{/logout}" method="post">
-							<input type="submit" class="nav-link btn btn-info logout"
-								value="Cerrar Sesion" />
-						</form>
-					</li>
-				</ul>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#collapsibleNavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="collapsibleNavbar">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/diseases}">Enfermedades</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/patients}">Pacientes</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/carers}">Cuidadores</a></li>
+						<li class="nav-item">
+							<form th:action="@{/logout}" method="post">
+								<input type="submit" class="nav-link btn btn-info logout"
+									value="Cerrar Sesion" />
+							</form>
+						</li>
+					</ul>
+				</div>
 			</nav>
-			<div>
-				<div class="body">
-					<div aria-label="breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item active" aria-current="page"
-								title="Usted está aquí">Inicio</li>
-						</ol>
-					</div>
-				
+
+			<div class="body">
+				<div aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item active" aria-current="page"
+							title="Usted está aquí">Inicio</li>
+					</ol>
+				</div>
+
 
 				<div class="row admin">
-					<div class="col-6 separator">
+					<div class="col-12 col-lg-6 separator">
 						<div class="row">
 							<div class="col-12 text-center">
 								<h1>Panel de administración</h1>
 							</div>
 						</div>
 						<div class="row d-flex justify-content-around">
-							
-								<div class="card mt-3 col-5 " >
-									<h5 class="card-title">Gestión de enfermedades</h5>
-									<img class="card-img-top px-5" src="/assets/disease.png" height=140 alt="Card image cap">
-									<div class="card-body">
-										
-										<a th:href="@{/admin/diseases}"
-											class="btn btn-link d-flex justify-content-center">Acceder</a>
-									</div>
+							<div class="col-12 d-md-none d-flex justify-content-around">
+
+								<a th:href="@{/admin/patients}"
+									class="btn add btn-sm d-flex justify-content-center">Pacientes</a>
+
+								<a th:href="@{/admin/carers}"
+									class="btn add btn-sm d-flex justify-content-center">Cuidadores</a>
+								<a th:href="@{/admin/diseases}"
+									class="btn add btn-sm d-flex justify-content-center">Enfermedades</a>
+							</div>
+							<div class="card mt-3 col-3 col-lg-5 d-none d-md-block">
+								<h5 class="card-title">Gestión de enfermedades</h5>
+								<img class="card-img-top px-5" src="/assets/disease.png"
+									height=140 alt="Card image cap">
+								<div class="card-body">
+
+									<a th:href="@{/admin/diseases}"
+										class="btn btn-link d-flex justify-content-center">Acceder</a>
 								</div>
-							
-							<div class="card mt-3 col-5" >
-									<h5 class="card-title">Gestión de cuidadores</h5>
-									<img class="card-img-top px-5" src="/assets/carer.png" height=140 alt="Card image cap">
-									<div class="card-body">
-										
-									
-										<a th:href="@{/admin/carers}"
-											class="btn btn-link d-flex justify-content-center">Acceder</a>
-									</div>
+							</div>
+
+							<div class="card mt-3 col-3 col-lg-5 d-none d-md-block">
+								<h5 class="card-title">Gestión de cuidadores</h5>
+								<img class="card-img-top px-5" src="/assets/carer.png"
+									height=140 alt="Card image cap">
+								<div class="card-body">
+
+
+									<a th:href="@{/admin/carers}"
+										class="btn btn-link d-flex justify-content-center">Acceder</a>
 								</div>
-								
+							</div>
+
 						</div>
 						<div class="row d-flex justify-content-around">
-								<div class="card col-5 mt-3" >
-									<h5 class="card-title">Gestión de pacientes</h5>
-									<img class="card-img-top px-5" src="/assets/patient.png" height=140 alt="Card image cap">
-									<div class="card-body">
-										
-										<a th:href="@{/admin/patients}"
-											class="btn btn-link d-flex justify-content-center">Acceder</a>
-									</div>
+
+
+							<div class="card col-3 col-lg-5 mt-3 d-none d-md-block">
+								<h5 class="card-title">Gestión de pacientes</h5>
+								<img class="card-img-top px-5" src="/assets/patient.png"
+									height=140 alt="Card image cap">
+								<div class="card-body">
+
+									<a th:href="@{/admin/patients}"
+										class="btn btn-link d-flex justify-content-center">Acceder</a>
 								</div>
-								<div class="card mt-3 col-5" >
-									<h5 class="card-title">Desconectar</h5>
-									<img class="card-img-top px-5" src="/assets/logout.png" height=140 alt="Card image cap">
-									<div class="card-body">
-										
-										<form class="d-flex justify-content-center"
-											th:action="@{/logout}" method="post">
-											<input type="submit" class="btn btn-link" value="Acceder" />
-										</form>
-									</div>
+							</div>
+							<div class="card mt-3 col-3 col-lg-5 d-none d-md-block">
+								<h5 class="card-title">Desconectar</h5>
+								<img class="card-img-top px-5" src="/assets/logout.png"
+									height=140 alt="Card image cap">
+								<div class="card-body">
+
+									<form class="d-flex justify-content-center"
+										th:action="@{/logout}" method="post">
+										<input type="submit" class="btn btn-link" value="Acceder" />
+									</form>
 								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-6">
-						<div class="row">
+					<div class="col-12 col-lg-6">
+						<div class="row pt-5 pt-lg-0">
 							<div class="col-12 text-center">
 								<h1>Enfermedades inactivas</h1>
 							</div>
 						</div>
 						<div class="row ">
-							<div class="col-10 offset-1">
-								<ul class="pt-5">
+							<div class="col-12 col-md-10 offset-md-1">
+								<ul class="pt-5 pl-3">
 									<div th:each="dis:${inactiveDisease}">
 										<li class="row  justify-content-between">
 											<div class="col-6">
 												<p class="pt-2" th:text="${dis.name}"></p>
 											</div>
-											<div class="col-2 ">
+											<div class="col-3">
 												<form th:action="@{/admin/editDisease}" method=POST>
 													<input type="hidden" name="inactiveId" th:value="${dis.id}">
-													<input type="submit"  class="actived btn btn-md" value="Activar">
+													<input type="submit" class="actived btn btn-md"
+														value="Activar">
 												</form>
 											</div>
 
@@ -582,18 +728,18 @@
 
 					</div>
 				</div>
-				
-				
+
+
 
 			</div>
 
-	
+
+
+		</div>
+
+
 
 	</div>
-	</div>
-
-
-</div>
 
 	<div class="modal fade" id="infoAlert" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -627,7 +773,9 @@
 		</div>
 	</div>
 
-	<script type='text/javascript' src="/jquery/jquery-3.4.1.min.js"></script>
+	
+
+
 	<script src="/jquery/jquery.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

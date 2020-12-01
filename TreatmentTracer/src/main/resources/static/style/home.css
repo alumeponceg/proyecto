@@ -361,6 +361,44 @@ table tbody tr:hover {
    	color:white;
 }
 
+.citanueva .modal {
+    background: rgba(4, 4, 90, 0.265);
+
+}
+
+.citanueva .modal-content {
+    background: rgb(246,106,184);
+    background: linear-gradient(-45deg, rgba(185,3,104,1), rgba(209,57,142,1), rgba(229,81,162,1),  rgba(246,106,184,1));
+color: white;
+border-radius: 10px;
+box-shadow: 0px 0px 11px 6px rgb(245, 202, 236);
+font-family: 'arvo';
+    
+}
+
+.citanueva .modal-header {
+    font-family: 'neuropol';
+    border-bottom: 3px ridge #8DBFD9;
+}
+
+.citanueva .close {
+    color: white;
+    opacity: 1;
+    font-size: 28px;
+}
+
+.citanueva .close:hover {
+    color: white;
+    opacity: 1;
+}
+
+.citanueva .modal-footer {
+    border: none;
+    display: flex;
+    justify-content: center !important;
+}
+
+
 /*ADMIN*/
 
 

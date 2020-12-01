@@ -51,7 +51,10 @@ $(document).ready(function () {
     $(".treatments").slideUp(1000);
   });
   
-  
+  $(".registerPatient").click(function(){
+	  $(".registerPatientForm").slideToggle(1000);
+	  
+	  });
   
   
 });
