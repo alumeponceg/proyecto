@@ -13,24 +13,24 @@
 
 <body>
     <div class="container-fluid">
-       <div class="d-none d-md-block">
+      <div class="d-none d-md-block">
 			<nav class="navbar navbar-expand-md d-flex justify-content-between ">
 				<!-- Brand/logo -->
 				<a class="navbar-brand d-flex align-items-center"
 					th:href="@{/user/home}"> <img src="/assets/logo.png"
 					title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
-					<h1 class="pt-3">Treatment Tracer</h1>
+					<h1 class="pt-3" th:text="#{navbar.titulo}">Treatment Tracer</h1>
 				</a>
 
 				<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/treatments}">Tratamientos</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/routines}">Rutinas</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/user/medicalAppointments}">Citas médicas</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/user/files}">Archivos médicos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/treatments}"th:text="#{navbar.tratamientos}">Tratamientos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/routines}" th:text="#{navbar.rutinas}">Rutinas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/medicalAppointments}"th:text="#{navbar.citasMedicas}">Citas médicas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/files}" th:text="#{navbar.archivosMedicos}">Archivos médicos</a></li>
 				<li class="nav-item">
 					<form th:action="@{/logout}" method="post">
 						<input type="submit" class="nav-link btn btn-info logout"
-							value="Cerrar Sesion" />
+							th:value="#{navbar.cerrarSesion}" />
 					</form>
 				</li>
 			</ul>
@@ -50,14 +50,14 @@
 			</button>
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/treatments}">Tratamientos</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/routines}">Rutinas</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/user/medicalAppointments}">Citas médicas</a></li>
-				<li class="nav-item"><a class="nav-link" th:href="@{/user/files}">Archivos médicos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/treatments}" th:text="#{navbar.tratamientos}">Tratamientos</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="${withoutDisease==true}?'#':@{/user/routines}" th:text="#{navbar.rutinas}">Rutinas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/medicalAppointments}" th:text="#{navbar.citasMedicas}">Citas médicas</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/files}" th:text="#{navbar.archivosMedicos}">Archivos médicos</a></li>
 				<li class="nav-item">
 					<form th:action="@{/logout}" method="post">
 						<input type="submit" class="nav-link btn btn-info logout"
-							value="Cerrar Sesion" />
+							th:value="#{navbar.cerrarSesion}" />
 					</form>
 				</li>
 			</ul>
@@ -66,22 +66,22 @@
        <div class="files body">
         <div aria-label="breadcrumb">
             <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a th:href="@{/user/home}">Inicio</a></li>
-                <li class="breadcrumb-item active" title="Usted está aquí" aria-current="page">Archivos médicos</li>
+               <li class="breadcrumb-item"><a th:href="@{/user/home}" th:text="#{breadcrum.inicio}">Inicio</a></li>
+                <li class="breadcrumb-item active" title="Usted está aquí" aria-current="page" th:text="#{breadcrum.archivosMedicas}">Archivos médicos</li>
             </ol>
         </div>
        
         <div class="row order">
             <div class="col-12 col-md-10 offset-md-1">
-                <h1>Archivos médicos</h1>
+                <h1 th:text="#{arch.titulo}">Archivos médicos</h1>
             </div>
             
         </div>
 
         <div class="row pb-3">
             <div class="col-12 col-md-10 offset-md-1 upload">
-                <p class="h3">¿Quieres subir un nuevo archivo a tu almacen de estudios médicos ? <button
-                        class="btn uploadbutton btn-sm ml-4" data-toggle="modal" data-target="#exampleModal">Subir
+                <p class="h3" th:text="#{arch.crear}">¿Quieres subir un nuevo archivo a tu almacen de estudios médicos ? <button
+                        class="btn uploadbutton btn-sm ml-4" data-toggle="modal" data-target="#exampleModal" th:text="#{arch.subir}">Subir
                         archivo</button> </p>
             </div>
         </div>
@@ -97,9 +97,9 @@
 		                    <div class="card-body">
 		                       
 		                        <form th:action="@{/user/removeFile}" method=POST>
-		                         <a th:href="${file.file}"class="btn download "  target="_blank" download>Descargar</a>
+		                         <a th:href="${file.file}"class="btn download "  target="_blank" download th:text="#{arch.descargar}">Descargar</a>
 										<input name="id" th:value="${file.id}" type="hidden"> 
-										<input type="submit" class="btn delete" value="Borrar">
+										<input type="submit" class="btn delete" value="Borrar" th:value="#{arch.borrar}">
 								</form>
 		                    </div>
 		                    </div>
@@ -116,8 +116,8 @@
         
         <div class="row scrollupload mt-3 pb-3">
             <div class="col-12 col-md-10 offset-md-1 upload">
-                <p class="h3">¿Quieres subir un nuevo archivo a tu almacen de estudios médicos ? <button
-                        class="btn uploadbutton btn-sm ml-4" data-toggle="modal" data-target="#exampleModal">Subir
+                <p class="h3" th:text="#{arch.crear}">¿Quieres subir un nuevo archivo a tu almacen de estudios médicos ? <button
+                        class="btn uploadbutton btn-sm ml-4" data-toggle="modal" data-target="#exampleModal" th:text="#{arch.subir}">Subir
                         archivo</button> </p>
             </div>
         </div>
@@ -131,24 +131,24 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Subir archivo</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle" th:text="#{arch.subir}">Subir archivo</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form th:action="@{/user/uploadFile}" class="text-center">
-                        <label for="nameFile" title="nombre del archivo"><strong>Nombre del archivo:</strong> <br>
+                        <label for="nameFile" title="nombre del archivo"><strong th:text="#{arch.nombre}">Nombre del archivo:</strong> <br>
                             <input type="text" name="nameFile" id="nameFile" title="nombre del archivo"></label><br>
-                        <label for="desFile" title="Descripción del archivo"><strong>Descripción del archivo:</strong> <br>
+                        <label for="desFile" title="Descripción del archivo"><strong th:text="#{arch.descripcion}">Descripción del archivo:</strong> <br>
                             <input type="text" name="desFile" id="desFile" title="Descripción del archivo"></label><br>
-                        <label for="file" title="archivo"><strong>Archivo:</strong> 
+                        <label for="file" title="archivo"><strong th:text="#{arch.archivo}">Archivo:</strong> 
 								<progress value="0" id="uploader" max="100">0%</progress><br>
 								<input id="file" class="file" type="file" required name="file" title="archivo" onchange="getfile()">
                         </label><br>
 						<input type="hidden" name="pic" required id="pic">
-                        <button type="button" class="btn formbutton" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn formbutton">Subir archivo</button>
+                        <button type="button" class="btn formbutton" data-dismiss="modal" th:text="#{arch.cerrar}">Cerrar</button>
+                    <button type="submit" class="btn formbutton" th:text="#{arch.subir}">Subir archivo</button>
                     </form>
                 </div>
                 

@@ -19,10 +19,10 @@
            <div class="col-12">
             <div class="row mt-3">
                 <div class="col-2 offset-8 d-flex justify-content-end">
-                    <button class="btn btn-lg indexbutton px-2" id="login" >Iniciar Sesión</button>
+                    <button class="btn btn-lg indexbutton px-2" id="login" th:text="#{index.iniciarSesion}"></button>
                 </div>
                 <div class="col-1 ">
-                    <button class="btn btn-lg indexbutton px-2" id="register">Registrarse</button>
+                    <button class="btn btn-lg indexbutton px-2" id="register" th:text="#{index.registrarse}">Registrarse</button>
                 </div>
             </div>
             <div th:if="${error==true}">
@@ -39,10 +39,10 @@
                 <div class="col-8 offset-2">
                     <div class="row align-items-end">
                         <img src="/assets/logo.png" alt="TreatmentTracer Logotype" title="Logotipo T&T" class="col-3">
-                        <h1 class="col-9 display-4 title"><span>Treatment</span> Tracer</h1>
+                        <h1 class="col-9 display-4 title"th:text="#{index.titulo}"><span>Treatment</span> Tracer</h1>
                     </div>
                     <div class="row mt-5">
-                        <p class="col-12 text-justify intro">
+                        <p class="col-12 text-justify intro" th:text="#{index.textoIntro}">
                             Treatment Tracer pretende facilitar la vida de los pacientes de enfermedades crónicas y/o de sus cuidadores,
                             poniendo a su disposición una serie de tecnología que le van a permitir, gestionar sus tratamientos y rutinas notificando al usuario antes de cada toma o realización mediante email, acceder a gráficas control de aquellas mediciones que deriven de una rutina concreta, almacenar sus archivos médicos y acceder a ellos en cualquier momento y anotar y gestionar en un calendario todas sus citas médicas.
                         </p>
@@ -59,13 +59,13 @@
            <div  class=" offset-9 col-3 position-absolute"   >
                    <div id="form1">
                     <form  th:action="@{/login}" method=POST>
-                        <legend  class="text-center" >Iniciar sesión</legend>
-                        <label for="email" title="password">Email: <br>
-                        <input id="email" name="email" placeholder="Introduzca email" type="email" title="email"></label> <br>
-                        <label for="password" title="password">Contraseña: <br>
-                        <input type="password" id="password" title="password" name="password" placeholder="Introduzca contraseña"></label><br>
-                        <input type="submit" class="formbutton" value="Iniciar sesión">
-                        <input type="button" class="return formbutton" value="Volver">
+                        <legend  class="text-center" th:text="#{index.iniciarSesion}">Iniciar sesión</legend>
+                        <label for="email" title="password" ><span th:text="#{index.email}"></span> <br>
+                        <input id="email" name="email" th:placeholder="#{index.emailPlaceholder}" type="email" title="email"></label> <br>
+                        <label for="password" title="password"><span th:text="#{index.contrasenya}"></span> <br>
+                        <input type="password" id="password" title="password" name="password" th:placeholder="#{index.contrasenyaPlaceholder}"></label><br>
+                        <input type="submit" class="formbutton" th:value="#{index.iniciarSesion}">
+                        <input type="button" class="return formbutton" th:value="#{index.volver}">
                          <div th:if="${param.error}" class="alert alert-danger" role="alert">
 		            Invalid username and password.
 		        </div>
@@ -77,29 +77,29 @@
 
                    <div id="form2">
                     <form  th:action="@{/register}" method=POST>
-                        <legend class="text-center" >Registrarse</legend>
-                        <label for="name" title="name">Nombre:<br>
-                        <input type="text" name="name" id="name" title="name" onblur="compruebaNombre()" required placeholder="Introduzca su nombre"><br><small id="errorName"></small></label> <br>
-                        <label for="surname" title="surname" >Apellidos:<br>
-                        <input type="text" name="surname" id="surname" title="surname" onblur="compruebaApellido()" required placeholder="Introduzca sus apellidos"><br><small id="errorSurname"></small></label> <br>
+                        <legend class="text-center" th:text="#{index.registrarse}" >Registrarse</legend>
+                        <label for="name" title="name"><span th:text="#{index.nombre}"></span><br>
+                        <input type="text" name="name" id="name" title="name" onblur="compruebaNombre()" required th:placeholder="#{index.nombrePlaceholder}"><br><small id="errorName"></small></label> <br>
+                        <label for="surname" title="surname" ><span th:text="#{index.apellidos}"></span><br>
+                        <input type="text" name="surname" id="surname" title="surname" onblur="compruebaApellido()" required th:placeholder="#{index.apellidosPlaceholder}"><br><small id="errorSurname"></small></label> <br>
     
-                        <label for="dateOfBirth" title="dateOfBirth">Fecha de nacimiento:<br>
+                        <label for="dateOfBirth" title="dateOfBirth"><span th:text="#{index.fechaNacimiento}"></span><br>
                         <input type="date" id="dateOfBirth" title="dateOfBirth" onblur="compruebaFecha()" required name="dateOfBirth" ><br>
                         <small id="errorDate"></small>
                         </label><br>
-                        <label for="email2" title="email">Email: <br>
-                        <input name="email2" id="email2" title="email" onblur="compruebaEmail()" required placeholder="Introduzca email" type="email"><br><small id="errorEmail"></small> </label><br>
-                        <label for="pass" title="password">Contraseña: <br>
-                        <input type="password" name="pass" id="pass" title="password" onblur="compruebaPass()" required placeholder="Introduzca contraseña"><br><small id="errorPass"></small></label> <br>
-                        <label for="confirmPassword" title="Confirm password" >Confirmar contraseña: <br>
-                        <input type="password" name="confirmPassword" onblur="compruebaPass2()" required id="confirmPassword" title="Confirm password" placeholder="Confirme su contraseña"><br><small id="errorPass2"></small></label><br>
-                        <label for="role" title="role">Rol: <br>
+                        <label for="email2" title="email"><span th:text="#{index.email}"></span> <br>
+                        <input name="email2" id="email2" title="email" onblur="compruebaEmail()" required th:placeholder="#{index.emailPlaceholder}" type="email"><br><small id="errorEmail"></small> </label><br>
+                        <label for="pass" title="password"><span th:text="#{index.contrasenya}"></span><br>
+                        <input type="password" name="pass" id="pass" title="password" onblur="compruebaPass()" required th:placeholder="#{index.contrasenyaPlaceholder}"><br><small id="errorPass"></small></label> <br>
+                        <label for="confirmPassword" title="Confirm password" ><span th:text="#{index.confirmarContrasenya}"></span><br>
+                        <input type="password" name="confirmPassword" onblur="compruebaPass2()" required id="confirmPassword" title="Confirm password" th:placeholder="#{index.confirmarContrasenyaPlaceholder}"><br><small id="errorPass2"></small></label><br>
+                        <label for="role" title="role"><span th:text="#{index.rol}"></span> <br>
                             <select id="role" title="role" name="role" required>
-                            <option value="1">paciente</option>
-                            <option value="2">cuidador</option>
+                            <option value="1"><span th:text="#{index.paciente}"></span></option>
+                            <option value="2"><span th:text="#{index.cuidador}"></span></option>
                         </select></label><br>
-                        <input type="submit" class="formbutton" onclick="comprobarErrores()" value="Registrarse">
-                        <input type="button" class="return formbutton" value="Volver">
+                        <input type="submit" class="formbutton" onclick="comprobarErrores()" th:value="#{index.registrarse}">
+                        <input type="button" class="return formbutton" th:value="#{index.volver}">
                    </form>
                    </div>
                    
