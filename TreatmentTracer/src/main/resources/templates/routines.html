@@ -75,7 +75,7 @@
 			<div class="row pt-5">
 				<div class="col-10 offset-1 col-lg-4 offset-lg-2">
 
-					<form th:action="@{/user/routines}" method=POST>
+					<form th:action="@{/user/routines}" class="order" method=POST>
 						<select name="order">
 							<option value="-1" th:text="#{tratrut.ordenar}">Ordenar por</option>
 							<option value="3" th:text="#{ordenar.fecha}">Fecha de activación</option>
@@ -91,7 +91,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col-10 offset-1 col-lg-8 offset-lg-2 table-responsive">
+				<div class="col-10 offset-1 col-xl-8 offset-xl-2 table-responsive">
 					<table class="table">
 						<thead class="bg-info text-center">
 							<tr>

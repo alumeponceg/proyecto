@@ -300,4 +300,65 @@ font-family: 'arvo';
 }
 
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+	.order h1 {
+	font-size: 20px;
+	text-align: center;
+	}
+	
+	.upload p{
+	font-size: 10px;
+	width: 95%;
+	text-align: center;
+	
+	}
+	
+	.upload button{
+	font-size: 10px;
+	padding: 1px;
+	
+	}
+	
+	.card {
+	margin-bottom: 3%;
+	
+	}
+	
+	input[type=file]{
+	font-size: 10px;
+	}
+	
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+
+	.card embed {
+	width: 150px;
+	
+	}	
+	
+	
+	
+
+	
+	}
+
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+	.card embed {
+	width: 150px;
+	
+	}	
+	
+	
+	
+
+	
+	}
+
+
+
 

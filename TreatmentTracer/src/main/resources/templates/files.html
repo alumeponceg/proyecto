@@ -137,7 +137,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form th:action="@{/user/uploadFile}" class="text-center">
+                    <form th:action="@{/user/uploadFile}" >
                         <label for="nameFile" title="nombre del archivo"><strong th:text="#{arch.nombre}">Nombre del archivo:</strong> <br>
                             <input type="text" name="nameFile" id="nameFile" title="nombre del archivo"></label><br>
                         <label for="desFile" title="Descripción del archivo"><strong th:text="#{arch.descripcion}">Descripción del archivo:</strong> <br>

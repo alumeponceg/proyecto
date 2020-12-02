@@ -394,38 +394,40 @@
 
 
 				<div class="row d-flex justify-content-around">
-					<div class="col-10 offset-1 col-md-7 offset-md-0">
+					<div class="col-10 offset-1 col-lg-7  offset-md-0">
 
 						<div class="row pt-2 d-flex justify-content-between">
-							<div class="col-4 pb-5">
+							<div class="col-4 pb-md-5" style="padding-left:0% !important">
 
-								<form th:action="@{/career/home}" method=POST>
+								<form th:action="@{/career/home}" class="order d-flex" method=POST>
+								<label for="name"><span style="font-family: 'arvo'" th:text="#{homec.ordenar}"></span>
 									<select name="order">
 										<option value="-1" th:text="#{homec.ordenar}">Ordenar por</option>
 										<option value="1" th:text="#{ordenar.email}">Email</option>
 										<option value="2" th:text="#{ordenar.nombreAsc}">Nombre a-z</option>
 										<option value="3" th:text="#{ordenar.nombreDesc}">Nombre z-a</option>
-									</select> <input class="btn btn-success mx-1" type="submit"
+									</select> </label><input class="btn btn-success mx-1" type="submit"
 										th:value="#{homec.filtrar}">
 								</form>
 
 
 							</div>
 
-							<div class="col-7 pb-5">
+							<div class="col-7 pb-md-5" >
 
-								<form class="d-flex" th:action="@{/career/home}" method=POST>
+								<form class="d-flex search" th:action="@{/career/home}" method=POST>
 									<label for="name"><span style="font-family: 'arvo'" th:text="#{homec.buscarNombre}">Buscar
 											por nombre:</span> <input type="text" name="name"></label> <input
-										type="hidden" name="order" value="4"> <input
-										class="btn btn-success mx-1" type="submit" th:value="#{homec.buscar}">
+										type="hidden" name="order" value="4">
+										<input
+										class="btn btn-success" type="submit" th:value="#{homec.buscar}">
 								</form>
 
 
 							</div>
 
 						</div>
-						<div class="row">
+						<div class="row ">
 
 							<table class="table text-center ">
 								<thead class="bg-info text-center">
@@ -436,7 +438,7 @@
 										<th scope="col" th:text="#{homec.nombre}">Nombre</th>
 										<th scope="col" th:text="#{homec.apellidos}">Apellidos</th>
 										<th scope="col" th:text="#{homec.email}">Email</th>
-										<th colspan="3" scope="col" th:text="#{homec.acciones}">Acciones</th>
+										<th scope="col" th:text="#{homec.acciones}">Acciones</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -463,15 +465,14 @@
 													th:value="${patient.id}" type="hidden"> <input
 													type="submit" class="btn update" th:value="#{homec.actualizar}">
 											</form>
-											</td>
-											<td class="text-center">
+											
+										
 
 												<form th:action="@{/career/removeUser}" method=POST>
 													<input name="id" th:value="${patient.id}" type="hidden">
 													<input type="submit" class="btn delete" th:value="#{homec.borrar}">
 												</form>
-											</td>
-											<td class="text-center">
+											
 
 												<form th:action="@{/login}" method=POST>
 													<input name="email" th:value="${patient.email}"
@@ -479,8 +480,8 @@
 														th:value="${patient.name}" type="hidden"> <input
 														type="submit" class="btn actived" th:value="#{homec.acceder}">
 												</form>
-											</td>
-
+										
+												</td>
 										</tr>
 									</div>
 								</tbody>

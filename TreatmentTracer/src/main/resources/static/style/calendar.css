@@ -295,3 +295,64 @@ background-color: rgb(210, 237, 248) !important;
     background-color: rgba(173, 233, 173);
     border: 1.5px outset rgb(173, 233, 173);
 }
+
+/*RESPONSIVE*/
+
+@media only screen and (max-width: 600px) {
+
+	.queryDate h1 {
+	font-size:20px !important;
+	
+	}	
+	
+	.proximalDate {
+	
+	height: auto !important;
+	}
+	
+	}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+
+	.queryDate h1 {
+	font-size:24px;
+	
+	}		
+	
+	.proximalDate {
+	
+	height: auto !important;
+	}
+	
+
+	
+	}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+
+	.queryDate h1 {
+	font-size:28px;
+	
+	}		
+	
+	.proximalDate {
+	
+	height: auto !important;
+	}
+	
+
+	
+	}
+	
+@media only screen and (min-width: 992px) {
+
+	input, textarea {
+	
+	width: 90%;
+	}
+	
+	
+
+	
+	}

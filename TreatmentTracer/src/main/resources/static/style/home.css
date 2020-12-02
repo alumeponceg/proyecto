@@ -445,4 +445,87 @@ font-family: 'arvo';
     
 }
 
+/*RESPONSIVE*/
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+	table {
+		font-size:8px;
+		margin-left:-7%;
+		
+	}
+	
+	table input {
+	  font-size: 6px;
+	  width:80%;
+	}
+	
+	table input[type=submit] {
+	
+	font-size:8px;
+	width:100%;
+	padding:0%;
+	display: block;
+	}
+	
+	.order, .search{
+	font-size:8px;
+	}
+	
+	.order input[type=submit], .search input[type=submit]{
+	font-size:8px;
+	padding:1%;
+	}
+	
+	.registerPatient{
+		font-size: 10px !important;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+table {
+		font-size:12px;
+		margin-left:-5%;
+		
+	}
+	
+	table input {
+	  font-size: 8px;
+	  width:100%;
+	}
+	
+	table input[type=submit] {
+	
+	font-size:10px;
+	width:100%;
+	padding:0%;
+	display: block;
+	}
+	
+	.order, .search{
+	font-size:10px;
+	}
+	
+	.order input[type=submit], .search input[type=submit]{
+	font-size:10px;
+	padding:1%;
+	}
+	
+	.registerPatient{
+		font-size: 12px !important;
+	}
+	
+
+
+	}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {...}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {...}
+
 

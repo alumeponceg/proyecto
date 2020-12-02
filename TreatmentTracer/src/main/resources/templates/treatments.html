@@ -79,7 +79,7 @@
 			<div class="row pt-5">
 				<div class="col-10 offset-1 col-lg-4 offset-lg-2">
 				
-					<form th:action="@{/user/treatments}" method=POST>
+					<form th:action="@{/user/treatments}" class="order" method=POST>
 								<select name="order">
 									<option value="-1" th:text="#{tratrut.ordenar}">Ordenar por</option>
 									<option value="3" th:text="#{ordenar.fecha}">Fecha de activación</option>
@@ -96,8 +96,8 @@
 			</div>
 
 			<div class="row pt-1">
-				<div class="col-10 offset-1 col-lg-8 offset-lg-2 table-responsive">
-					<table class="table">
+				<div class="col-10 offset-1 col-xl-8 offset-xl-2 table-responsive">
+					<table class="table table-responsive">
 						<thead class="bg-info text-center">
 							<tr>
 								<th colspan="5" th:text="#{tratrut.tratamientos}"></th>
@@ -169,7 +169,7 @@
 										</select>
 										</label>
 									</td>
-									<td class="text-center"><input class="btn add"
+									<td class="text-center"><input class="btn add btn-block mt-1"
 										type="submit" th:value="#{tratrut.anyadirTratamiento}"></td>
 								</form>
 							</tr>
