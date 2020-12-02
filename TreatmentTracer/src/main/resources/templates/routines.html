@@ -78,10 +78,10 @@
 					<form th:action="@{/user/routines}" method=POST>
 						<select name="order">
 							<option value="-1" th:text="#{tratrut.ordenar}">Ordenar por</option>
-							<option value="3">Fecha de activación</option>
-							<option value="2">Nombre z-a</option>
-							<option value="1">Nombre a-z</option>
-							<option value="4">Enfermedad asociada</option>
+							<option value="3" th:text="#{ordenar.fecha}">Fecha de activación</option>
+							<option value="2" th:text="#{ordenar.nombreDesc}">Nombre z-a</option>
+							<option value="1" th:text="#{ordenar.nombreAsc}">Nombre a-z</option>
+							<option value="4" th:text="#{ordenar.enfermedad}">Enfermedad asociada</option>
 						</select> <input class="btn btn-success mx-1" type="submit" value="Filtrar">
 					</form>
 
@@ -154,8 +154,8 @@
 										</div>
 										<div th:if="${rout.measurements.isEmpty()}">
 
-											<p th:text="#{tratrut.sinMediciones}">
-												Esta rutina no tiene mediciones haga click para <a href=""
+											<p >
+												<span th:text="#{tratrut.sinMediciones}"></span><a href=""
 													data-toggle="modal" data-target="#measurements" th:text="#{tratrut.aqui}">Añadir</a>
 											</p>
 											<div class="modal fade" id="measurements" tabindex="-1"

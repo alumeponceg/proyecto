@@ -65,7 +65,7 @@
             <div aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a th:href="@{/user/home}" th:text="#{breadcrum.inicio}">Inicio</a></li>
-                    <li class="breadcrumb-item"><a th:href="@{/user/routines}">Rutinas</a></li>
+                    <li class="breadcrumb-item"><a th:href="@{/user/routines}" th:text="#{breadcrum.rutinas}">Rutinas</a></li>
                     <li class="breadcrumb-item active" title="Usted está aquí" aria-current="page" th:text="#{breadcrum.mediciones}">Mediciones</li>
                 </ol>
             </div>
@@ -120,7 +120,7 @@
                                  <input type="text" name="value" title="valor de la medición" id="value"></label></td>
 								 
 								  <input name="routineId" th:value="${routine.id}" type="hidden">
-									<td class="text-center"><input class="btn btn-sm add mt-3" type="submit" th:text="#{med.anyadir}"></td>
+									<td class="text-center"><input class="btn btn-sm add mt-3" type="submit" th:value="#{med.anyadir}"></td>
 	
 								</form>
                             </tr>

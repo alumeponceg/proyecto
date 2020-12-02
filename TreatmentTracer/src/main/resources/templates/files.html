@@ -67,7 +67,7 @@
         <div aria-label="breadcrumb">
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a th:href="@{/user/home}" th:text="#{breadcrum.inicio}">Inicio</a></li>
-                <li class="breadcrumb-item active" title="Usted está aquí" aria-current="page" th:text="#{breadcrum.archivosMedicas}">Archivos médicos</li>
+                <li class="breadcrumb-item active" title="Usted está aquí" aria-current="page" th:text="#{breadcrum.archivosMedicos}">Archivos médicos</li>
             </ol>
         </div>
        
@@ -80,7 +80,7 @@
 
         <div class="row pb-3">
             <div class="col-12 col-md-10 offset-md-1 upload">
-                <p class="h3" th:text="#{arch.crear}">¿Quieres subir un nuevo archivo a tu almacen de estudios médicos ? <button
+                <p class="h3" ><span th:text="#{arch.crear}"></span> <button
                         class="btn uploadbutton btn-sm ml-4" data-toggle="modal" data-target="#exampleModal" th:text="#{arch.subir}">Subir
                         archivo</button> </p>
             </div>
@@ -116,7 +116,7 @@
         
         <div class="row scrollupload mt-3 pb-3">
             <div class="col-12 col-md-10 offset-md-1 upload">
-                <p class="h3" th:text="#{arch.crear}">¿Quieres subir un nuevo archivo a tu almacen de estudios médicos ? <button
+                <p class="h3"><span th:text="#{arch.crear}"></span> <button
                         class="btn uploadbutton btn-sm ml-4" data-toggle="modal" data-target="#exampleModal" th:text="#{arch.subir}">Subir
                         archivo</button> </p>
             </div>

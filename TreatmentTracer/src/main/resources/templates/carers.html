@@ -13,66 +13,66 @@
 
 	<div class="container-fluid">
 		<div class="d-none d-md-block">
-			<nav class="navbar navbar-expand-md d-flex justify-content-between ">
+				<nav class="navbar navbar-expand-md d-flex justify-content-between ">
+					<!-- Brand/logo -->
+					<a class="navbar-brand d-flex align-items-center"
+						th:href="@{/admin/home}"> <img src="/assets/logo.png"
+						title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
+						<h1 class="pt-3" th:text="#{navbar.titulo}">Treatment Tracer</h1>
+					</a>
+
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/diseases}" th:text="#{navbar.enfermedades}">Enfermedades</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/patients}" th:text="#{navbar.pacientes}">Pacientes</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/carers}" th:text="#{navbar.cuidadores}">Cuidadores</a></li>
+						<li class="nav-item">
+							<form th:action="@{/logout}" method="post">
+								<input type="submit" class="nav-link btn btn-info logout"
+									th:value="#{navbar.cerrarSesion}" />
+							</form>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<nav
+				class="navbar navbar-expand-md d-md-none justify-content-between ">
 				<!-- Brand/logo -->
 				<a class="navbar-brand d-flex align-items-center"
 					th:href="@{/admin/home}"> <img src="/assets/logo.png"
 					title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
-					<h1 class="pt-3">Treatment Tracer</h1>
 				</a>
 
-				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/diseases}">Enfermedades</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/patients}">Pacientes</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/carers}">Cuidadores</a></li>
-					<li class="nav-item">
-						<form th:action="@{/logout}" method="post">
-							<input type="submit" class="nav-link btn btn-info logout"
-								value="Cerrar Sesion" />
-						</form>
-					</li>
-				</ul>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#collapsibleNavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="collapsibleNavbar">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/diseases}" th:text="#{navbar.enfermedades}">Enfermedades</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/patients}" th:text="#{navbar.pacientes}">Pacientes</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/admin/carers}" th:text="#{navbar.cuidadores}">Cuidadores</a></li>
+						<li class="nav-item">
+							<form th:action="@{/logout}" method="post">
+								<input type="submit" class="nav-link btn btn-info logout"
+									th:value="#{navbar.cerrarSesion}" />
+							</form>
+						</li>
+					</ul>
+				</div>
 			</nav>
-		</div>
-		<nav
-			class="navbar navbar-expand-md d-md-none justify-content-between ">
-			<!-- Brand/logo -->
-			<a class="navbar-brand d-flex align-items-center"
-				th:href="@{/admin/home}"> <img src="/assets/logo.png"
-				title="Logotipo del aplicativo" alt="logo" style="width: 80px;">
-			</a>
-
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#collapsibleNavbar">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="collapsibleNavbar">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/diseases}">Enfermedades</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/patients}">Pacientes</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/carers}">Cuidadores</a></li>
-					<li class="nav-item">
-						<form th:action="@{/logout}" method="post">
-							<input type="submit" class="nav-link btn btn-info logout"
-								value="Cerrar Sesion" />
-						</form>
-					</li>
-				</ul>
-			</div>
-		</nav>
 
 		<div class="body carers">
 			<div aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a th:href="@{/admin/home}">Inicio</a></li>
+					<li class="breadcrumb-item"><a th:href="@{/admin/home}" th:text="#{breadcrum.inicio}">Inicio</a></li>
 					<li class="breadcrumb-item active" title="Usted está aquí"
-						aria-current="page">Cuidadores</li>
+						aria-current="page" th:text="#{breadcrum.cuidadores}">Cuidadores</li>
 				</ol>
 			</div>
 
@@ -81,20 +81,20 @@
 				<div class="col-12 d-flex justify-content-around">
 				<div class="row d-flex justify-content-around">
 					<div class="card mt-3 col-8 col-sm-7 col-md-3 col-lg-2">
-						<h5 class="card-title text-center">Listar cuidadores</h5>
+						<h5 class="card-title text-center" th:text="#{cuidadores.listarCuidadores}">Listar cuidadores</h5>
 						<img class="card-img-top px-3" src="/assets/lista.png" height=100
 							alt="Card image cap">
 						<div class="card-body">
 
 
-							<p class="card-text">Some quick example text to build on the
+							<p class="card-text" th:text="#{cuidadores.listarTexto}">Some quick example text to build on the
 								card title and make up the bulk of the card's content.</p>
 							<a href="#"
 								class="btn btn-link col-6 offset-3 d-flex actived justify-content-center listar">Listar</a>
 						</div>
 					</div>
 					<div class="card mt-3 col-8 col-sm-7 col-md-3 col-lg-2">
-						<h5 class="card-title text-center">
+						<h5 class="card-title text-center" th:text="#{cuidadores.activarCuidadores}">
 							Activar<br>Desactivar cuidadores
 						</h5>
 						<img class="card-img-top px-3" src="/assets/activar.png"
@@ -102,27 +102,27 @@
 						<div class="card-body">
 
 
-							<p class="card-text">Some quick example text to build on the
+							<p class="card-text" th:text="#{cuidadores.activarTexto}">Some quick example text to build on the
 								card title and make up the bulk of the card's content.</p>
 							<div class="row d-flex justify-content-around">
-								<a href="#" class="btn btn-link col-5 activar actived">Activar</a>
-								<a href="#" class="btn btn-link col-6  desactivar  delete">Desactivar</a>
+								<a href="#" class="btn btn-link col-5 activar actived" th:text="#{cuidadores.activar}">Activar</a>
+								<a href="#" class="btn btn-link col-6  desactivar  delete" th:text="#{cuidadores.desactivar}">Desactivar</a>
 							</div>
 
 						</div>
 					</div>
 					<div class="card mt-3 col-8 col-sm-7 col-md-3 col-lg-2">
-						<h5 class="card-title text-center">Número de pacientes por
+						<h5 class="card-title text-center" th:text="#{cuidadores.numLargo}">Número de pacientes por
 							cuidador</h5>
 						<img class="card-img-top px-3" src="/assets/num.png" height=100
 							alt="Card image cap">
 						<div class="card-body">
 
 
-							<p class="card-text">Some quick example text to build on the
+							<p class="card-text" th:text="#{cuidadores.numTexto}">Some quick example text to build on the
 								card title and make up the bulk of the card's content.</p>
 							<a href="#"
-								class="btn btn-link col-6 offset-3 d-flex actived justify-content-center num">Listar</a>
+								class="btn btn-link col-6 offset-3 d-flex actived justify-content-center num" th:text="#{cuidadores.listar}">Listar</a>
 						</div>
 					</div>
 				</div>
@@ -135,15 +135,15 @@
 						class="table table-sm table-responsive-sm table-responsive-md">
 						<thead class="bg-info text-center">
 							<tr>
-								<th colspan="6">LISTADO DE CUIDADORES</th>
+								<th colspan="6" th:text="#{cuidadores.listado}">LISTADO DE CUIDADORES</th>
 							</tr>
 							<tr>
-								<th scope="col">Nombre</th>
-								<th scope="col">Apellidos</th>
-								<th scope="col">Email</th>
-								<th scope="col">Fecha de nacimiento</th>
-								<th scope="col">Estado</th>
-								<th scope="col">Borrar</th>
+								<th scope="col" th:text="#{cuidadores.nombre}">Nombre</th>
+								<th scope="col" th:text="#{cuidadores.apellidos}">Apellidos</th>
+								<th scope="col" th:text="#{cuidadores.email}">Email</th>
+								<th scope="col" th:text="#{cuidadores.fechaNacimiento}">Fecha de nacimiento</th>
+								<th scope="col" th:text="#{cuidadores.estado}">Estado</th>
+								<th scope="col" th:text="#{cuidadores.borrar}">Borrar</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -157,7 +157,7 @@
 									<td class="text-center">
 										<form th:action="@{/admin/deleteCarer}" method=POST>
 											<input name="id" th:value="${carer.id}" type="hidden">
-											<input type="submit" class="btn delete" value="Borrar">
+											<input type="submit" class="btn delete" th:value="#{cuidadores.borrar}">
 										</form>
 
 									</td>
@@ -174,14 +174,14 @@
 						class="table table-sm table-responsive-sm table-responsive-md">
 						<thead class="bg-info text-center">
 							<tr>
-								<th colspan="5">LISTADO DE CUIDADORES ACTIVOS</th>
+								<th colspan="5" th:text="#{cuidadores.activos}">LISTADO DE CUIDADORES ACTIVOS</th>
 							</tr>
 							<tr>
-								<th scope="col">Nombre</th>
-								<th scope="col">Apellidos</th>
-								<th scope="col">Email</th>
-								<th scope="col">Fecha de nacimiento</th>
-								<th scope="col">Desactivar</th>
+								<th scope="col" th:text="#{cuidadores.nombre}">Nombre</th>
+								<th scope="col" th:text="#{cuidadores.apellidos}">Apellidos</th>
+								<th scope="col" th:text="#{cuidadores.email}">Email</th>
+								<th scope="col" th:text="#{cuidadores.fechaNacimiento}">Fecha de nacimiento</th>
+								<th scope="col" th:text="#{cuidadores.desactivar}">Desactivar</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -194,7 +194,7 @@
 									<td class="text-center">
 										<form th:action="@{/admin/inactiveCarer}" method=POST>
 											<input name="id" th:value="${carer.id}" type="hidden">
-											<input type="submit" class="btn actived" value="Desactivar">
+											<input type="submit" class="btn actived" th:value="#{cuidadores.desactivar}">
 										</form>
 
 									</td>
@@ -212,14 +212,14 @@
 						class="table table-sm table-responsive-sm table-responsive-md">
 						<thead class="bg-info text-center">
 							<tr>
-								<th colspan="5">LISTADO DE CUIDADORES INACTIVOS</th>
+								<th colspan="5" th:text="#{cuidadores.inactivos}">LISTADO DE CUIDADORES INACTIVOS</th>
 							</tr>
 							<tr>
-								<th scope="col">Nombre</th>
-								<th scope="col">Apellidos</th>
-								<th scope="col">Email</th>
-								<th scope="col">Fecha de nacimiento</th>
-								<th scope="col">Activar</th>
+								<th scope="col" th:text="#{cuidadores.nombre}">Nombre</th>
+								<th scope="col" th:text="#{cuidadores.apellidos}">Apellidos</th>
+								<th scope="col"th:text="#{cuidadores.email}">Email</th>
+								<th scope="col" th:text="#{cuidadores.fechaNacimiento}">Fecha de nacimiento</th>
+								<th scope="col" th:text="#{cuidadores.activar}">Activar</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -232,7 +232,7 @@
 									<td class="text-center">
 										<form th:action="@{/admin/activeCarer}" method=POST>
 											<input name="id" th:value="${carer.id}" type="hidden">
-											<input type="submit" class="btn actived" value="Activar">
+											<input type="submit" class="btn actived" th:value="#{cuidadores.activar}">
 										</form>
 
 									</td>
@@ -250,13 +250,13 @@
 						class="table table-sm table-responsive-sm table-responsive-md">
 						<thead class="bg-info text-center">
 							<tr>
-								<th colspan="4">NÚMERO DE PACIENTES POR CUIDADOR</th>
+								<th colspan="4" th:text="#{cuidadores.numLargo}">NÚMERO DE PACIENTES POR CUIDADOR</th>
 							</tr>
 							<tr>
-								<th scope="col">Nombre</th>
-								<th scope="col">Apellidos</th>
-								<th scope="col">Email</th>
-								<th scope="col">Número de pacientes</th>
+								<th scope="col" th:text="#{cuidadores.nombre}">Nombre</th>
+								<th scope="col" th:text="#{cuidadores.apellidos}">Apellidos</th>
+								<th scope="col" th:text="#{cuidadores.email}">Email</th>
+								<th scope="col" th:text="#{cuidadores.num}">Número de pacientes</th>
 
 							</tr>
 						</thead>
@@ -279,7 +279,7 @@
 
 				<div
 					class="col-12 col-lg-10 mt-5 d-flex justify-content-center justify-content-lg-end">
-					<a href="#" class="btn add volver">Volver</a>
+					<a href="#" class="btn add volver" th:text="#{pacientes.volver}">Volver</a>
 				</div>
 			</div>
 		</div>
