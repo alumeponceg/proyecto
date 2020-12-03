@@ -4,17 +4,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 import org.iesalixar.eponceg.model.MedicalAppointment;
 import org.iesalixar.eponceg.model.User;
-import org.iesalixar.eponceg.repository.UserRepository;
 import org.iesalixar.eponceg.service.DiseaseService;
 import org.iesalixar.eponceg.service.MedicalAppointmentService;
+import org.iesalixar.eponceg.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MedicalAppointmentController {
+	
+	final static Logger logger = LoggerFactory.getLogger(MedicalAppointment.class);
 
 	@Autowired 
 	private MedicalAppointmentService medicalAppointments;
@@ -32,20 +33,13 @@ public class MedicalAppointmentController {
 	private DiseaseService diseases;
 	
 	@Autowired
-	private UserRepository users;
+	private UserService user;
 	
 	@SuppressWarnings("deprecation")
 	@GetMapping("/user/medicalAppointments")
 	public String readMedical(Model model) {
 		
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		UserDetails userDetails = null;
-		if (principal instanceof UserDetails) {
-		  userDetails = (UserDetails) principal;
-		}
-		String email = userDetails.getUsername();
-		Optional<User> u = this.users.findByEmail(email);
-		User usuario = u.get();
+		User u = this.user.userLogged();
 		
 		Date fechaActual = new Date();
 		
@@ -54,12 +48,14 @@ public class MedicalAppointmentController {
 		
 		fechaMesProximo.setMonth(mes);
 		Set<User> usuarios = new HashSet<>();
-		usuarios.add(usuario);
+		usuarios.add(u);
 		if(this.diseases.readDiseases(usuarios).isEmpty()) {
 			model.addAttribute("withoutDisease", true);
 		}
-		model.addAttribute("allApp", this.medicalAppointments.ListForAnUser(usuario));
-		model.addAttribute("appointments", this.medicalAppointments.ListForTheNextMonth(usuario, fechaActual,  fechaMesProximo));
+		model.addAttribute("allApp", this.medicalAppointments.ListForAnUser(u));
+		logger.warn("Las citas del usuario " + u.getId() + " han sido mostradas");
+		model.addAttribute("appointments", this.medicalAppointments.ListForTheNextMonth(u, fechaActual,  fechaMesProximo));
+		logger.warn("Las citas del usuario " + u.getId() + " para los próximos 30 han sido mostradas");
 		return "appointments";
 		
 	}	
@@ -75,31 +71,26 @@ public class MedicalAppointmentController {
 		
 		MedicalAppointment medical = new MedicalAppointment(title, specialty,annotations,fechaDate);
 		
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		UserDetails userDetails = null;
-		if (principal instanceof UserDetails) {
-		  userDetails = (UserDetails) principal;
-		}
-		String email = userDetails.getUsername();
-		Optional<User> u = this.users.findByEmail(email);
-		medical.setUserId(u.get());
+		User u = this.user.userLogged();
+		medical.setUserId(u);
 		
 		this.medicalAppointments.createMedicalAppointment(medical);
 		
-		Set<MedicalAppointment> medicals = u.get().getMedicalAppointments();
+		Set<MedicalAppointment> medicals = u.getMedicalAppointments();
 		
 		medicals.add(medical);
 		
-		u.get().setMedicalAppointments(medicals);
+		u.setMedicalAppointments(medicals);
 		
-		this.users.save(u.get());
-		
+		this.user.save(u);
+		logger.warn("Se ha anotado una nueva cita para el usuario con id  " + u.getId());
 		return "redirect:/user/medicalAppointments";
 	}
 	
 	@RequestMapping(value = { "/user/deleteAppointment" }, method = { RequestMethod.POST, RequestMethod.DELETE })
 	public String deleteAppointment(@RequestParam(value = "id") String id, Model model) {
 		this.medicalAppointments.delete(Long.parseLong(id));
+		logger.warn("Se ha eliminado una cita médica");
 		return "redirect:/user/medicalAppointments";
 	}
 }

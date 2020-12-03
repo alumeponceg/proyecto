@@ -19,22 +19,31 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	@SuppressWarnings("unchecked")
 	public User save(User user);
 	
+	//Encuentra un usuario según su id
 	public User findFirstById(Long id);
 	
+	//Método que muestra una lista de usuarios que tengan el cuidador que se pasa por parámetro
 	public List<User> findByCareer(User user);
 	
+	//Método que borra el usuario con la Id que se pasa por parámetro
 	public void deleteById(Long id);
 	
+	//Muestra todos los usuarios según su estado y su rol
 	public List<User> findAllByRoleInAndState(Set<Role> roles, State state);
 	
+	//Muestra todos los usuarios con un rol determinado
 	public List<User> findAllByRoleIn(Set<Role> roles);
 	
+	//Muestra todos los usuarios a cargo del cuidador que se pasa por parámetro ordenados por nombre descendente
 	public List<User> findByCareerOrderByNameDesc(User u);
 	
+	//Muestra los usuarios a cargo del cuidador que se pasa por parámetro ordenado por email
 	public List<User> findByCareerOrderByEmail(User u);
 	
+	//Muestra todos los usuarios a cargo del cuidador que se pasa por parámetro ordenados por nombre ascendente
 	public List<User> findByCareerOrderByNameAsc (User u);
 	
+	//Muestra todos los usuarios a cargo del cuidado que se pasa por parámetro y cuyo nombre coincide con el pasado por parámetro
 	public List<User> findByCareerAndName(User u, String name);
 	
 	

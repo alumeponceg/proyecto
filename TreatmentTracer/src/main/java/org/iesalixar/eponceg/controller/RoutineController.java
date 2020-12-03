@@ -5,22 +5,19 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import org.iesalixar.eponceg.model.Disease;
-import org.iesalixar.eponceg.model.Measurement;
 import org.iesalixar.eponceg.model.Routine;
 import org.iesalixar.eponceg.model.State;
 import org.iesalixar.eponceg.model.User;
-import org.iesalixar.eponceg.repository.UserRepository;
 import org.iesalixar.eponceg.service.DiseaseService;
-import org.iesalixar.eponceg.service.MeasurementService;
 import org.iesalixar.eponceg.service.RoutineService;
 import org.iesalixar.eponceg.service.StateService;
+import org.iesalixar.eponceg.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,12 +26,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class RoutineController {
+	
+	final static Logger logger = LoggerFactory.getLogger(RoutineController.class);
 
 	@Autowired
 	private RoutineService routines;
-	
+
 	@Autowired
-	private UserRepository users;
+	private UserService user;
 		
 	@Autowired
 	private StateService state;
@@ -42,63 +41,61 @@ public class RoutineController {
 	@Autowired
 	private DiseaseService disease;
 	
-	@Autowired
-	private MeasurementService measurements;
+	
 	
 	
 	@RequestMapping(value ={"/user/routines"},  method = { RequestMethod.POST, RequestMethod.GET})
 	public String routinesOrder(@RequestParam(value = "order", defaultValue = "null") String order, Model model) {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		UserDetails userDetails = null;
-		if (principal instanceof UserDetails) {
-		  userDetails = (UserDetails) principal;
-		}
-		String email = userDetails.getUsername();
-		Optional<User> u = this.users.findByEmail(email);
+		User u = this.user.userLogged();
 		Set<User> users = new HashSet<>();
-		users.add(u.get());
+		users.add(u);
 		
 		List<Routine> routines = new ArrayList<>();
 		switch (order) {
 		case "1":
-			routines = this.routines.ListForAnUserOrderByName(u.get());
+			routines = this.routines.ListForAnUserOrderByName(u);
 			for (Routine r: routines) {
 				r.setDuration(r.getDuration()/24);
 			}
 			model.addAttribute("routines", routines);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
+			logger.warn("Las rutinas se han mostrado ordenadas por nombre");
 			break;
 		case "2":
-			routines = this.routines.ListForAnUserOrderByNameDesc(u.get());
+			routines = this.routines.ListForAnUserOrderByNameDesc(u);
 			for (Routine r: routines) {
 				r.setDuration(r.getDuration()/24);
 			}
 			model.addAttribute("routines", routines);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
+			logger.warn("Las rutinas se han mostrado ordenadas por nombre en orden descendente");
 			break;
 		case "3":
-			routines = this.routines.ListForAnUserOrderByDate(u.get());
+			routines = this.routines.ListForAnUserOrderByDate(u);
 			for (Routine r: routines) {
 				r.setDuration(r.getDuration()/24);
 			}
 			model.addAttribute("routines", routines);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
+			logger.warn("Las rutinas se han mostrado ordenadas por fecha de activación");
 			break;
 		case "4":
-			routines = this.routines.ListForAnUserOrderByDisease(u.get());
+			routines = this.routines.ListForAnUserOrderByDisease(u);
 			for (Routine r: routines) {
 				r.setDuration(r.getDuration()/24);
 			}
 			model.addAttribute("routines", routines);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
+			logger.warn("Las rutinas se han mostrado ordenadas por enfermedad asociada");
 			break;
 		default:
-			routines = this.routines.ListForAnUser(u.get());
+			routines = this.routines.ListForAnUser(u);
 			for (Routine r: routines) {
 				r.setDuration(r.getDuration()/24);
 			}
 			model.addAttribute("routines", routines);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
+			logger.warn("Las rutinas se han mostrado en el orden predeterminado");
 			break;
 		}
 		
@@ -108,13 +105,8 @@ public class RoutineController {
 	@RequestMapping(value = { "/user/removeRoutine" }, method = { RequestMethod.POST, RequestMethod.DELETE })
 	public String deleteRoutine(@RequestParam(value = "id") String id, Model model) {
 		Routine r = this.routines.findFirstById(Long.parseLong(id));
-		Set<Measurement> measurements = r.getMeasurements();
-		
-		for (Measurement m : measurements) {
-			this.measurements.removeMeasurement(m.getId());
-		}
-		
 		this.routines.deleteRoutine(r);
+		logger.warn("Se ha eliminado la rutina " + r.getName() + " y con ella todas sus mediciones asociadas.");
 		return "redirect:/user/routines";
 	}
 	
@@ -135,6 +127,8 @@ public class RoutineController {
         r.setExpirationDate(dt);
 		
 		this.routines.updateRoutine(r);
+		
+		logger.warn("Se ha actualizado la rutina " + r.getName());
 		return "redirect:/user/routines";
 	}
 
@@ -144,14 +138,8 @@ public class RoutineController {
 		Integer durationHoras=duration*24;
 		Routine r = new Routine(name, posology, durationHoras, d);
 		
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		UserDetails userDetails = null;
-		if (principal instanceof UserDetails) {
-		  userDetails = (UserDetails) principal;
-		}
-		String email = userDetails.getUsername();
-		Optional<User> u = this.users.findByEmail(email);
-		r.setOwnerUser(u.get());
+		User u = this.user.userLogged();
+		r.setOwnerUser(u);
 		
 		State s = this.state.findFirstById(1L);
 		r.setRoutineState(s);
@@ -168,6 +156,7 @@ public class RoutineController {
         r.setExpirationDate(dt);
 		
 		this.routines.createRoutine(r);
+		logger.warn("El usuario " + u.getId() + " ha registrado una nueva rutina en su perfil");
 		return "redirect:/user/routines";
 	}
 	
@@ -177,9 +166,11 @@ public class RoutineController {
 		State state=null;
 		if (r.getRoutineState().getId()==1) {
 			state = this.state.findFirstById(2L);
+			logger.warn("Se ha desactivado una rutina");
 			
 		}else if (r.getRoutineState().getId()==2) {
 			state = this.state.findFirstById(1L);
+			logger.warn("Se ha activado una rutina");
 		}
 		r.setRoutineState(state);
 		this.routines.updateRoutine(r);

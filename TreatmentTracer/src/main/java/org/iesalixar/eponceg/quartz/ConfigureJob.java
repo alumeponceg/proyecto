@@ -6,7 +6,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConfigureJob {
 	
-		
+		//TRATAMIENTOS
+	
 	 @Bean
 	    public JobDetail jobADetails() {
 	        return JobBuilder.newJob(TreatmentUpdateJob.class).withIdentity("treatmentUpdate")
@@ -23,6 +24,7 @@ public class ConfigureJob {
 	                .build();
 	    }
 	    
+	    //RUTINAS
 	    
 	    @Bean
 	    public JobDetail jobADetailsRoutine() {

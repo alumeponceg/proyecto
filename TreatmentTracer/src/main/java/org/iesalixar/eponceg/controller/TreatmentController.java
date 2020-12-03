@@ -5,20 +5,19 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import org.iesalixar.eponceg.model.Disease;
 import org.iesalixar.eponceg.model.State;
 import org.iesalixar.eponceg.model.Treatment;
 import org.iesalixar.eponceg.model.User;
-import org.iesalixar.eponceg.repository.UserRepository;
 import org.iesalixar.eponceg.service.DiseaseService;
 import org.iesalixar.eponceg.service.StateService;
 import org.iesalixar.eponceg.service.TreatmentService;
+import org.iesalixar.eponceg.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,9 +26,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TreatmentController {
+	
+	final static Logger logger = LoggerFactory.getLogger(TreatmentController.class);
 
-	@Autowired
-	private UserRepository users;
 	
 	@Autowired
 	private TreatmentService treatments;
@@ -38,76 +37,79 @@ public class TreatmentController {
 	private StateService state;
 	
 	@Autowired
+	private UserService user;
+	
+	@Autowired
 	private DiseaseService disease;
 	
 	@RequestMapping(value ={"/user/treatments"},  method = { RequestMethod.POST, RequestMethod.GET})
 	public String treatmentsOrder(@RequestParam(value = "order", defaultValue = "null") String order, Model model) {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		UserDetails userDetails = null;
-		if (principal instanceof UserDetails) {
-		  userDetails = (UserDetails) principal;
-		}
-		String email = userDetails.getUsername();
-		Optional<User> u = this.users.findByEmail(email);
+		User u = this.user.userLogged();
 		Set<User> users = new HashSet<>();
-		users.add(u.get());
+		users.add(u);
 		List<Treatment> treatments = new ArrayList<>();
 		
 		switch (order) {
 		case "1":
-			 treatments = this.treatments.listTreatmentsOrderByName(u.get());
+			 treatments = this.treatments.listTreatmentsOrderByName(u);
 			
 			for(Treatment t : treatments) {
 				t.setDuration(t.getDuration()/24);
 			}
 			model.addAttribute("treatments", treatments);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
+			logger.warn("Los tratamientos se han mostrado ordenados por nombre");
 			break;
 		case "2":
-			 treatments = this.treatments.listTreatmentsOrderByNameDesc(u.get());
+			 treatments = this.treatments.listTreatmentsOrderByNameDesc(u);
 				
 				for(Treatment t : treatments) {
 					t.setDuration(t.getDuration()/24);
 				}
 				model.addAttribute("treatments", treatments);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
+			logger.warn("Los tratamientos se han mostrado ordenados por nombre en orden descendente");
 			break;
 		case "3":
-			 treatments = this.treatments.listTreatmentsOrderByDate(u.get());
+			 treatments = this.treatments.listTreatmentsOrderByDate(u);
 				
 				for(Treatment t : treatments) {
 					t.setDuration(t.getDuration()/24);
 				}
 				model.addAttribute("treatments", treatments);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
+			logger.warn("Los tratamientos se han mostrado ordenados por fecha de activación");
 			break;
 		case "4":
-			 treatments =  this.treatments.listTreatmentsForAnUserOrderByDisease(u.get());
+			 treatments =  this.treatments.listTreatmentsForAnUserOrderByDisease(u);
 				
 				for(Treatment t : treatments) {
 					t.setDuration(t.getDuration()/24);
 				}
 				model.addAttribute("treatments", treatments);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
+			logger.warn("Los tratamientos se han mostrado ordenados por enfermedad asociada");
 			break;
 		default:
-			 treatments = this.treatments.listTreatmentsForAnUser(u.get());
+			 treatments = this.treatments.listTreatmentsForAnUser(u);
 				
 				for(Treatment t : treatments) {
 					t.setDuration(t.getDuration()/24);
 				}
 				model.addAttribute("treatments", treatments);
 			model.addAttribute("diseases", this.disease.readDiseases(users));
+			logger.warn("Los tratamientos se han mostrado en el orden predeterminado");
 			break;
 		}
 		
-		
+		logger.warn("La pestaña 'Tratamientos' ha sido cargada correctamente");
 		return "treatments";
 	}
 
 	@RequestMapping(value = { "/user/removeTreatment" }, method = { RequestMethod.POST, RequestMethod.DELETE })
 	public String deleteTreatment(@RequestParam(value = "id") String id, Model model) {
 		this.treatments.deleteTreatment(Long.parseLong(id));
+		logger.warn("Se ha eliminado el tratamiento solicitado");
 		return "redirect:/user/treatments";
 	}
 	
@@ -128,6 +130,7 @@ public class TreatmentController {
         t.setExpirationDate(dt);
 		
 		this.treatments.updateTreatment(t);
+		logger.warn("Se ha actualizado el tratamiento solicitado");
 		return "redirect:/user/treatments";
 	}
 
@@ -136,14 +139,8 @@ public class TreatmentController {
 		Disease d = this.disease.readSelectedDisease(disease);
 		Integer durationHoras=duration*24;
 		Treatment t = new Treatment(name, posology, durationHoras, d);
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		UserDetails userDetails = null;
-		if (principal instanceof UserDetails) {
-		  userDetails = (UserDetails) principal;
-		}
-		String email = userDetails.getUsername();
-		Optional<User> u = this.users.findByEmail(email);
-		t.setOwnerUser(u.get());
+		User u = this.user.userLogged();
+		t.setOwnerUser(u);
 		
 		State s = this.state.findFirstById(1L);
 		t.setTreatmentState(s);
@@ -158,6 +155,7 @@ public class TreatmentController {
         dt = c.getTime();
         t.setExpirationDate(dt);
 		this.treatments.createTreatment(t);
+		logger.warn("Se ha cargado un nuevo tratamiento para el usuario " + u.getId() + " asociado a la enfermedad " + d.getName());
 		return "redirect:/user/treatments";
 	}
 	
@@ -167,9 +165,11 @@ public class TreatmentController {
 		State state=null;
 		if (t.getTreatmentState().getId()==1) {
 			state = this.state.findFirstById(2L);
+			logger.warn("Se ha desactivado un tratamiento");
 			
 		}else if (t.getTreatmentState().getId()==2) {
 			state = this.state.findFirstById(1L);
+			logger.warn("Se ha activado un tratamiento");
 		}
 		t.setTreatmentState(state);
 		this.treatments.updateTreatment(t);

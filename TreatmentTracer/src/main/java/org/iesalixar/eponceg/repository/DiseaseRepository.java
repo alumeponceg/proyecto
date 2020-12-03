@@ -18,14 +18,19 @@ public interface DiseaseRepository extends JpaRepository<Disease, Long> {
 	//Encuentra las enfermedades de un usuario
 	public List<Disease> findByUsersIn(Set<User> users);
 	
+	//Crea una nueva enfermedad en la aplicación
 	@SuppressWarnings("unchecked")
 	public Disease save(Disease d);
 	
+	//Lista todas las enfermedades existentes en la base de datos
 	public List<Disease> findAll();
 	
+	//Encuentra la primera enfermedad de un usuario en una lista de usuarios
 	public Disease findFirstByUsersIn(Set<User> users);
 	
+	//Muestra las enfermedades según su estado
 	public List<Disease> findByState(State state);
 	
+	//Borra la enfermedad cuya id se pasa por parámetros
 	public void deleteById(Long id);
 }

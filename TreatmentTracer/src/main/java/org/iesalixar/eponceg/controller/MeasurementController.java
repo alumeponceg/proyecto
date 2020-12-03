@@ -9,6 +9,8 @@ import org.iesalixar.eponceg.model.Measurement;
 import org.iesalixar.eponceg.model.Routine;
 import org.iesalixar.eponceg.service.MeasurementService;
 import org.iesalixar.eponceg.service.RoutineService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MeasurementController {
 
+	final static Logger logger = LoggerFactory.getLogger(MeasurementController.class);
+	
 	@Autowired
 	private MeasurementService measurements;
 	
@@ -36,6 +40,7 @@ public class MeasurementController {
 		
 		model.addAttribute("measurements", this.measurements.ListMeasurementsForARoutine(r));
 		model.addAttribute("routine", r);
+		logger.warn("Se han cargado todas las mediciones de la rutina" + r.getName());
 		return "measurements";
 	}
 
@@ -53,6 +58,7 @@ public class MeasurementController {
 		m.setDate(fechaDate);
 		this.measurements.updateMeasurement(m);
 		chargeRoutine=m.getRoutine().getId()+"";
+		logger.warn("Se ha actualizado una medición");
 		return "redirect:/user/measurements";
 	}
 
@@ -71,6 +77,8 @@ public class MeasurementController {
 		rout.setMeasurements(mediciones);
 		this.routines.updateRoutine(rout);		
 		chargeRoutine=routineId+"";
+		
+		logger.warn("Se ha registrado una nueva medición" );
 		return "redirect:/user/measurements";
 	}
 	

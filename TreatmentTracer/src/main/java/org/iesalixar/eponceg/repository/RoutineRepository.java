@@ -37,6 +37,7 @@ public interface RoutineRepository extends JpaRepository<Routine, Long> {
 	//Método para borrar una rutina
 	public void delete(Routine r);
 	
+	//Muestra una rutina según la id que se pasa por parámetro
 	public Routine findFirstById(Long id);
 	
 	//Método que busca las rutinas expiradas

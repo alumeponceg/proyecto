@@ -2,11 +2,15 @@ package org.iesalixar.eponceg.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import org.iesalixar.eponceg.model.Disease;
+import org.iesalixar.eponceg.model.Measurement;
 import org.iesalixar.eponceg.model.Routine;
 import org.iesalixar.eponceg.model.User;
 import org.iesalixar.eponceg.repository.RoutineRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +19,11 @@ public class RoutineService {
 
 	@Autowired
 	private RoutineRepository routines;
+	
+	@Autowired
+	private MeasurementService measurements;
+	
+	final static Logger logger = LoggerFactory.getLogger(RoutineService.class);
 	
 	public List<Routine> ListForAnUser(User user){
 		return this.routines.findByOwnerUser(user);
@@ -49,6 +58,14 @@ public class RoutineService {
 	}
 	
 	public void deleteRoutine(Routine r) {
+		
+		Set<Measurement> measurements = r.getMeasurements();
+		
+		for (Measurement m : measurements) {
+			this.measurements.removeMeasurement(m.getId());
+		}
+		
+		logger.warn("Se han eliminado todas las mediciones asociadas a la rutina " + r.getId());
 		this.routines.delete(r);
 	}
 	

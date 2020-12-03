@@ -23,6 +23,8 @@ public interface MeasurementRepository extends JpaRepository<Measurement,Long>{
 	//Método para borrar una medición
 	public void deleteById(Long id);
 	
+	//Método que encuentra la primera medición de una rutina. 
+	//Lo usamos para poder autoasignar la unidad de medida cuando ya existe alguna medición asociada a esa rutina
 	public Measurement findFirstByRoutine(Routine r);
 
 }
