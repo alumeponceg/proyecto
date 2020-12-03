@@ -16,8 +16,8 @@
 
 <body>
 	<div class="container-fluid">
-		<div class="d-none d-md-block">
-			<nav class="navbar navbar-expand-md d-flex justify-content-between ">
+		<div class="d-none d-lg-block">
+			<nav class="navbar navbar-expand-lg d-flex justify-content-between ">
 				<!-- Brand/logo -->
 				<a class="navbar-brand d-flex align-items-center"
 					th:href="@{/user/home}"> <img src="/assets/logo.png"
@@ -40,7 +40,7 @@
 			</nav>
 		</div>
 		<nav
-			class="navbar navbar-expand-md d-md-none justify-content-between ">
+			class="navbar navbar-expand-lg d-lg-none justify-content-between ">
 			<!-- Brand/logo -->
 			<a class="navbar-brand d-flex align-items-center"
 				th:href="@{/user/home}"> <img src="/assets/logo.png"
@@ -49,7 +49,7 @@
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#collapsibleNavbar">
-				<span class="navbar-toggler-icon"></span>
+				<span class="navbar-toggler-icon my-auto"><img src="/assets/dropdown.png"/></span>
 			</button>
 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<ul class="navbar-nav">
@@ -129,7 +129,7 @@
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-sm actived"
-												data-dismiss="modal" th:value="#{cita.cerrar}">Close</button>
+												data-dismiss="modal" th:text="#{cita.cerrar}"></button>
 
 											<form th:action="@{/user/deleteAppointment}" method="post">
 												<input type="hidden" id="botonModal" name="id"> <input

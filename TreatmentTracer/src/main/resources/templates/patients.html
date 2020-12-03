@@ -12,8 +12,8 @@
 <body>
 
 	<div class="container-fluid">
-		<div class="d-none d-md-block">
-				<nav class="navbar navbar-expand-md d-flex justify-content-between ">
+		<div class="d-none d-lg-block">
+				<nav class="navbar navbar-expand-lg d-flex justify-content-between ">
 					<!-- Brand/logo -->
 					<a class="navbar-brand d-flex align-items-center"
 						th:href="@{/admin/home}"> <img src="/assets/logo.png"
@@ -38,7 +38,7 @@
 				</nav>
 			</div>
 			<nav
-				class="navbar navbar-expand-md d-md-none justify-content-between ">
+				class="navbar navbar-expand-lg d-lg-none justify-content-between ">
 				<!-- Brand/logo -->
 				<a class="navbar-brand d-flex align-items-center"
 					th:href="@{/admin/home}"> <img src="/assets/logo.png"
@@ -47,7 +47,7 @@
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#collapsibleNavbar">
-					<span class="navbar-toggler-icon"></span>
+					<span class="navbar-toggler-icon my-auto"><img src="/assets/dropdown.png"/></span>
 				</button>
 				<div class="collapse navbar-collapse" id="collapsibleNavbar">
 					<ul class="navbar-nav">
@@ -117,7 +117,7 @@
 
 		<div class="row listPatient">
 			<div class="col-12 col-md-10 offset-md-1">
-				<table class="table table-sm table-responsive-sm table-responsive-md">
+				<table class="table">
 					<thead class="bg-info text-center">
 						<tr>
 							<th colspan="6" th:text="#{pacientes.listado}">LISTADO DE PACIENTES</th>
@@ -155,7 +155,7 @@
 
 		<div class="row listActive">
 			<div class="col-12 col-md-10 offset-md-1">
-				<table class="table table-sm table-responsive-sm table-responsive-md">
+				<table class="table">
 					<thead class="bg-info text-center">
 						<tr>
 							<th colspan="5"th:text="#{pacientes.activos}">LISTADO DE PACIENTES ACTIVOS</th>
@@ -191,7 +191,7 @@
 
 		<div class="row listInactive">
 			<div class="col-12 col-md-10 offset-md-1">
-				<table class="table table-sm table-responsive-sm table-responsive-md">
+				<table class="table">
 					<thead class="bg-info text-center">
 						<tr>
 							<th colspan="5" th:text="#{pacientes.inactivos}">LISTADO DE PACIENTES INACTIVOS</th>
