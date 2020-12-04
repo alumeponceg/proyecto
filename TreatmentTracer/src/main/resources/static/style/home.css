@@ -450,6 +450,55 @@ font-family: 'arvo';
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+	
+	/*Pacientes*/
+	
+	aside {
+	
+	border-radius : 20px;
+	
+	}
+	
+	aside h1 {
+	
+	font-size: 24px;
+	}
+	
+	.treatments, .routines {
+	font-size : 12px;
+	}
+	.treatments input, .routines input {
+	width: 100%;
+	
+	}
+	
+	
+	
+	.content p {
+    font-size: 10px;
+    
+}
+
+	.content h1 {
+	font-size: 14px;
+	}
+	
+	.title {
+	font-size: 24px !important;
+	}
+	
+	.selectores {
+	
+	font-size: 12px;
+	}
+	
+	.selectores input[type="submit"] {
+	
+	font-size: 12px;
+	}
+	
+	
+	/*Cuidadores*/
 
 	table {
 		font-size:8px;
@@ -481,6 +530,14 @@ font-family: 'arvo';
 	
 	.registerPatient{
 		font-size: 10px !important;
+	}
+	
+	
+	/*Administrador*/
+	
+	.admin h1 {
+	 font-size:26px;
+	
 	}
 }
 

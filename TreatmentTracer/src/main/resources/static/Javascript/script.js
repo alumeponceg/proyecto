@@ -10,10 +10,22 @@ $(document).ready(function(){
     if($(".routine").height()<= $(window).height()){
    	 $(".routine").css({"height":$(window).height()+ "px"});
    }
-//    $(".routine").css({"height":$(window).height()+ "px"});
-    $(".measurements").css({"height":$(window).height()+ "px"});
-    $(".appointment").css({"height":$(window).height()+ "px"});
-    $(".proximalDate").css({"height":$(".calendarjs").height()+ "px"});
-    $(".addDate").css({"height":$(".calendarjs").height()+ "px"});
+
+    if($(".measurements").height()<= $(window).height()){
+    	$(".measurements").css({"height":$(window).height()+ "px"});
+    }
+    
+    if($(".appointment").height()<= $(window).height()){
+    	$(".appointment").css({"height":$(window).height()+ "px"});
+    }
+    if($(".proximalDate").height()<= $(window).height()){
+    	$(".proximalDate").css({"height":$(".calendarjs").height()+ "px"});
+    }
+    if($(".addDate").height()<= $(window).height()){
+    	$(".addDate").css({"height":$(".calendarjs").height()+ "px"});
+    }
+    
+    
+    
 
 });

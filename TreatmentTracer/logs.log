@@ -1,0 +1,496 @@
+2020-12-04 12:53:26.876  WARN 14748 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-04 13:18:23.630  WARN 14748 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m29s926ms236µs400ns).
+2020-12-04 13:18:32.194  WARN 14748 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 13:18:32.780  WARN 14748 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 13:18:32.802  WARN 14748 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 13:18:32.937  WARN 14748 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 13:18:33.021  WARN 14748 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 13:18:33.032  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 13:19:28.517  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:19:40.674  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 han sido mostradas
+2020-12-04 13:19:40.695  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 para los próximos 30 han sido mostradas
+2020-12-04 13:19:50.635  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 han sido mostradas
+2020-12-04 13:19:50.639  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 para los próximos 30 han sido mostradas
+2020-12-04 13:19:56.722  WARN 14748 --- [http-nio-9000-exec-9] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 han sido mostradas
+2020-12-04 13:19:56.724  WARN 14748 --- [http-nio-9000-exec-9] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 para los próximos 30 han sido mostradas
+2020-12-04 13:19:57.446  WARN 14748 --- [http-nio-9000-exec-4] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 han sido mostradas
+2020-12-04 13:19:57.447  WARN 14748 --- [http-nio-9000-exec-4] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 para los próximos 30 han sido mostradas
+2020-12-04 13:19:57.749  WARN 14748 --- [http-nio-9000-exec-8] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 han sido mostradas
+2020-12-04 13:19:57.752  WARN 14748 --- [http-nio-9000-exec-8] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 para los próximos 30 han sido mostradas
+2020-12-04 13:20:08.797  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 han sido mostradas
+2020-12-04 13:20:08.799  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.model.MedicalAppointment     : Las citas del usuario 15 para los próximos 30 han sido mostradas
+2020-12-04 13:24:30.977  WARN 14748 --- [http-nio-9000-exec-7] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:26:53.788  WARN 14748 --- [http-nio-9000-exec-1] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:27:48.556  WARN 14748 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:27:49.308  WARN 14748 --- [http-nio-9000-exec-1] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:28:31.706  WARN 14748 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:28:32.462  WARN 14748 --- [http-nio-9000-exec-1] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:28:32.677  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:28:32.901  WARN 14748 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:28:59.119  WARN 14748 --- [http-nio-9000-exec-4] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:29:33.313  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:30:00.193  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:33:15.592  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:56:19.148  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:56:19.835  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:56:20.125  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:56:20.394  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:56:32.325  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:56:32.511  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:56:32.667  WARN 14748 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:56:32.895  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:57:47.088  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:58:10.730  WARN 14748 --- [http-nio-9000-exec-7] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:58:48.248  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:58:49.142  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:58:49.396  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:59:02.718  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:59:03.285  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:59:21.973  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:59:23.256  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:59:23.546  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:59:32.976  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 13:59:56.496  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:00:04.068  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:00:28.703  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:00:49.705  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:00:50.387  WARN 14748 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:00:50.608  WARN 14748 --- [http-nio-9000-exec-1] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:00:50.799  WARN 14748 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:00:50.968  WARN 14748 --- [http-nio-9000-exec-1] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:00:51.134  WARN 14748 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:00:51.445  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:01:00.722  WARN 14748 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:01:01.665  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:02:48.068  WARN 14748 --- [http-nio-9000-exec-1] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:05:00.439  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:05:01.038  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:05:01.319  WARN 14748 --- [http-nio-9000-exec-4] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:05:01.598  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:05:01.835  WARN 14748 --- [http-nio-9000-exec-4] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:05:33.344  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:05:35.001  WARN 14748 --- [http-nio-9000-exec-4] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:06:04.517  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:06:05.466  WARN 14748 --- [http-nio-9000-exec-4] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:07:07.001  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:07:46.687  WARN 14748 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:31.395  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:31.969  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:32.206  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:32.399  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:32.624  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:32.846  WARN 14748 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:33.054  WARN 14748 --- [http-nio-9000-exec-1] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:33.266  WARN 14748 --- [http-nio-9000-exec-7] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:41.730  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:51.350  WARN 14748 --- [http-nio-9000-exec-9] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:52.018  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:52.240  WARN 14748 --- [http-nio-9000-exec-9] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:52.469  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:08:52.643  WARN 14748 --- [http-nio-9000-exec-9] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:09:09.132  WARN 14748 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:09:09.897  WARN 14748 --- [http-nio-9000-exec-9] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:09:35.488  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:09:56.066  WARN 14748 --- [http-nio-9000-exec-9] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:09:59.747  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:09:59.973  WARN 14748 --- [http-nio-9000-exec-9] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:10:00.134  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:10:00.309  WARN 14748 --- [http-nio-9000-exec-9] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:10:00.462  WARN 14748 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:10:00.607  WARN 14748 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:10:00.736  WARN 14748 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:10:10.084  WARN 14748 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:11:56.542  WARN 22852 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-04 14:12:03.307  WARN 22852 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 14:12:08.419  WARN 22852 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 14:12:16.943  WARN 22852 --- [http-nio-9000-exec-4] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:12:26.558  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:12:54.027  WARN 22852 --- [http-nio-9000-exec-4] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:12:54.283  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:12:54.788  WARN 22852 --- [http-nio-9000-exec-4] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:17.802  WARN 22852 --- [http-nio-9000-exec-7] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:18.367  WARN 22852 --- [http-nio-9000-exec-9] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:18.554  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:18.700  WARN 22852 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:18.894  WARN 22852 --- [http-nio-9000-exec-7] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:19.060  WARN 22852 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:30.012  WARN 22852 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:30.539  WARN 22852 --- [http-nio-9000-exec-1] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:30.787  WARN 22852 --- [http-nio-9000-exec-5] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:30.968  WARN 22852 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:31.131  WARN 22852 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:31.288  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:31.454  WARN 22852 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:31.636  WARN 22852 --- [http-nio-9000-exec-4] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:13:31.843  WARN 22852 --- [http-nio-9000-exec-6] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:14:32.150  WARN 22852 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:14:32.394  WARN 22852 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:14:32.606  WARN 22852 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:14:32.903  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:14:33.116  WARN 22852 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:14:59.194  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:14:59.845  WARN 22852 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:15:00.033  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:15:00.260  WARN 22852 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:15:00.448  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:15:28.693  WARN 22852 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:15:29.290  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:15:29.654  WARN 22852 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:15:29.925  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:15:59.024  WARN 22852 --- [http-nio-9000-exec-2] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:15:59.531  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:15:59.912  WARN 22852 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:16:00.299  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:16:18.571  WARN 22852 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:16:31.176  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:16:31.444  WARN 22852 --- [http-nio-9000-exec-3] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:16:31.612  WARN 22852 --- [http-nio-9000-exec-8] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:17:45.004  WARN 22852 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:18:06.834  WARN 22852 --- [http-nio-9000-exec-4] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:18:07.112  WARN 22852 --- [http-nio-9000-exec-10] o.i.eponceg.controller.UserController    : El usuario 15 ha entrado en la página principal de usuarios con rol paciente
+2020-12-04 14:18:50.459  WARN 22852 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 14:18:50.489  WARN 22852 --- [http-nio-9000-exec-1] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 14:18:50.507  WARN 22852 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 14:21:08.842  WARN 22852 --- [http-nio-9000-exec-9] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:21:20.992  WARN 22852 --- [http-nio-9000-exec-2] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:21:28.254  WARN 22852 --- [http-nio-9000-exec-3] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:22:58.951  WARN 22852 --- [http-nio-9000-exec-5] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:23:49.609  WARN 22852 --- [http-nio-9000-exec-7] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:23:50.442  WARN 22852 --- [http-nio-9000-exec-7] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:23:50.717  WARN 22852 --- [http-nio-9000-exec-4] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:23:50.902  WARN 22852 --- [http-nio-9000-exec-3] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:23:51.074  WARN 22852 --- [http-nio-9000-exec-3] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:23:51.247  WARN 22852 --- [http-nio-9000-exec-7] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:24:02.164  WARN 22852 --- [http-nio-9000-exec-10] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:24:09.832  WARN 22852 --- [http-nio-9000-exec-5] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:24:10.519  WARN 22852 --- [http-nio-9000-exec-10] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:24:10.750  WARN 22852 --- [http-nio-9000-exec-9] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:24:25.537  WARN 22852 --- [http-nio-9000-exec-3] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:13.900  WARN 22852 --- [http-nio-9000-exec-7] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:14.365  WARN 22852 --- [http-nio-9000-exec-10] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:14.592  WARN 22852 --- [http-nio-9000-exec-6] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:14.736  WARN 22852 --- [http-nio-9000-exec-9] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:14.868  WARN 22852 --- [http-nio-9000-exec-3] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:15.044  WARN 22852 --- [http-nio-9000-exec-1] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:15.200  WARN 22852 --- [http-nio-9000-exec-10] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:15.365  WARN 22852 --- [http-nio-9000-exec-9] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:15.602  WARN 22852 --- [http-nio-9000-exec-8] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:23.878  WARN 22852 --- [http-nio-9000-exec-2] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:24.330  WARN 22852 --- [http-nio-9000-exec-2] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:24.520  WARN 22852 --- [http-nio-9000-exec-7] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:24.701  WARN 22852 --- [http-nio-9000-exec-6] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:24.841  WARN 22852 --- [http-nio-9000-exec-7] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:24.965  WARN 22852 --- [http-nio-9000-exec-8] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:25.065  WARN 22852 --- [http-nio-9000-exec-2] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:25.193  WARN 22852 --- [http-nio-9000-exec-7] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:25.284  WARN 22852 --- [http-nio-9000-exec-8] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:25.354  WARN 22852 --- [http-nio-9000-exec-4] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 14:25:25.540  WARN 22852 --- [http-nio-9000-exec-10] o.i.e.controller.DiseaseController       : Se ha cargado la lista de enfermedades inactivas en el perfil administrador
+2020-12-04 15:51:11.678  WARN 1756 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-04 15:51:12.607  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:51:12.969  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:51:12.984  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:51:34.919  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:51:34.958  WARN 1756 --- [http-nio-9000-exec-9] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:51:34.965  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:51:35.860  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:51:35.959  WARN 1756 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:51:35.970  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:51:36.175  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:51:36.200  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:51:36.206  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:51:47.007  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:51:47.057  WARN 1756 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:51:47.064  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:52:00.010  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:52:00.046  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:52:00.051  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:52:00.525  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:52:00.604  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:52:00.614  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:52:00.748  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:52:00.775  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:52:00.782  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:52:01.060  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:52:01.080  WARN 1756 --- [http-nio-9000-exec-10] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:52:01.084  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:54:17.736  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:54:17.776  WARN 1756 --- [http-nio-9000-exec-6] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:54:17.783  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:54:18.527  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:54:18.552  WARN 1756 --- [http-nio-9000-exec-8] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:54:18.557  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:54:18.894  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:54:18.918  WARN 1756 --- [http-nio-9000-exec-1] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:54:18.922  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:55:26.358  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:55:26.394  WARN 1756 --- [http-nio-9000-exec-9] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:55:26.398  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:55:46.914  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:55:46.946  WARN 1756 --- [http-nio-9000-exec-10] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:55:46.955  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:57:56.507  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:57:56.540  WARN 1756 --- [http-nio-9000-exec-6] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:57:56.545  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:58:27.891  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:58:27.932  WARN 1756 --- [http-nio-9000-exec-5] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:58:27.936  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:58:58.079  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:58:58.108  WARN 1756 --- [http-nio-9000-exec-1] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:58:58.114  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:30.629  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:30.700  WARN 1756 --- [http-nio-9000-exec-5] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:59:30.720  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:31.195  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:31.230  WARN 1756 --- [http-nio-9000-exec-9] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:59:31.238  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:31.443  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:31.477  WARN 1756 --- [http-nio-9000-exec-6] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:59:31.482  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:31.689  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:31.712  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:59:31.716  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:31.861  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:31.883  WARN 1756 --- [http-nio-9000-exec-8] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:59:31.889  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:32.035  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 15:59:32.059  WARN 1756 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 15:59:32.062  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:00:21.073  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:00:21.127  WARN 1756 --- [http-nio-9000-exec-1] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:00:21.134  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:00:21.613  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:00:21.684  WARN 1756 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:00:21.694  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:00:21.814  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:00:21.843  WARN 1756 --- [http-nio-9000-exec-1] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:00:21.847  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:01:09.991  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:01:10.024  WARN 1756 --- [http-nio-9000-exec-10] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:01:10.028  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:01:27.757  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:01:27.784  WARN 1756 --- [http-nio-9000-exec-1] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:01:27.790  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:01:40.304  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:01:40.339  WARN 1756 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:01:40.345  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:02:16.799  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:02:16.835  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:02:16.840  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:03:19.846  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:03:19.869  WARN 1756 --- [http-nio-9000-exec-10] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:03:19.875  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:05:12.188  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:05:12.278  WARN 1756 --- [http-nio-9000-exec-10] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:05:12.294  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:06:31.053  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:06:31.078  WARN 1756 --- [http-nio-9000-exec-10] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:06:31.087  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:07:23.723  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:07:23.775  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:07:23.782  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:07:55.593  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:07:55.626  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:07:55.632  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:08:19.795  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:08:19.831  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:08:19.837  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:09:19.135  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:09:19.176  WARN 1756 --- [http-nio-9000-exec-6] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:09:19.182  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:10:59.400  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:10:59.436  WARN 1756 --- [http-nio-9000-exec-9] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:10:59.442  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:10:59.892  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:10:59.963  WARN 1756 --- [http-nio-9000-exec-5] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:10:59.977  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:00.106  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:00.136  WARN 1756 --- [http-nio-9000-exec-6] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:00.143  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:00.231  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:00.250  WARN 1756 --- [http-nio-9000-exec-1] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:00.257  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:00.447  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:00.471  WARN 1756 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:00.477  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:00.627  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:00.678  WARN 1756 --- [http-nio-9000-exec-8] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:00.682  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:00.782  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:00.810  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:00.815  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:32.099  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:32.133  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:32.136  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:32.636  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:32.678  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:32.681  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:32.955  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:32.975  WARN 1756 --- [http-nio-9000-exec-9] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:32.978  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:33.161  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:33.203  WARN 1756 --- [http-nio-9000-exec-8] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:33.209  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:33.422  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:33.447  WARN 1756 --- [http-nio-9000-exec-5] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:33.452  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:33.608  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:33.629  WARN 1756 --- [http-nio-9000-exec-6] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:33.633  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:33.809  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:33.830  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:33.834  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:34.036  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:34.059  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:34.063  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:34.289  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:34.314  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:34.319  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:34.531  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:34.552  WARN 1756 --- [http-nio-9000-exec-5] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:34.557  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:34.734  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:34.753  WARN 1756 --- [http-nio-9000-exec-8] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:34.759  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:35.004  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:11:35.027  WARN 1756 --- [http-nio-9000-exec-5] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:11:35.031  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:00.861  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:00.890  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:12:00.895  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:01.323  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:01.359  WARN 1756 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:12:01.366  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:01.507  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:01.528  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:12:01.532  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:01.663  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:01.684  WARN 1756 --- [http-nio-9000-exec-9] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:12:01.691  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:01.828  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:01.852  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:12:01.856  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:02.023  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:02.045  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:12:02.049  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:02.165  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:02.192  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:12:02.203  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:26.193  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:26.225  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:12:26.230  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:26.945  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:12:26.980  WARN 1756 --- [http-nio-9000-exec-5] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:12:26.985  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:13:19.163  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:13:19.204  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:13:19.211  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:13:19.605  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:13:19.642  WARN 1756 --- [http-nio-9000-exec-9] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:13:19.650  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:15:16.392  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:15:16.427  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:15:16.432  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:15:41.752  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:15:41.777  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:15:41.781  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:16:11.562  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:16:11.597  WARN 1756 --- [http-nio-9000-exec-8] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:16:11.602  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:16:44.988  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:16:45.025  WARN 1756 --- [http-nio-9000-exec-6] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:16:45.028  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:16:45.431  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:16:45.451  WARN 1756 --- [http-nio-9000-exec-10] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:16:45.457  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:16:45.617  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:16:45.638  WARN 1756 --- [http-nio-9000-exec-9] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:16:45.642  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:17:24.842  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:17:24.877  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:17:24.882  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:17:39.617  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:17:39.646  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:17:39.650  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:17:39.814  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:17:39.836  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:17:39.842  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:18:05.437  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:18:05.467  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:18:05.471  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:20:56.866  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:20:56.889  WARN 1756 --- [http-nio-9000-exec-7] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:20:56.892  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:22:24.730  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:22:24.753  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:22:24.756  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:22:56.285  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:22:56.311  WARN 1756 --- [http-nio-9000-exec-10] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:22:56.314  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:23:24.312  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:23:24.334  WARN 1756 --- [http-nio-9000-exec-1] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:23:24.337  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:23:24.980  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:23:25.003  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:23:25.008  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:23:25.152  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:23:25.175  WARN 1756 --- [http-nio-9000-exec-10] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:23:25.180  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:26:27.303  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:26:27.327  WARN 1756 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:26:27.330  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:26:42.098  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:26:42.119  WARN 1756 --- [http-nio-9000-exec-5] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:26:42.122  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:30:49.755  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:30:49.779  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:30:49.782  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:32.849  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:32.881  WARN 1756 --- [http-nio-9000-exec-6] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:31:32.884  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:32.996  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:33.015  WARN 1756 --- [http-nio-9000-exec-1] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:31:33.018  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:33.166  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:33.195  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:31:33.198  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:33.320  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:33.353  WARN 1756 --- [http-nio-9000-exec-6] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:31:33.357  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:33.479  WARN 1756 --- [http-nio-9000-exec-4] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:33.512  WARN 1756 --- [http-nio-9000-exec-1] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:31:33.516  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:33.604  WARN 1756 --- [http-nio-9000-exec-5] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:31:33.622  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:31:33.629  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:32:03.279  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:32:03.314  WARN 1756 --- [http-nio-9000-exec-8] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:32:03.317  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:32:03.470  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:32:03.517  WARN 1756 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:32:03.526  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:32:03.654  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:32:03.684  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:32:03.690  WARN 1756 --- [http-nio-9000-exec-3] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:34:01.319  WARN 1756 --- [http-nio-9000-exec-2] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:34:01.343  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:34:01.348  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:35:10.912  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:35:10.934  WARN 1756 --- [http-nio-9000-exec-2] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:35:10.938  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:35:51.308  WARN 1756 --- [http-nio-9000-exec-9] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:35:51.332  WARN 1756 --- [http-nio-9000-exec-4] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:35:51.337  WARN 1756 --- [http-nio-9000-exec-8] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:39:29.934  WARN 1756 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-04 16:39:38.528  WARN 1756 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-04 16:41:18.911  WARN 1756 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-04 16:41:45.243  WARN 1756 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-04 16:42:26.332  WARN 1756 --- [http-nio-9000-exec-1] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:42:26.382  WARN 1756 --- [http-nio-9000-exec-3] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:42:26.394  WARN 1756 --- [http-nio-9000-exec-6] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:42:34.851  WARN 1756 --- [http-nio-9000-exec-5] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:42:34.855  WARN 1756 --- [http-nio-9000-exec-7] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:42:34.875  WARN 1756 --- [http-nio-9000-exec-8] o.s.c.s.ResourceBundleMessageSource      : ResourceBundle [config.i18n.messages] not found for MessageSource: Can't find bundle for base name config.i18n.messages, locale es_ES
+2020-12-04 16:42:34.880  WARN 1756 --- [http-nio-9000-exec-10] o.i.eponceg.controller.MainController    : Se ha redireccionado al usuario a la página de inicio de sesión
+2020-12-04 16:42:53.718  WARN 1756 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-04 16:43:24.239  WARN 1756 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning

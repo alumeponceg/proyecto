@@ -2,11 +2,9 @@ package org.iesalixar.eponceg.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -85,15 +83,7 @@ public class UserController {
 		}
 		model.addAttribute("diseases", this.diseases.readDiseases(users));
 		
-		List<Disease> activeDisease = new ArrayList<>();
-		
-		for (Disease d :this.diseases.selectAllNotRepeat(users) ) {
-			if (d.getState().getId()==1L) {
-				activeDisease.add(d);
-			}
-		}
-		
-		model.addAttribute("allDisease", activeDisease );
+		model.addAttribute("allDisease", this.diseases.selectAllNotRepeat(users) );
 		model.addAttribute("role", 1);
 
 		if (user.getCareer() != null) {

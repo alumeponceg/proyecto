@@ -14,6 +14,8 @@ $(document).ready(function () {
     form.animate({ width: '100%', left: '-75%' } , 2000);
   
   });
+  
+ 
 
   $(".return").click(function (){
     var form = $("#form2");

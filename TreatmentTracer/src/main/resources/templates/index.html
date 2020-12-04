@@ -18,11 +18,11 @@
        <div class="row">
            <div class="col-12">
             <div class="row mt-3">
-                <div class="col-2 offset-8 d-flex justify-content-end">
+                <div class=" col-7 col-lg-2 offset-lg-8 d-flex justify-content-end">
                     <button class="btn btn-lg indexbutton px-2" id="login" th:text="#{index.iniciarSesion}"></button>
                 </div>
-                <div class="col-1 ">
-                    <button class="btn btn-lg indexbutton px-2" id="register" th:text="#{index.registrarse}">Registrarse</button>
+                <div class="col-5 col-lg-1 ">
+                    <button class=" btn btn-lg indexbutton px-2" id="register" th:text="#{index.registrarse}">Registrarse</button>
                 </div>
             </div>
             <div th:if="${error==true}">
@@ -38,8 +38,8 @@
             <div class="row mt-4">
                 <div class="col-8 offset-2">
                     <div class="row align-items-end">
-                        <img src="/assets/logo.png" alt="TreatmentTracer Logotype" title="Logotipo T&T" class="col-3">
-                        <h1 class="col-9 display-4 title"th:text="#{index.titulo}"><span>Treatment</span> Tracer</h1>
+                        <img src="/assets/logo.png" alt="TreatmentTracer Logotype" title="Logotipo T&T" class="col-5 col-xl-3 logo">
+                        <h1 class="col-7 col-xl-9 display-4 title"th:text="#{index.titulo}"><span>Treatment</span> Tracer</h1>
                     </div>
                     <div class="row mt-5">
                         <p class="col-12 text-justify intro" th:text="#{index.textoIntro}">
@@ -48,15 +48,15 @@
                         </p>
                     </div>
                     <div class="row">
-                        <div class="col-6 offset-3 mt-5">
-                            <img src="/assets/Final.png"  alt="Imagen resumen del aplicativo" title="imagen resumen del aplicativo" class="img-fluid">
+                        <div class="col-10 col-xl-6 offset-1 offset-xl-3 mt-5">
+                            <img src="/assets/Final.png"  alt="Imagen resumen del aplicativo" title="imagen resumen del aplicativo" class="img-fluid ">
                         </div>
                     </div>
                    
                 </div>
             </div>
            </div>
-           <div  class=" offset-9 col-3 position-absolute"   >
+           <div  class=" col-12 col-sm-10 col-md-6 col-lg-4 col-xl-3 offset-sm-2 offset-md-6 offset-lg-8 offset-xl-9  position-absolute"   >
                    <div id="form1">
                     <form  th:action="@{/login}" method=POST>
                         <legend  class="text-center" th:text="#{index.iniciarSesion}">Iniciar sesión</legend>
@@ -64,14 +64,15 @@
                         <input id="email" name="email" th:placeholder="#{index.emailPlaceholder}" type="email" title="email"></label> <br>
                         <label for="password" title="password"><span th:text="#{index.contrasenya}"></span> <br>
                         <input type="password" id="password" title="password" name="password" th:placeholder="#{index.contrasenyaPlaceholder}"></label><br>
-                        <input type="submit" class="formbutton" th:value="#{index.iniciarSesion}">
+                        <input type="submit" class="formbutton ml-5" th:value="#{index.iniciarSesion}">
                         <input type="button" class="return formbutton" th:value="#{index.volver}">
-                         <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                        <div th:if="${param.error}" class="alert alert-danger" role="alert" th:text="#{index.incorrectLogin}">
 		            Invalid username and password.
 		        </div>
-		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
+		        <div th:if="${param.logout}" class="alert alert-success" role="alert" th:text="#{index.logoutCorrect}">
 		            You have been logged out.
 		        </div>
+                         
                    </form>
                    </div>
 
@@ -98,8 +99,10 @@
                             <option value="1"><span th:text="#{index.paciente}"></span></option>
                             <option value="2"><span th:text="#{index.cuidador}"></span></option>
                         </select></label><br>
+                        <div class="d-flex justify-content-around">
                         <input type="submit" class="formbutton" onclick="comprobarErrores()" th:value="#{index.registrarse}">
                         <input type="button" class="return formbutton" th:value="#{index.volver}">
+                        </div>
                    </form>
                    </div>
                    
