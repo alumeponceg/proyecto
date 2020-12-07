@@ -92,6 +92,8 @@ $(".listar").click(function(){
     $(".listPatient").fadeIn(1000);
     $(".listCarers").fadeIn(1000);
     $(".volver").fadeIn(1000);
+    $(".patients").css({"height":($(window).height()*1.5)+ "px"});
+    $(".carers").css({"height":($(window).height()*1.5)+ "px"});
   });
 
 $(".volver").click(function(){
@@ -113,6 +115,8 @@ $(".activar").click(function(){
     $(".listInactive").fadeIn(1000);
     $(".manageDisease").fadeIn(1000);
     $(".volver").fadeIn(1000);
+    $(".patients").css({"height":($(window).height()*1.5)+ "px"});
+    $(".carers").css({"height":($(window).height()*1.5)+ "px"});
   });
 
 
@@ -120,6 +124,8 @@ $(".desactivar").click(function(){
     $(".cards").hide();
     $(".listActive").fadeIn(1000);
     $(".volver").fadeIn(1000);
+    $(".patients").css({"height":($(window).height()*1.5)+ "px"});
+    $(".carers").css({"height":($(window).height()*1.5)+ "px"});
   });
 
 
@@ -127,12 +133,14 @@ $(".num").click(function(){
     $(".cards").hide();
     $(".listNum").fadeIn(1000);
     $(".volver").fadeIn(1000);
+    $(".carers").css({"height":($(window).height()*1.5)+ "px"});
   });
 
 $(".listarCarer").click(function(){
     $(".cards").hide();
     $(".listCarers").fadeIn(1000);
     $(".volver").fadeIn(1000);
+    $(".diseases").css({"height":($(window).height()*1.5)+ "px"});
   });
 
 
@@ -140,12 +148,14 @@ $(".listarInactivas").click(function(){
     $(".cards").hide();
     $(".manageDisease").fadeIn(1000);
     $(".volver").fadeIn(1000);
+    $(".diseases").css({"height":($(window).height()*1.5)+ "px"});
   });
 
 $(".listarEnfermedades").click(function(){
     $(".cards").hide();
     $(".listDisease").fadeIn(1000);
     $(".volver").fadeIn(1000);
+    $(".diseases").css({"height":($(window).height()*1.5)+ "px"});
   });
 
 $(".anyadir").click(function(){

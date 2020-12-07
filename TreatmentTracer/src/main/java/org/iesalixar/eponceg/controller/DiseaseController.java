@@ -124,19 +124,21 @@ public class DiseaseController {
 
 		this.diseases.deleteById(Long.parseLong(id));
 		logger.warn("El administrador ha borrado la enfermedad " + id);
-		return "redirect:/admin/home";
+		return "redirect:/admin/diseases";
 	}
 	
 	@RequestMapping(value = { "/admin/edit" }, method = { RequestMethod.POST, RequestMethod.PUT })
 	public String editar(@RequestParam(value = "editId") String id, @RequestParam(value = "nameDisease") String name, @RequestParam(value = "symptomDisease") String symptom,  @RequestParam(value = "descriptionDisease") String description, @RequestParam(value = "causesDisease") String causes, @RequestParam(value="pic") String pic,  Model model) {
 
 		Disease d = this.diseases.readSelectedDisease(Long.parseLong(id));
-		
+		if (!pic.equals("")) {
+			d.setImage(pic);
+		}
 		d.setState(this.state.findFirstById(1L));
 		d.setDescription(description);
 		d.setName(name);
 		d.setCauses(causes);
-		d.setImage(pic);
+		
 		d.setSymptom(symptom);
 		
 		try {

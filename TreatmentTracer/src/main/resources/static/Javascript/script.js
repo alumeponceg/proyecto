@@ -25,7 +25,16 @@ $(document).ready(function(){
     	$(".addDate").css({"height":$(".calendarjs").height()+ "px"});
     }
     
+    if($(".diseases").height()<= $(window).height()){
+    	$(".diseases").css({"height":$(window).height()+ "px"});
+    }
     
+    if($(".patients").height()<= $(window).height()){
+    	$(".patients").css({"height":$(window).height()+ "px"});
+    }
+    if($(".carers").height()<= $(window).height()){
+    	$(".carers").css({"height":$(window).height()+ "px"});
+    }
     
 
 });

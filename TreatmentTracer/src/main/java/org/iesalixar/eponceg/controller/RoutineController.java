@@ -164,12 +164,14 @@ public class RoutineController {
 	public String activeOrDeactiveRoutine(@RequestParam(value = "idUpdate") String id,  Model model) {
 		Routine r = this.routines.findFirstById(Long.parseLong(id));
 		State state=null;
+		Date date = new Date();
 		if (r.getRoutineState().getId()==1) {
 			state = this.state.findFirstById(2L);
 			logger.warn("Se ha desactivado una rutina");
 			
 		}else if (r.getRoutineState().getId()==2) {
 			state = this.state.findFirstById(1L);
+			r.setActivationDate(date);
 			logger.warn("Se ha activado una rutina");
 		}
 		r.setRoutineState(state);

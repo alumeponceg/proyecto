@@ -163,12 +163,14 @@ public class TreatmentController {
 	public String activeOrDeactiveTreatment(@RequestParam(value = "idUpdate") String id,  Model model) {
 		Treatment t = this.treatments.findFirstById(Long.parseLong(id));
 		State state=null;
+		Date date = new Date();
 		if (t.getTreatmentState().getId()==1) {
 			state = this.state.findFirstById(2L);
 			logger.warn("Se ha desactivado un tratamiento");
 			
 		}else if (t.getTreatmentState().getId()==2) {
 			state = this.state.findFirstById(1L);
+			t.setActivationDate(date);
 			logger.warn("Se ha activado un tratamiento");
 		}
 		t.setTreatmentState(state);

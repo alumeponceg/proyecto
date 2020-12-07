@@ -60,7 +60,7 @@ public class MedicalFileController {
 		return "redirect:/user/files";
 	}
 	
-	@RequestMapping(value = { "/removeFile" }, method = { RequestMethod.POST, RequestMethod.DELETE })
+	@RequestMapping(value = { "/user/removeFile" }, method = { RequestMethod.POST, RequestMethod.DELETE })
 	public String deleteTreatment(@RequestParam(value = "id") String id, Model model) {
 		this.medicalFiles.deleteFile(Long.parseLong(id));
 		logger.warn("Se ha eliminado el archivo con id : " + id);

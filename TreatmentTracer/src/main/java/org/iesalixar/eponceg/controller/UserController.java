@@ -258,8 +258,11 @@ public class UserController {
 	public String updateUser(@RequestParam(value = "patientId") String id, @RequestParam(value = "patientName") String name,
 			@RequestParam(value = "patientSurname") String surname, @RequestParam(value = "patientEmail") String email,
 			Model model) {
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
+
+		String password = bCryptPasswordEncoder.encode(name);
 		User u = this.users.findFirstById(Long.parseLong(id));
-		
+		u.setPassword(password);
 		u.setName(name);
 		u.setSurname(surname);
 		u.setEmail(email);
