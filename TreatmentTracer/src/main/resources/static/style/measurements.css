@@ -172,3 +172,40 @@ table tbody tr:hover {
     border:1.5px outset rgb(203, 0, 112);
     box-shadow: 5px 3px 6px 0px rgba(96, 8, 56, 0.551);
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+	table {
+		font-size:6px;
+		
+		
+	}
+	
+	table input {
+	  font-size: 6px;
+	  width:80%;
+	}
+	
+	th{
+	
+	padding: 3px !important;
+	
+	}
+	
+	td  {
+	
+	padding: 0 !important;
+	}
+	
+	table input[type=submit] {
+	
+	font-size:8px;
+	padding:0%;
+	margin:0%;
+	}
+	
+	
+	
+}

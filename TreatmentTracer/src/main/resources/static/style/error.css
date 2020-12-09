@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'neuropol';
+    src: url("neuropol\ x\ rg.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'arvo';
+    src: url("Arvo-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+
+.container-fluid {
+    padding: 0% !important;
+    overflow-x: hidden;
+}
+
+.logout {
+
+    border: 1.5px outset rgb(203, 0, 112);
+    border-radius: 10px;
+    background-color: rgba(203, 0, 112, 0.503);
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: 'arvo';
+}
+
+
+.logout:hover{
+    background-color: rgb(203, 0, 112);
+    border: 1.5px outset rgb(203, 0, 112);
+    font-weight: bold;
+    box-shadow: 2px 2px 6px #8DBFD9;
+    color: #8DBFD9;
+}
+
+
+
+body {
+    background-color: rgb(255, 240, 242); 
+    margin-left: 5%;
+}
+
+h1{
+	font-family: 'neuropol';
+	color: rgb(203, 0, 112);
+	font-size: 50px !important;
+}
+
+h2, p {
+	font-family: 'arvo' !important;
+}
+
+p{
+	font-size: 22px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+	h1 {
+	font-size: 24px !important;
+	
+	}
+	h2 {
+	font-size: 20px !important;
+	
+	}
+	p {
+	font-size: 18px !important;
+	
+	}
+	
+	
+}

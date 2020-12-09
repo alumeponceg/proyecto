@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="../style/error.css">
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<title>Error-T&T</title>
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<h1>El recurso buscado no está disponible</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-lg-8">
+				<h2>La vista a la que intenta acceder, no se
+					encuentra disponible, esto es debido a que su perfil no dispone de
+					permisos suficientes para acceder aquí.</h2>
+				<p>Puede cerrar sesión e iniciar sesión con un perfil
+					con permisos o volver a su página principal</p>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-6 col-lg-2">
+				<form th:action="@{/logout}" method="post">
+					<input type="submit" class="nav-link btn btn-info logout"
+						th:value="#{navbar.cerrarSesion}" />
+				</form>
+			</div>
+			<div class="col-6 col-lg-2">
+				<form th:action="@{/return}" method="get">
+					<input type="submit" class="nav-link btn btn-info logout"
+						th:value="#{homec.volver}" />
+				</form>
+			
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+
+	</script>
+	<script type='text/javascript' src="../jquery/jquery-3.4.1.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<script src="../Javascript/script.js"></script>
+
+</body>
+</html>
