@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
@@ -18,6 +19,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
             "/include/**","/css/**","/icons/**","/assets/**","/Javascript/**","/layer/**","/style/**","/jquery/**","/js/**"
     };
 	
+	
 	@Autowired
 	CustomSuccessHandler successHandler;
 	
@@ -26,7 +28,7 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
 	        .antMatchers(resources).permitAll()  
-	        .antMatchers("/","/login", "/register").permitAll()
+	        .antMatchers("/","/login", "/register", "/permiss").permitAll()
 	        .antMatchers("/career/home").hasAnyAuthority("patient","career")
 	        .antMatchers("/user/*").hasAuthority("patient")
 	        .antMatchers("/career/*").hasAuthority("career")

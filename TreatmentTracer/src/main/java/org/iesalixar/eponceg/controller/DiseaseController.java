@@ -78,7 +78,7 @@ public class DiseaseController {
 		d.setDescription(null);
 		d.setName(name);
 		d.setCauses(null);
-		d.setImage(null);
+		d.setImage("");
 		d.setSymptom(null);
 		
 		User user = this.user.userLogged();
