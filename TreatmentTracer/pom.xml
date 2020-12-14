@@ -12,7 +12,7 @@
 	<groupId>org.iesalixar.eponceg.treatmentTracer</groupId>
 	<artifactId>treatmentTracer</artifactId>
 	<packaging>war</packaging>
-	<version>1.0</version>
+	<version>1.1</version>
 	<name>treatmentTracer</name>
 	<description>Final Project</description>
 
@@ -85,7 +85,11 @@
     <artifactId>log4j</artifactId>
     <version>1.2.17</version>
 </dependency>
-		
+
+<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-mail</artifactId>
+</dependency>
 	</dependencies>
 
 	<build>

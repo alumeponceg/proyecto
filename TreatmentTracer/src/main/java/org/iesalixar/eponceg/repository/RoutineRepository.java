@@ -43,4 +43,7 @@ public interface RoutineRepository extends JpaRepository<Routine, Long> {
 	//Método que busca las rutinas expiradas
 	public List<Routine> findAllByExpirationDateLessThan(Date date);
 	
+	//Método que busca las rutinas que expiran un día concreto
+	public List<Routine> findAllByExpirationDateBetween(Date dateStart, Date dateFinish);
+	
 }

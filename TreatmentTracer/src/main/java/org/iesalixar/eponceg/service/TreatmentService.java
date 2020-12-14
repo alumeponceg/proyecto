@@ -1,5 +1,6 @@
 package org.iesalixar.eponceg.service;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -59,5 +60,15 @@ public class TreatmentService {
 	public List<Treatment> findAllByExpirationDateLessThan(){
 		Date date = new Date();
 		return this.treatments.findAllByExpirationDateLessThan(date);
+	}
+	
+	public List<Treatment> findAllByExpirationDateBetween() {
+		Date dt = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        c.add(Calendar.DATE, 1);
+        dt = c.getTime();
+        Date start= new Date();
+		return this.treatments.findAllByExpirationDateBetween(start, dt);
 	}
 }

@@ -1,5 +1,6 @@
 package org.iesalixar.eponceg.service;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -76,5 +77,16 @@ public class RoutineService {
 	public List<Routine> findAllByExpirationDateLessThan(){
 		Date date = new Date();
 		return this.routines.findAllByExpirationDateLessThan(date);
+	}
+
+	public List<Routine> findAllByExpirationDateBetween() {
+		Date dt = new Date();
+        Calendar c = Calendar.getInstance();
+        c.setTime(dt);
+        c.add(Calendar.DATE, 1);
+        dt = c.getTime();
+        Date start= new Date();
+		
+		return this.routines.findAllByExpirationDateBetween(start, dt);
 	}
 }

@@ -1,5 +1,8 @@
 package org.iesalixar.eponceg.security;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class Passgenerator {
@@ -8,6 +11,7 @@ public class Passgenerator {
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
         //El String que mandamos al metodo encode es el password que queremos encriptar.
 	System.out.println(bCryptPasswordEncoder.encode("admin"));
+	
 	
 	}
 }

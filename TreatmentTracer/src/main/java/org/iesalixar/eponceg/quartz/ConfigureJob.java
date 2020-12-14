@@ -33,11 +33,29 @@ public class ConfigureJob {
 	    }
 
 	    @Bean
-	    public Trigger jobATriggerRoutine(JobDetail jobADetails) {
+	    public Trigger jobATriggerRoutine(JobDetail jobADetailsRoutine) {
 
-	        return TriggerBuilder.newTrigger().forJob(jobADetails)
+	        return TriggerBuilder.newTrigger().forJob(jobADetailsRoutine)
 	        		
 	                .withIdentity("routineUpdateTrigger")
+	                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 14 * * ?"))
+	                .build();
+	    }
+	    
+	    //EMAIL
+	    
+	    @Bean
+	    public JobDetail jobEmail() {
+	        return JobBuilder.newJob(EmailJob.class).withIdentity("email")
+	                .storeDurably().build();
+	    }
+
+	    @Bean
+	    public Trigger jobTriggerEmail(JobDetail jobEmail) {
+
+	        return TriggerBuilder.newTrigger().forJob(jobEmail)
+	        		
+	                .withIdentity("email")
 	                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 14 * * ?"))
 	                .build();
 	    }

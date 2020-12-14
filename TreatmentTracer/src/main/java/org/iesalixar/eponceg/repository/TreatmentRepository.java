@@ -44,4 +44,8 @@ public interface TreatmentRepository extends JpaRepository<Treatment, Long> {
 	//Método que busca los tratamientos expirados
 	public List<Treatment> findAllByExpirationDateLessThan(Date date);
 	
+	//Método que busca los tratamientos que expiran un día concreto
+	public List<Treatment> findAllByExpirationDateBetween(Date dateStart, Date dateFinish);
+		
+	
 }
