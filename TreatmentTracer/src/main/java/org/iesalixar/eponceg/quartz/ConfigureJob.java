@@ -42,21 +42,21 @@ public class ConfigureJob {
 	                .build();
 	    }
 	    
-	    //EMAIL
-	    
-	    @Bean
-	    public JobDetail jobEmail() {
-	        return JobBuilder.newJob(EmailJob.class).withIdentity("email")
-	                .storeDurably().build();
-	    }
-
-	    @Bean
-	    public Trigger jobTriggerEmail(JobDetail jobEmail) {
-
-	        return TriggerBuilder.newTrigger().forJob(jobEmail)
-	        		
-	                .withIdentity("email")
-	                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 14 * * ?"))
-	                .build();
-	    }
+//	    //EMAIL
+//	    
+//	    @Bean
+//	    public JobDetail jobEmail() {
+//	        return JobBuilder.newJob(EmailJob.class).withIdentity("email")
+//	                .storeDurably().build();
+//	    }
+//
+//	    @Bean
+//	    public Trigger jobTriggerEmail(JobDetail jobEmail) {
+//
+//	        return TriggerBuilder.newTrigger().forJob(jobEmail)
+//	        		
+//	                .withIdentity("email")
+//	                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 14 * * ?"))
+//	                .build();
+//	    }
 }
